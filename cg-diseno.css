@@ -8122,3 +8122,96 @@ body.cg-store-enabled header.cg-site-header .search-content .gb-search-button:fo
 body.cg-store-enabled header.cg-site-header .search-content input#tags:focus,
 body.cg-store-enabled header.cg-site-header .search-content .gb-search-input:focus { outline: none !important; }
 /* [/CG-ARREGLOS] */
+
+/* ======================================================================
+   [CG-TARJETAS-COMPACTAS v1.0 · 2026-09] Tarjetas de producto más compactas
+   En toda la web (categorías, búsquedas, Ofertas, Outlet, home y relacionados).
+   Solo diseño: el botón agrega al carrito con la misma función de GBP.
+   Cantidad por fila en los listados: 5 (pantalla grande), 4 (notebook), 3 (tablet), 2 (celular).
+   ====================================================================== */
+
+/* Cantidad por fila en los listados */
+@media (min-width: 1400px) {
+  html body.cg-store-enabled #articulos .col-md-prod { width: 20% !important; max-width: 20% !important; flex: 0 0 20% !important; }
+}
+@media (min-width: 992px) and (max-width: 1399px) {
+  html body.cg-store-enabled #articulos .col-md-prod { width: 25% !important; max-width: 25% !important; flex: 0 0 25% !important; }
+}
+@media (min-width: 768px) and (max-width: 991px) {
+  html body.cg-store-enabled #articulos .col-md-prod { width: 33.333% !important; max-width: 33.333% !important; flex: 0 0 33.333% !important; }
+}
+html body.cg-store-enabled #articulos .col-md-prod { padding-left: 6px !important; padding-right: 6px !important; margin: 0 0 12px !important; }
+
+/* Tarjeta */
+html body.cg-store-enabled .product { padding-bottom: 8px !important; }
+html body.cg-store-enabled .product .image {
+  height: 180px !important; min-height: 180px !important; max-height: 180px !important;
+  margin: 6px 6px 0 !important;
+}
+html body.cg-store-enabled .product .image a img,
+html body.cg-store-enabled .product .image img.img-responsive {
+  width: auto !important; max-width: 88% !important; max-height: 150px !important; object-fit: contain;
+}
+html body.cg-store-enabled .product:hover .image a img { width: auto !important; }
+html body.cg-store-enabled .product div.contentDescription { padding: 8px 10px 0 !important; }
+
+/* Nombre: 2 renglones, sin mayúsculas forzadas */
+html body.cg-store-enabled .product h4,
+html body.cg-store-enabled .product h4 a,
+html body.cg-store-enabled .product .titprod {
+  margin: 2px 0 0 !important; font-size: 12.5px !important; font-weight: 600 !important;
+  line-height: 1.3 !important; text-transform: none !important; letter-spacing: 0 !important;
+}
+
+/* Precios */
+html body.cg-store-enabled .product .precio-tachado-content { min-height: 16px !important; margin-top: 4px; }
+html body.cg-store-enabled .product .precio-tachado { font-size: 11.5px !important; }
+html body.cg-store-enabled .product .price,
+html body.cg-store-enabled .product .price * { font-size: 18px !important; line-height: 1.2 !important; }
+
+/* Cuotas (las que siguen al precio o a "Ahorrás") y el botón siempre abajo */
+html body.cg-store-enabled .product .contentDescription > div.price + div,
+html body.cg-store-enabled .product .contentDescription > div.price + div *,
+html body.cg-store-enabled .product .contentDescription > .cg-ahorro-card + div,
+html body.cg-store-enabled .product .contentDescription > .cg-ahorro-card + div * {
+  font-size: 11.5px !important; font-weight: 500 !important;
+}
+html body.cg-store-enabled .product .contentDescription > div.price + div { margin-bottom: auto !important; padding-bottom: 8px !important; }
+html body.cg-store-enabled .product .contentDescription > .cg-ahorro-card + div { margin-bottom: auto !important; padding-bottom: 8px !important; color: #5f6671 !important; }
+html.dark body.cg-store-enabled .product .contentDescription > .cg-ahorro-card + div,
+html.dark body.cg-store-enabled .product .contentDescription > .cg-ahorro-card + div * { color: #a9b0bb !important; }
+/* "Ahorrás $…": verde, pegado al precio (no empuja el botón) */
+html body.cg-store-enabled .product .contentDescription > div.price + div.cg-ahorro-card {
+  margin: 1px 0 2px !important; padding-bottom: 0 !important; color: #16a34a !important; font-size: 12px !important; font-weight: 800 !important;
+}
+html.dark body.cg-store-enabled .product .contentDescription > div.price + div.cg-ahorro-card { color: #4ade80 !important; }
+
+/* Botón "Agregar": más bajo, con el ícono del carrito */
+html body.cg-store-enabled .product .btn.btn-compra,
+html body.cg-store-enabled .product:hover .btn.btn-compra,
+html body.cg-store-enabled .product input.btn.btn-primary.btn-compra.compracantidad {
+  height: 36px !important; min-height: 36px !important; padding: 0 8px 0 26px !important;
+  font-size: 12.5px !important; font-weight: 800 !important; letter-spacing: .2px !important; text-transform: none !important;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23fff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='9' cy='20' r='1.4'/%3E%3Ccircle cx='18' cy='20' r='1.4'/%3E%3Cpath d='M3 4h2l2.4 11h11.2L21 7H8'/%3E%3Cpath d='M13 9v4M11 11h4'/%3E%3C/svg%3E") !important; background-repeat: no-repeat !important;
+  background-size: 16px 16px !important; background-position: calc(50% - 34px) center !important;
+}
+
+/* Celular: 2 por fila, más bajas */
+@media (max-width: 767px) {
+  html body.cg-store-enabled .product .image { height: 130px !important; min-height: 130px !important; max-height: 130px !important; margin: 5px 5px 0 !important; }
+  html body.cg-store-enabled .product .image a img,
+  html body.cg-store-enabled .product .image img.img-responsive { max-height: 112px !important; }
+  html body.cg-store-enabled .product div.contentDescription { padding: 6px 8px 0 !important; }
+  html body.cg-store-enabled .product h4,
+  html body.cg-store-enabled .product h4 a,
+  html body.cg-store-enabled .product .titprod { font-size: 11.5px !important; }
+  html body.cg-store-enabled .product .price,
+  html body.cg-store-enabled .product .price * { font-size: 15.5px !important; }
+  html body.cg-store-enabled .product .btn.btn-compra,
+  html body.cg-store-enabled .product:hover .btn.btn-compra,
+  html body.cg-store-enabled .product input.btn.btn-primary.btn-compra.compracantidad {
+    height: 32px !important; min-height: 32px !important; font-size: 11.5px !important; padding-left: 22px !important;
+    background-size: 14px 14px !important; background-position: calc(50% - 30px) center !important;
+  }
+}
+/* [/CG-TARJETAS-COMPACTAS] */
