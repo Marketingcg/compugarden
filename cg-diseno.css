@@ -8077,3 +8077,48 @@ opacity: 50% !important;
 }
 
 /* ===== FIN cg-diseno.css ===== */
+
+/* ======================================================================
+   [CG-ARREGLOS v1.0 · 2026-09] Carrito en el celular y buscador de arriba
+   Solo diseño: no cambia cómo funcionan el carrito ni el checkout.
+   ====================================================================== */
+
+/* Carrito: la plantilla CHECKOUT pone "overflow-x: hidden" en html y body, y en el iPhone eso
+   hace saltar la página al hacer scroll. "clip" hace lo mismo (no deja correr la página hacia
+   los costados) sin confundir al Safari del iPhone. Solo actúa en la página del checkout. */
+html:has(#checkoutPage),
+html:has(#checkoutPage) body {
+  overflow-x: clip !important;
+}
+html:has(#checkoutPage) #checkoutPage { overflow-anchor: none; }
+
+/* Carrito en el celular: "Resumen de pedido" (total y Continuar) arriba de la lista */
+@media (max-width: 767px) {
+  #checkoutPage #step-cart .carritocontenido > .col-md-4 {
+    order: -1;
+    margin-top: 0 !important;
+    margin-bottom: 14px !important;
+  }
+}
+
+/* Buscador de arriba: el cuadro y la lupa del mismo alto y alineados, sin el recuadro azul */
+body.cg-store-enabled header.cg-site-header .search-content .gb-search form {
+  height: 44px !important; min-height: 44px !important; align-items: stretch !important;
+}
+body.cg-store-enabled header.cg-site-header .search-content .gb-search-input,
+body.cg-store-enabled header.cg-site-header .search-content input#tags {
+  align-self: stretch !important; height: auto !important; min-height: 0 !important; margin: 0 !important;
+}
+body.cg-store-enabled header.cg-site-header .search-content .gb-search form > span {
+  align-self: stretch !important; height: auto !important;
+}
+body.cg-store-enabled header.cg-site-header .search-content .gb-search-button {
+  height: 100% !important; min-height: 0 !important; outline: none !important;
+}
+body.cg-store-enabled header.cg-site-header .search-content .gb-search-button:focus { outline: none !important; box-shadow: none !important; }
+body.cg-store-enabled header.cg-site-header .search-content .gb-search-button:focus-visible {
+  box-shadow: inset 0 0 0 2px var(--cg-accent, #d23f86) !important;
+}
+body.cg-store-enabled header.cg-site-header .search-content input#tags:focus,
+body.cg-store-enabled header.cg-site-header .search-content .gb-search-input:focus { outline: none !important; }
+/* [/CG-ARREGLOS] */
