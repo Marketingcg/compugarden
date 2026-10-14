@@ -1,0 +1,43 @@
+/* cg-ficha v2.0 (oct. 2026) - Ficha de producto con el lenguaje visual del armador (vidrio, brillo rosa/violeta, etiquetas chicas, chips).
+   Estructura propia de Compugarden (cgf-*). Usa las variables --dt-* de la ficha, asi que funciona en modo claro y oscuro. */
+#detalle .cgf { position: relative; isolation: isolate; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; margin: 6px 0 14px; font-family: "Manrope", Arial, sans-serif; color: var(--dt-t2, #d4d7dd);
+  --f-v: color-mix(in srgb, var(--dt-t, #f2f3f5) 5%, transparent); --f-v2: color-mix(in srgb, var(--dt-t, #f2f3f5) 2.5%, transparent); --f-b: color-mix(in srgb, var(--dt-t, #f2f3f5) 11%, transparent); --f-a: #ff6fb0;
+  --ck: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 6 9 17l-5-5'/%3E%3C/svg%3E"); --cx: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M18 6 6 18M6 6l12 12'/%3E%3C/svg%3E"); }
+html:not(.dark) #detalle .cgf { --f-a: #d23f86; }
+#detalle .cgf:before, #detalle .cgf:after { content: ""; position: absolute; z-index: -1; border-radius: 50%; pointer-events: none; }
+#detalle .cgf:before { width: 480px; height: 480px; left: 0; top: -140px; background: radial-gradient(circle, rgba(210, 63, 134, .26), transparent 65%); }
+#detalle .cgf:after { width: 420px; height: 420px; right: 0; bottom: -120px; background: radial-gradient(circle, rgba(130, 80, 230, .18), transparent 65%); }
+html:not(.dark) #detalle .cgf:before { opacity: .4; }
+html:not(.dark) #detalle .cgf:after { opacity: .35; }
+#detalle .cgf-c { min-width: 0; padding: 20px 22px; border: 1px solid var(--f-b); border-radius: 18px; background: linear-gradient(160deg, var(--f-v), var(--f-v2)); -webkit-backdrop-filter: blur(16px) saturate(140%); backdrop-filter: blur(16px) saturate(140%); transition: border-color .15s ease; }
+#detalle .cgf-c:hover { border-color: color-mix(in srgb, #d23f86 45%, transparent); }
+#detalle .cgf-h, #detalle .cgf-w { grid-column: 1 / -1; }
+#detalle .cgf-h { padding: 24px 26px; }
+#detalle .cgf-e { display: block; margin: 0 0 12px; font: 800 11.5px/1.2 "Manrope", Arial, sans-serif; letter-spacing: .18em; text-transform: uppercase; color: var(--f-a); }
+#detalle .cgf-t { margin: 0 0 18px; font: 800 28px/1.12 "Manrope", Arial, sans-serif; letter-spacing: -.02em; color: var(--dt-t, #f2f3f5); }
+#detalle .cgf-g { background: linear-gradient(90deg, #ff5fa8, #d23f86 55%, #b85cff); -webkit-background-clip: text; background-clip: text; color: transparent; }
+#detalle .cgf-ch { display: flex; flex-wrap: wrap; gap: 8px; }
+#detalle .cgf-ch span { display: inline-flex; align-items: center; gap: 8px; padding: 8px 14px; border: 1px solid var(--f-b); border-radius: 999px; background: var(--f-v); font: 700 13px/1 "Manrope", Arial, sans-serif; color: var(--dt-t, #f2f3f5); }
+#detalle .cgf-ch span:before { content: ""; width: 16px; height: 16px; background: var(--f-a); -webkit-mask: var(--ic) center / contain no-repeat; mask: var(--ic) center / contain no-repeat; }
+#detalle .i-cpu { --ic: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect width='16' height='16' x='4' y='4' rx='2'/%3E%3Crect width='6' height='6' x='9' y='9' rx='1'/%3E%3Cpath d='M15 2v2M15 20v2M2 15h2M2 9h2M20 15h2M20 9h2M9 2v2M9 20v2'/%3E%3C/svg%3E"); }
+#detalle .i-mon { --ic: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect width='20' height='14' x='2' y='3' rx='2'/%3E%3Cpath d='M8 21h8M12 17v4'/%3E%3C/svg%3E"); }
+#detalle .i-dos { --ic: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='2' y='4' width='13' height='10' rx='2'/%3E%3Crect x='9' y='10' width='13' height='10' rx='2'/%3E%3C/svg%3E"); }
+#detalle .i-zap { --ic: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z'/%3E%3C/svg%3E"); }
+#detalle .cgf-col { display: grid; grid-template-rows: auto 1fr; gap: 16px; min-width: 0; }
+#detalle .cgf-l { display: grid; gap: 10px; margin: 0; padding: 0; list-style: none; }
+#detalle .cgf-l li { position: relative; margin: 0; padding-left: 28px; font-size: 14px; line-height: 1.5; color: var(--dt-t2, #d4d7dd); }
+#detalle .cgf-l li:before { content: ""; position: absolute; left: 0; top: 2px; width: 18px; height: 18px; background: #2fbf71; -webkit-mask: var(--ck) center / contain no-repeat; mask: var(--ck) center / contain no-repeat; }
+#detalle .cgf-l.no li:before { background: var(--dt-m, #9aa3af); -webkit-mask-image: var(--cx); mask-image: var(--cx); }
+#detalle .cgf-w .cgf-l { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px 24px; align-items: start; }
+#detalle .cgf-r { display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 11px 0; border-bottom: 1px solid var(--f-b); font-size: 13.5px; line-height: 1.4; }
+#detalle .cgf-r:last-child { border-bottom: 0; }
+#detalle .cgf-f { display: flex; flex-direction: column; }
+#detalle .cgf-f .cgf-r { flex: 1; align-items: center; }
+#detalle .cgf-r span { color: var(--dt-m, #9aa3af); }
+#detalle .cgf-r b { font-weight: 800; text-align: right; color: var(--dt-t, #f2f3f5); }
+@media (max-width: 899px) {
+  #detalle .cgf { grid-template-columns: minmax(0, 1fr); }
+  #detalle .cgf-w .cgf-l { grid-template-columns: minmax(0, 1fr); }
+  #detalle .cgf-t { font-size: 23px; }
+}
+html body #detalle #solapas .tab-pane:has(.cgf) { max-width: none; }
