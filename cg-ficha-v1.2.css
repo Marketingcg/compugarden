@@ -1,12 +1,14 @@
-/* cg-ficha v1.0 (oct. 2026) - Diseno de las fichas de producto con estructura tipo Maximus.
+/* cg-ficha v1.2 (oct. 2026) - v1.2: cg-diseno limita la descripcion a 900 px (.tab-pane max-width) y la ficha nueva quedaba angosta; se libera solo cuando la descripcion lleva la ficha (.cgf).
+   cg-ficha v1.1 (oct. 2026) - v1.1: en pantallas anchas la ficha usa todo el ancho en dos columnas (texto a la izquierda, especificaciones a la derecha).
+   cg-ficha v1.0 (oct. 2026) - Diseno de las fichas de producto con estructura tipo Maximus.
    Clases cortas (cgf-*) para que el HTML de cada ficha entre en los 4.000 caracteres de item_annotation2.
    Usa las variables de la ficha (--dt-*) de cg-diseno, asi que funciona en modo claro y oscuro. */
-#detalle .cgf { max-width: 760px; margin: 6px 0 4px; font-family: "Manrope", Arial, sans-serif; color: var(--dt-t2, #d4d7dd); }
+#detalle .cgf { max-width: none; margin: 6px 0 4px; font-family: "Manrope", Arial, sans-serif; color: var(--dt-t2, #d4d7dd); }
 #detalle .cgf-b { margin: 0 0 24px; }
 #detalle .cgf-b:first-child { padding-bottom: 20px; border-bottom: 1px solid var(--dt-line, #2c2f36); }
 #detalle .cgf-h { margin: 0 0 12px; padding-left: 10px; border-left: 3px solid var(--cg-accent, #d23f86); color: var(--cg-accent, #d23f86); font: 800 12.5px/1.3 "Manrope", Arial, sans-serif; letter-spacing: .08em; text-transform: uppercase; }
 #detalle .cgf-t { font-size: 15px; line-height: 1.7; color: var(--dt-t2, #d4d7dd); }
-#detalle .cgf-r { display: grid; grid-template-columns: minmax(150px, 34%) 1fr; gap: 12px; padding: 11px 14px; font-size: 13.5px; line-height: 1.5; color: var(--dt-t2, #d4d7dd); border: 1px solid var(--dt-line, #2c2f36); border-top: 0; }
+#detalle .cgf-r { display: grid; grid-template-columns: minmax(150px, 38%) 1fr; gap: 12px; padding: 11px 14px; font-size: 13.5px; line-height: 1.5; color: var(--dt-t2, #d4d7dd); border: 1px solid var(--dt-line, #2c2f36); border-top: 0; }
 #detalle .cgf-r:nth-child(even) { background: var(--dt-soft, #23262d); }
 #detalle .cgf-h + .cgf-r { border-top: 1px solid var(--dt-line, #2c2f36); border-radius: 10px 10px 0 0; }
 #detalle .cgf-r:last-child { border-radius: 0 0 10px 10px; }
@@ -19,3 +21,12 @@
   #detalle .cgf-r { grid-template-columns: 1fr; gap: 2px; }
   #detalle .cgf-t { font-size: 14.5px; }
 }
+
+@media (min-width: 900px) {
+  #detalle .cgf { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, .95fr); column-gap: 40px; align-items: start; }
+  #detalle .cgf-b { grid-column: 1; }
+  #detalle .cgf-e { grid-column: 2; grid-row: 1 / span 3; }
+  #detalle .cgf-k { grid-column: 1 / -1; }
+}
+
+html body #detalle #solapas .tab-pane:has(.cgf) { max-width: none; }
