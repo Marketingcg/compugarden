@@ -1,100 +1,7 @@
-/* ======================================================================
-   COMPUGARDEN - TODO EL DISENO DEL SITIO
-   cg-diseno-v64.css (2026-10): celular con una sola barra, la colgante (elegida por el usuario); se sacan el halo y la fija. Franja de 1 hora centrada sin transform. Todo bajo html.cg-prueba. Reemplaza a v63. Va con HEADER_CSS_JS v10.21.
-   cg-diseno-v59.css (2026-10): el encabezado del celular se rehace mas simple (solo con html.cg-prueba): el header pasa a display:contents, la franja de 1 hora corre con la pagina y solo la barra queda fija; al pasar los 24 px de bajada la barra pasa a flotante con una transicion corta (clase cg-flota en <html>), sin estados a medias ni desvanecidos. Reemplaza a v58. Va con HEADER_CSS_JS v10.15.
-   cg-diseno-v58.css (2026-10): seccion 23g, franja 'tope' fija del color del encabezado en el borde de arriba del celular (zona de la hora del iPhone siempre oscura y sin texto asomando sobre la barra flotante). Solo con html.cg-prueba. Reemplaza a v57. Va con HEADER v2.12 y HEADER_CSS_JS v10.14.
-   cg-diseno-v57.css (2026-10): seccion 23f, iconos nuevos del encabezado (computadora y celular) dibujados como mascara: se ven tambien con el minificador de jsDelivr. Todo bajo html.cg-prueba. Reemplaza a v56 (sus iconos no se veian en la web). Va con HEADER_CSS_JS v10.13.
-   cg-diseno-v55.css (2026-10): seccion 23e, el submenu del menu del celular (fila abierta y lista) con el vidrio del armador en oscuro y el gris solido en claro (todo bajo html.cg-prueba). Reemplaza a v54. Va con HEADER_CSS_JS v10.11.
-   cg-diseno-v54.css (2026-10): seccion 23d, la linea de marca magenta-violeta tambien en el celular, debajo del encabezado (se va al bajar). Todo bajo html.cg-prueba. Reemplaza a v53. Va con HEADER_CSS_JS v10.10.
-   cg-diseno-v53.css (2026-10): seccion 23c, buscador en vidrio del armador (oscuro) y linea de marca magenta-violeta debajo de la barra del menu (todo bajo html.cg-prueba). El boton Productos queda SIN recuadro. Reemplaza a v52. Va con HEADER_CSS_JS v10.9.
-   cg-diseno-v52.css (2026-10): seccion 23b, en la computadora el mismo gris del celular (#1c1f25) arriba y en la barra del menu en oscuro (todo bajo html.cg-prueba). Reemplaza a v51. Va con HEADER_CSS_JS v10.8.
-   cg-diseno-v51.css (2026-10): seccion 23 corregida (sigue TODO bajo html.cg-prueba): vidrio con la receta del armador (barra flotante y menu), computadora solo con la palabra Productos (color igual al de los demas textos) y la linea de arriba de la barra hasta donde llega el contenido, sin Empresas en el menu del celular. Reemplaza a v50. Va con HEADER_CSS_JS v10.7.
-   cg-diseno-v49.css (2026-10): se sacan los enlaces "Seguir mi envio" y "Subir comprobante" de la barra de arriba (sus estilos y el corrimiento del mensaje a la izquierda). Va con HEADER v2.10 y HEADER_CSS_JS v10.5.
-   cg-diseno-v48.css (2026-10): se saca la ventana de aviso de compra (#modalcompra, seccion 14) y los estilos de los bloques de contenido de las ventanas que nadie abre (.cg-modal-icono, -lead, -info, -lista). Va con HEADER v2.9, HEAD v1.9, cg-funciones v3.1 y HEADER_CSS_JS v10.4.
-   cg-diseno-v47.css (2026-10): LOADER UNICO: las acciones (#loaderforchanges: checkout y comprobantes) usan el mismo doble anillo de la pantalla de carga; se sacan las reglas del loader viejo (#loader) y el circulo chico. Va con HEADER_CSS_JS v10.3.
-   cg-diseno-v46.css (2026-10): limpieza del armador viejo: sus ~350 reglas (portada AMD/Intel, pasos, barra de pasos, tarjetas, pagina de compra vieja) pasan a su respaldo cg-armador-viejo-v1.1.js (GBP), que las trae solo si se activa el viejo. El armador nuevo tiene sus propios estilos en su archivo.
-   cg-diseno-v45.css (2026-10): se suma el pie del menu lateral y el submenu de la barra (Componentes), con la misma base casi opaca.
-   cg-diseno-v44.css (2026-10): correccion, seccion 34: la barra y el menu quedan casi opacas (ancladas a su color de siempre) para leerse bien sobre fotos; antes, con poca opacidad, el desenfoque mezclaba las fotos de fondo y quedaba todo gris.
-   cg-diseno-v43.css (2026-10): seccion 34, vidrio en la barra de categorias, el menu lateral y las ventanas emergentes, mas los resplandores de fondo; seccion 33 mas intensa (9%/4%/16%).
-   cg-diseno-v42.css (2026-10): Seccion 33, tarjeta de producto en vidrio esmerilado (mismo sistema que el armador).
-   cg-diseno-v41.css (2026-10): B2, limpieza (v41: vuelve .movil, que usa la tabla de Mi cuenta, y mas proteccion): se sacan 386 selectores sin usar de las secciones viejas 00, 1 y 9 (recorrido de 17 pantallas, con proteccion para ventanas, menus, armador, checkout, galeria y paginas no recorridas).
-   cg-diseno-v39.css (2026-10): seccion 32, el iframe invisible del ERP ya no deja una franja blanca entre el footer y la firma.
-   cg-diseno-v38.css (2026-10): seccion 32, la firma del ERP a todo el ancho (sus dos cajas contenedoras tambien).
-   cg-diseno-v37.css (2026-10): seccion 32, la firma del ERP (Powered by / Data Fiscal) integrada como ultima linea del footer.
-   cg-diseno-v36.css (2026-10): seccion 00d, estilos de ofertas y "Ver mas" que metia el script cg-repetidos-y-filtros (va con HEADER_CSS_JS v8.2).
-   cg-diseno-v35.css (2026-10): estilos de la ficha de producto que estaban en las plantillas DETALLE (secciones 00c y 31). Va con DETALLE_BODY v1.2 y DETALLE_HEAD v1.2.
-   cg-diseno-v34.css (2026-10): LIMPIEZA de la portada: se saca la seccion 20 (portada anterior de categorias). Va con HOME v5.0 y BANNERS_HOME_1 v9.0.
-   cg-diseno-v33.css (2026-10): seccion 30, pagina de todas las categorias (plantilla categorias_completas v1.0).
-   cg-diseno-v32.css (2026-10): portada: en la fila de cuatro el producto usa el 52 % del ancho (no toca el titulo); la franja gris queda atada a la punta de color, con un espacio fijo entre las dos, igual en todos los cuadros (antes la franja iba en el medio y el espacio cambiaba).
-   cg-diseno-v31.css (2026-10): portada: la fila ya no se sale de la pantalla entre 768 y 1060 px; pantallas medianas con banner a todo el ancho; puntas paralelas a la franja y del mismo tamano en todos los cuadros; menos espacio arriba en el celular.
-   cg-diseno-v30.css (2026-10): punta de color de los cuadros mas suave: magenta y azul metalico translucidos (antes magenta plano).
-   cg-diseno-v29.css (2026-10): LIMPIEZA de la seccion 29 (portada nueva): las capas de ajustes v19 a v28 quedan en una sola seccion con los valores finales. Se ve identica a la v28.
-   cg-diseno-v28.css (2026-10): celular: franjas mas altas (74 px) y cuadros de la fila un poco mas bajos (16:9).
-   cg-diseno-v27.css (2026-10): seccion 29b, portada estilo producto recortado (solo con PNG o WebP en el Spot), banner a la izquierda, esquinas de 6 px, franjas en celular.
-   cg-diseno-v26.css (2026-10): portada nueva en CELULAR: banner primero, seis cuadros de a tres, mini banner "Todas las categorias" (BANNERS_HOME_1 v8.1); sin encabezado ni beneficios.
-   cg-diseno-v25.css (2026-10): portada nueva: encabezado arriba de todo con "Ver todas" (HOME v4.1), beneficios sin recuadro y ocultos en celular, puntitos del slider adentro del banner.
-   cg-diseno-v24.css (2026-10): portada nueva: franja de beneficios con iconos debajo de la fila de 4, y "Ver todas" a la derecha del titulo (debajo en celular).
-   cg-diseno-v23.css (2026-10): portada nueva: banner a la DERECHA y los cuadros Arma tu PC / PC armadas a la izquierda; encabezado de categorias escondido de verdad.
-   cg-diseno-v22.css (2026-10): portada nueva sin el encabezado de categorias: la fila de 4 pegada al slider.
-   cg-diseno-v21.css (2026-10): portada nueva: "Ver todas" debajo del titulo como en las demas secciones, y menos espacio entre bloques.
-   cg-diseno-v20.css (2026-10): seccion 29: el degradado y el recorte solo en los seis cuadros, no en el boton "Ver todas" (le quedaba una sombra gris debajo).
-   cg-diseno-v19.css (2026-10): seccion 29, PORTADA NUEVA (slider + 2 cuadros + fila de 4), solo con la llave html.cg-portada2.
-   cg-diseno-v18.css (2026-10): cinta OFERTA en la esquina izquierda de la foto; el corazon de favoritos (derecha) queda libre.
-   cg-diseno-v17.css (2026-10): el boton del menu del CELULAR (#menuBtn) tambien sin magenta en reposo (como el de computadora en v16).
-   cg-diseno-v16.css (2026-10): footer siempre oscuro (en los dos modos); icono del menu de categorias sin fondo y del color
-     de los links (magenta solo al pasar el mouse, al presionarlo y con el menu abierto); "Ver todas" con borde magenta fino
-     y sin relleno; tarjetas en oferta mas sobrias (seccion 27: cinta mas fina, porcentaje chico, precio en color de texto).
-   cg-diseno-v15.css (2026-10): suma la seccion 00b (precio tachado y .d-hidden), que estaba en la solapa "STYLE - HTML" del ERP: todo el diseno en un solo lugar.
-   cg-diseno-v14.css (2026-10): sin errores de sintaxis (una llave de mas, dos propiedades vacias y un selector roto): ahora jsDelivr lo puede minificar.
-   cg-diseno-v13.css (2026-10): slider sin saltos: lugar de los puntitos reservado antes de que arranque (seccion 19).
-   cg-diseno-v12.css (2026-10): boton flotante de WhatsApp verde y que se esconde al llegar al footer (seccion 24).
-   cg-diseno-v11.css (2026-10): boton "Agregar" alineado en iPhone (texto e icono a la misma altura).
-   cg-diseno-v10.css (2026-10): portada del armador con las tarjetas AMD/Intel como estaban (logos);
-   solo cambian pasos, beneficios y accesos (seccion 23).
-   cg-diseno-v8.css (2026-10): header completo desde 900 px, tambien con el celular acostado (seccion 22
-   y cortes de las secciones 11 a 13), y enlaces de envio y comprobante en la barra de arriba.
-   cg-diseno-v7.css (2026-10): TODO EL DISENO EN UN SOLO LUGAR. Pasan aca los estilos que estaban dentro de
-   las plantillas: HEAD (seccion 00), barra de arriba del HEADER (18), SLIDER2 (19), BANNERS_HOME_1 (20)
-   y la home (21, solo en la pagina principal). Quedan en plantillas solo: la pantalla de carga
-   (HEADER_CSS_JS, tiene que verse en el primer instante) y una regla del HEADER con variable de GBP (§TISID§).
-   cg-diseno-v6.css (2026-10): el ajuste del celular girado (CG-GIRADO) pasa a este archivo (seccion 0).
-   cg-diseno-v5.css (2026-10): boton "Agregar" de las tarjetas con contorno fino (seccion 17, al final).
-   cg-diseno-v4.css (2026-10): UNA SOLA LETRA. Roboto, Roboto Condensed, Calibri y Open Sans pasan a
-   Manrope, y se saca la descarga de Roboto (@import). Las fuentes de iconos no se tocan.
-   cg-diseno-v3.css (2026-10): footer nuevo en la seccion 5 (para que tambien se vea en el checkout).
-   cg-diseno-v2.css (2026-10): UN SOLO MAGENTA. Todos los tonos viejos (#e91e8c, #ff003d, #c61624,
-   #bf0000) pasan a var(--cg-accent) = #d23f86, y su version oscura a var(--cg-accent-hover) = #b02f6d.
-   Para cambiar el magenta de toda la web: editar solo esas dos variables (seccion 2, VARIABLES).
-   Los rojos de "Sin stock" quedan rojos a proposito. La ventana de cuotas y las variables de la
-   barra pasan del azul viejo al grafito #16171c.
-   Se carga desde HEADER_CSS_JS. Todos los cambios de diseno se hacen ACA.
-   Orden = el mismo en que la web los cargaba antes (no cambiarlo):
-     1. Base heredada (lo que servia de estilosCustom3.css)
-     2. Diseno nuevo general (antes en HEADER_CSS_JS)
-     3. Armador de PC (antes en HEADER_CSS_JS)
-     4. Filtros del armador (antes en HEADER_CSS_JS)
-     5. Footer (antes en HEADER)
-     6. Ventanas (antes en HEADER)
-     7. Ventana de cuotas (antes en HEADER)
-     8. Ventanas en modo claro (antes en HEADER)
-     9. Diseno viejo cgnew9.css (antes en GitHub MrObjection)
-    10. Boton flotante de WhatsApp (antes en HEADER)
-    11. Menu lateral en celular (antes en HEADER)
-    12. Header de la tienda (antes en HEADER)
-    13. Arreglos para celular (antes en HEADER)
-    14. Ventana "Se agrego al carrito" (antes en HEADER)
-    15. Home vieja cgnewhome3.css (antes en GitHub MrObjection)
-    16. Listados en celular: 2 tarjetas por fila
-   ====================================================================== */
+/* COMPUGARDEN · diseño del sitio · cg-diseno-v66 */
 
-/* ======================================================================
-   00d. OFERTAS Y "VER MÁS" DE LOS LISTADOS (v36) · antes los metía el script cg-repetidos-y-filtros
-   (bloques cg-ofertas-css y cg-listados-css). HEADER_CSS_JS v8.2 pone dos marcas vacías con esos nombres,
-   así el script ya no los agrega. Van al principio a propósito: el script los ponía antes que este archivo.
-   Cinta "Oferta", porcentaje grande, precio magenta, "Ahorrás" (apagado), etiquetas en la vista de lista,
-   tarjetas ocultas y botón "Ver más". El panel de sugerencias del buscador sigue en el script.
-   ====================================================================== */
-/* Ofertas en las tarjetas */
+/* 00d. OFERTAS Y "VER MÁS" DE LOS LISTADOS (v36) */
+
 .product .image { position: relative; }
 .product.cg-en-oferta .image { overflow: hidden; }
 .cg-of-cinta { position: absolute; top: 16px; right: -38px; z-index: 3; width: 150px; transform: rotate(35deg); padding: 5px 0; background: var(--cg-accent, #d23f86); color: #fff !important; text-align: center; text-transform: uppercase; font: 800 11.5px/1 "Manrope", Arial, sans-serif; letter-spacing: .08em; box-shadow: 0 2px 6px rgba(0,0,0,.25); pointer-events: none; }
@@ -107,18 +14,14 @@ html body .product .cg-ahorro-card { display: inline-block; color: #16a34a !impo
 html.dark body .product .cg-ahorro-card { color: #4ade80 !important; }
 .cg-of-inline { display: flex; flex-wrap: wrap; gap: 6px; margin: 0 0 6px; }
 .cg-of-inline span { display: inline-flex; align-items: center; padding: 4px 9px; border-radius: 999px; background: var(--cg-accent, #d23f86); color: #fff !important; font: 800 11px/1 "Manrope", Arial, sans-serif; letter-spacing: .04em; text-transform: uppercase; }
-/* Listados: tarjetas ocultas y botón "Ver más" */
+
 #articulos .cg-l-oculta, #articulos .cg-no-local { display: none !important; }
 #articulos .cg-lmas { display: flex; justify-content: center; margin: 18px 0 8px; }
 #articulos .cg-lmas[hidden] { display: none; }
 #articulos .cg-lmas button { height: 44px; padding: 0 26px; border: 1px solid var(--cga, #d23f86); border-radius: 10px; background: transparent; color: var(--cga, #d23f86); font: inherit; font-weight: 800; cursor: pointer; transition: background .15s, color .15s; }
 #articulos .cg-lmas button:hover { background: var(--cga, #d23f86); color: #fff; }
 
-/* ======================================================================
-   00c. FICHA DE PRODUCTO · 3 reglas que venían de la solapa HEAD - HTML de DETALLE (v35)
-   Van al principio a propósito: allá se cargaban antes que este archivo. :where(#detalle) las limita
-   a la ficha sin cambiar su fuerza. Las otras 29 reglas de esa solapa ya no hacían nada y se borraron.
-   ====================================================================== */
+/* 00c. FICHA DE PRODUCTO */
 :where(#detalle) .stock-icon {
     width:40px;
     height:40px;
@@ -140,10 +43,7 @@ html.dark body .product .cg-ahorro-card { color: #4ade80 !important; }
 		border: 1px solid #ccc; float:left;
 	}
 
-/* ======================================================================
-   00b. VENIDO DE LA SOLAPA "STYLE - HTML" DEL ERP (configuracion del sitio)
-   Va al principio para respetar el orden de antes (esa solapa se leia antes que este archivo).
-   ====================================================================== */
+/* 00b. VENIDO DE LA SOLAPA "STYLE */
 .precio-tachado {
     color: gray;
     text-decoration: line-through;
@@ -155,10 +55,7 @@ html.dark body .product .cg-ahorro-card { color: #4ade80 !important; }
     display: none !important;
 }
 
-/* ======================================================================
-   00. PLANTILLA HEAD
-   Antes estaba dentro de la plantilla HEAD. Va al PRINCIPIO porque antes se aplicaba antes que este archivo.
-   ====================================================================== */
+/* 00. PLANTILLA HEAD */
 
   header { width:100% !important }
   .logo-content .logo img {
@@ -175,7 +72,7 @@ html.dark body .product .cg-ahorro-card { color: #4ade80 !important; }
     width: 28px;
     height: 28px;
     border-radius: 50%;
-    /* border: 1px solid; */
+
     position: absolute;
     top: 10px; right:10px;
     padding: 5px;
@@ -199,13 +96,13 @@ html.dark body .product .cg-ahorro-card { color: #4ade80 !important; }
 .avisostockon{
 	font-size: 1em;
     color: #ff0000;
-    /*padding-top: 10px;*/
+
     cursor: pointer;
 }
 .avisostockon:focus{
 	font-size: 1.5em;
     color: red;
-    /*padding-top: 10px;*/
+
     cursor: pointer;
 }
 #detalle .avisostock, #detalle .avisostockon { font-size:1em !important; top:0px; position:relative }
@@ -216,23 +113,19 @@ html.dark body .product .cg-ahorro-card { color: #4ade80 !important; }
     display: inline-block;
     font-weight: bold;
   }
-/*.fa-bell{
-	color:#958f8f;
-}*/
+
 .fa-bell:focus{
 	color:red;
 }
   ul#ui-id-1 { z-index:9999 }
-  
+
 .agregarAFavorito:focus{
 	color:red;
 }
-  
+
   .imagen_predictivo.ui-menu-item { font-size:11px; font-weight:400 }
 #tags { border:none }
 #tags:focus { outline:none }
-
-
 
 li.imagen_predictivo.ui-menu-item {
 	font-weight: normal;
@@ -248,19 +141,13 @@ li.imagen_predictivo.ui-menu-item img { background:none !important; border-color
   @media (max-width:480px) {
 	div#solo-armador { text-align:center }
 	div#solo-armador a { display:inline-block;}
-	/*section.spots_home_1 div.spot7, section.spots_home_1 div.spot8 { display:none } */
+
   }
   section.spots_home_1 div a img { margin-bottom:5px; width:100% }
 div.container#articulos, div.container#detalle, div.container#marcas, div.container.checkout, div.container.contenidos, div.container.detalle_contenido, div.container.listado_noticias, div.container.listado_reviews, div.container.listado_videos, div.container.login, div.container.micuenta, div.container.registro {
    margin-top: 65px;
 }
-  /*
-div.product:hover input.btn.btn-primary.btn-compra.compracantidad {
-	display:block !important;
-	bottom:0px !important;
-	width:100% !important;
-	position:absolute
-} */
+
   .product:hover .image a img {
 	width: 70%;
 }
@@ -271,14 +158,7 @@ div.product:hover input.btn.btn-primary.btn-compra.compracantidad {
 	-ms-transition: all .5s ease 0;
 	transition: all 0.5s ease;
 }
-  /*
-  .product:hover div.description, .product:hover div.price, .product:hover div.price + div { translate:0 -30px }
-.product:hover div.price + div { translate:0 -40px }
-  .gb-search form {
-    width: 50%;
-    margin: 0 auto; position:relative
-}
-  */
+
   section.spots_home_1 img {
 	transition: all .5s ease 0;
 	-webkit-transition: all .5s ease 0;
@@ -299,8 +179,7 @@ div.product:hover input.btn.btn-primary.btn-compra.compracantidad {
     z-index: 0;
     width: 100%;
 }
-  
-  
+
     .dropdown-menu .sub-menu ol {
 list-style:none; padding:0px 20px ; margin:0  }
   .nav-submenu-header { margin-bottom:0 !important; padding-bottom:0 !important }
@@ -317,7 +196,7 @@ list-style:none; padding:0px 20px ; margin:0  }
     background-color: #ddd !important;
     color: #f00 !important;
 }
-  /* AGREGADOS 27/11/24 */
+
   #menu1 a:hover {
     background-color: #ddd !important;
     color: #f00 !important;
@@ -344,20 +223,15 @@ list-style:none; padding:0px 20px ; margin:0  }
     }
 }
 
-/* ======================================================================
-   0. CELULAR GIRADO [CG-GIRADO v1.0]
-   Pantalla ancha pero bajita (hasta 500 px de alto): menu lateral de 380 px, slider como maximo
-   a la mitad de la altura y beneficios en una fila. Antes estaba en HEADER_CSS_JS; va al PRINCIPIO
-   de este archivo para que se aplique en el mismo orden que antes (sin cambios visuales).
-   ====================================================================== */
-/* [CG-GIRADO v1.0] Celular girado (pantalla ancha pero bajita, hasta 500 px de alto) */
+/* 0. CELULAR GIRADO */
+
 @media (orientation: landscape) and (max-height: 500px) {
-  /* Menú lateral: panel de 380 px (no toda la pantalla) y el pie al final de la lista */
+
   html body #sidebar { width: min(380px, 82vw) !important; max-width: 380px !important; overflow-y: auto !important; -webkit-overflow-scrolling: touch; }
   html body #sidebar .cg-sidebar-foot { position: static !important; margin-top: 16px !important; }
-  /* Slider: como máximo la mitad de la altura, centrado, con su forma (10:3) */
+
   html body section#slides_ofertas.slider { max-width: calc(50vh * 10 / 3 + 2 * var(--cg-margen, 20px)) !important; }
-  /* Beneficios: una sola fila compacta (ícono + título) */
+
   html body #bajoSlider { padding: 4px 0 !important; margin: 8px 0 0 !important; }
   html body #bajoSlider .container.row { display: grid !important; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 6px; width: 100% !important; max-width: none !important; margin: 0 !important; padding: 0 16px !important; }
   html body #bajoSlider .container.row::before, html body #bajoSlider .container.row::after { display: none !important; content: none !important; }
@@ -368,14 +242,8 @@ list-style:none; padding:0px 20px ; margin:0  }
   html body #bajoSlider br, html body #bajoSlider .cg-beneficio-sub { display: none !important; }
 }
 
-/* ======================================================================
-   1. BASE HEREDADA (lo que servia de estilosCustom3.css)
-   estilosCustom3.css ya no se usa: el editor de GBP lo danaba al guardar.
-   Se quitaron las reglas del header viejo, de los margenes de pagina,
-   del slider y del fondo parallax (las manejan el HEAD y SLIDER2).
-   ====================================================================== */
+/* 1. BASE HEREDADA (lo que servia de estilosCustom3.css) */
 
-/* [v4] Sin la descarga de Roboto y Roboto Condensed: toda la web usa Manrope (se carga en HEADER_CSS_JS) */
 html{
     overflow-x:hidden
 }
@@ -1236,8 +1104,6 @@ div.img-item,h6.tit-armado-1{
     text-align:center
 }
 
-
-
 div.tit-parte-armado{
     font-size:20px;
     margin-bottom:15px
@@ -1333,7 +1199,7 @@ div.modal-content div.search,div.modal-content div.search div.input-group input.
     color:#fff
 }
 @media (max-width:480px){
-    
+
     #componentesAgregados .col-xs-3{
         width:25%
     }
@@ -1423,21 +1289,14 @@ div.tab-pane{
     padding:15px
 }
 
+/* 2. DISENO NUEVO GENERAL */
 
-/* ======================================================================
-   2. DISENO NUEVO GENERAL
-   (antes estaba en: HEADER_CSS_JS)
-   ====================================================================== */
-
-/* =========================================================
-   VARIABLES
-   ========================================================= */
+/* VARIABLES */
 :root {
   --cg-accent: #d23f86;
   --cg-accent-hover: #b02f6d;
   --cg-accent-soft: rgba(210, 63, 134, .10);
 
-  /* Alias: el footer y otras piezas usan --cg-ui-accent; asi toman el mismo color */
   --cg-ui-accent: var(--cg-accent);
   --cg-ui-accent-hover: var(--cg-accent-hover);
   --cg-bg: #0a0a0a;
@@ -1449,7 +1308,6 @@ div.tab-pane{
   --cg-dur: .3s;
   --cg-sidebar-w: 300px;
 
-  /* Nombres originales, por si otras partes del sitio los usan */
   --compugarden-rojo: var(--cg-accent);
   --dark-theme-negro: #212529;
   --dark-theme-gris-oscuro: #181a1b;
@@ -1460,7 +1318,6 @@ div.tab-pane{
   --dark-theme-blanco-oscuro: #f0f0f0;
 }
 
-/* Tipografia global COMPUGARDEN */
 html,
 body,
 button,
@@ -1470,9 +1327,7 @@ textarea {
   font-family: "Manrope", Arial, sans-serif;
 }
 
-/* =========================================================
-   HEADER Y BUSCADOR
-   ========================================================= */
+/* HEADER Y BUSCADOR */
 header { height: 90px !important; }
 body #slides_ofertas { margin-top: 90px !important; }
 section#slides_ofertas.slider { padding-bottom: 0; }
@@ -1530,9 +1385,7 @@ div.destacados ul li { width: 12.5%; margin: 0; }
 
 .main-footer { max-width: 100% !important; }
 
-/* =========================================================
-   TITULOS DE SECCION
-   ========================================================= */
+/* TITULOS DE SECCION */
 div.titulosHome { padding: 0 9px; margin-bottom: 10px; }
 div.titulosHome h4 {
   padding: 4px 12px;
@@ -1547,17 +1400,13 @@ div.titulosHome a {
   text-decoration: none;
 }
 
-/* =========================================================
-   MEDIDAS DE LA HOME (un solo lugar para todo)
-   Cambiando estos numeros se mueve todo junto:
-   header, slider, beneficios, secciones, banners y footer.
-   ========================================================= */
+/* MEDIDAS DE LA HOME (un solo lugar para todo) */
 :root {
-  --cg-ancho: 1440px;          /* ancho maximo del contenido */
-  --cg-margen: 20px;           /* margen a los costados */
-  --cg-radio-slider: 24px;     /* esquinas del slider */
-  --cg-radio-tarjeta: 12px;    /* esquinas de tarjetas y banners */
-  --cg-espacio-seccion: 32px;  /* espacio entre secciones */
+  --cg-ancho: 1440px;
+  --cg-margen: 20px;
+  --cg-radio-slider: 24px;
+  --cg-radio-tarjeta: 12px;
+  --cg-espacio-seccion: 32px;
 }
 @media (max-width: 767px) {
   :root {
@@ -1567,7 +1416,6 @@ div.titulosHome a {
   }
 }
 
-/* Beneficios debajo del slider: sin barra, solo el texto, alineados con el slider */
 html body section#bajoSlider,
 html.dark body section#bajoSlider { background: transparent !important; border: 0 !important; box-shadow: none !important; }
 html body section#bajoSlider { margin: 0 !important; padding: 0 !important; min-height: 0 !important; height: auto !important; }
@@ -1586,10 +1434,7 @@ html body section#bajoSlider > .container.row > .col-md-3:first-child .p-3 { pad
 html body section#bajoSlider > .container.row > .col-md-3:last-child,
 html body section#bajoSlider > .container.row > .col-md-3:last-child .p-3 { padding-right: 0 !important; }
 
-/* =========================================================
-   HOME: mismo ancho y margenes para todas las secciones
-   La clase cg-home la pone el script de abajo solo en la pagina de inicio.
-   ========================================================= */
+/* HOME: mismo ancho y margenes para todas las secciones */
 html.cg-home .container:not(.header) {
   width: 100% !important;
   max-width: var(--cg-ancho) !important;
@@ -1604,26 +1449,21 @@ html.cg-home .row.owl-carousel,
 html.cg-home .row.owl-carousel.owl-theme.owl-loaded.owl-drag { max-width: none !important; margin-left: 0 !important; margin-right: 0 !important; }
 html.cg-home #cg-resenas .cg-resenas__container { max-width: var(--cg-ancho) !important; padding-left: var(--cg-margen) !important; padding-right: var(--cg-margen) !important; box-sizing: border-box !important; }
 
-/* Espacio parejo: de los beneficios a "Tu proxima PC" y entre secciones */
 html body section#bajoSlider + .container { margin-top: 0 !important; padding-top: 0 !important; }
 html body section#bajoSlider + .container > .sec-hd:first-child { margin-top: 12px !important; padding-top: 8px !important; }
 html.cg-home section.spots_home_1 { margin-top: var(--cg-espacio-seccion) !important; }
 
-/* Banners de categorias (Placas de video, Monitores...): mismos bordes que el resto.
-   La plantilla BANNERS_HOME_1 tiene una fila dentro de otra (a proposito): la de afuera
-   no se corre y la de adentro solo compensa el relleno de cada banner. */
 html.cg-home section.spots_home_1 .container > .row { margin-left: 0 !important; margin-right: 0 !important; }
 html.cg-home section.spots_home_1 .row .row { margin-left: -10px !important; margin-right: -10px !important; }
 html.cg-home section.spots_home_1 img { border-radius: var(--cg-radio-tarjeta) !important; }
 @media (max-width: 767px) {
-  /* En el celular la seccion usaba el 90% del ancho: ahora ocupa lo mismo que las tarjetas */
+
   html.cg-home section.spots_home_1 { width: 100% !important; margin-left: 0 !important; margin-right: 0 !important; }
 }
 @media (max-width: 480px) {
   html.cg-home section.spots_home_1 .row .row { margin-left: -5px !important; margin-right: -5px !important; }
 }
 
-/* Botones de "Arma tu PC" y "PC Armadas": texto blanco siempre (en el celular se veia apagado) */
 html body .editorial .ed-card .ed-btn,
 html body .editorial .ed-card .ed-btn:link,
 html body .editorial .ed-card .ed-btn:visited,
@@ -1634,21 +1474,14 @@ html body .editorial .ed-card .ed-btn:active {
   opacity: 1 !important;
 }
 
-/* =========================================================
-   LISTADOS (Articulos, Ofertas, Outlet, busquedas): mismo espacio arriba en todos.
-   El header ya ocupa su lugar, asi que no hace falta la reserva vieja de 65 px
-   (ni el 30% que tenia el celular), que en Ofertas dejaba un hueco grande.
-   ========================================================= */
+/* LISTADOS (Articulos, Ofertas, Outlet, busquedas): mismo espacio arriba en todos */
 body.cg-store-enabled section#articulos { margin-top: 0 !important; padding-top: 0 !important; }
 body.cg-store-enabled div.container#articulos { margin-top: 24px !important; padding-top: 0 !important; }
 @media (max-width: 767px) {
   body.cg-store-enabled div.container#articulos { margin-top: 16px !important; }
 }
 
-/* =========================================================
-   LISTADOS: barra superior (titulo + orden) y filtros de la izquierda
-   Solo diseno: los enlaces, los filtros y el orden funcionan igual.
-   ========================================================= */
+/* LISTADOS: barra superior (titulo + orden) y filtros de la izquierda */
 #articulos {
   --lst-t: #111318; --lst-t2: #3a3f4b; --lst-m: #6b7280;
   --lst-bg: #ffffff; --lst-soft: #f3f4f6; --lst-line: #e6e8ec;
@@ -1658,7 +1491,6 @@ html.dark #articulos {
   --lst-bg: #1d1f24; --lst-soft: #262930; --lst-line: #2c2f36;
 }
 
-/* ---- Barra superior ---- */
 #articulos #barrahormiga.breadcrumb {
   display: flex !important; flex-wrap: wrap; align-items: center; gap: 12px;
   margin: 0 0 18px !important; padding: 0 0 14px !important;
@@ -1689,10 +1521,9 @@ html.dark #articulos {
   transition: border-color .15s ease, color .15s ease;
 }
 #articulos #barrahormiga .formatoico:hover { border-color: var(--cg-accent, #d23f86); color: var(--cg-accent, #d23f86) !important; }
-/* Sin los botones de vista grilla / lista: siempre en grilla */
+
 #articulos #barrahormiga .formatoico { display: none !important; }
 
-/* ---- Filtros de la izquierda ---- */
 #articulos .leftcolumn { font-family: "Manrope", Arial, sans-serif; }
 #articulos .filtros_left h3,
 #articulos .filtros_left li.menuLatTit {
@@ -1707,7 +1538,6 @@ html.dark #articulos {
 #articulos .filtros_left ul { margin: 0 !important; padding: 0 !important; list-style: none !important; }
 #articulos .filtros_left ul li { margin: 0 !important; padding: 0 !important; list-style: none !important; }
 
-/* Categorias y subcategorias (enlaces) */
 #articulos .filtros_left ul.cates a,
 #articulos .filtros_left ul.subcates a {
   display: flex !important; align-items: center; justify-content: flex-start; gap: 9px;
@@ -1726,7 +1556,6 @@ html.dark #articulos {
 #articulos .filtros_left ul.subcates a:hover::before { border-color: var(--cg-accent, #d23f86); }
 #articulos .filtros_left .cg-count { color: var(--lst-m); font-weight: 500; }
 
-/* Categoria elegida: como una etiqueta que se puede quitar */
 #articulos .filtros_left span.cateactual,
 #articulos .filtros_left span.subcateactual,
 #articulos .filtros_left span.marcaactual {
@@ -1739,7 +1568,6 @@ html.dark #articulos {
 #articulos .filtros_left .borrarsubcate,
 #articulos .filtros_left .borrarmarca { margin-left: 6px; color: var(--cg-accent, #d23f86) !important; }
 
-/* Casillas (marcas y caracteristicas) */
 #articulos .filtros_left li.term-item label {
   display: flex !important; align-items: center; gap: 9px; width: 100%; margin: 0 !important;
   padding: 5px 10px; border-radius: 8px; cursor: pointer;
@@ -1759,7 +1587,6 @@ html.dark #articulos {
 #articulos .filtros_left li.term-item input[type="checkbox"]:focus-visible { outline: 2px solid var(--cg-accent, #d23f86); outline-offset: 2px; }
 #articulos .filtros_left li.term-item label > span { margin-left: -4px; color: var(--lst-m) !important; font-weight: 500; }
 
-/* Secciones plegables (como Maximus): titulo con flecha */
 #articulos .filtros_left .cg-acc-head { cursor: pointer; user-select: none; }
 #articulos .filtros_left .cg-acc-head::after {
   content: ""; flex: 0 0 8px; width: 8px; height: 8px; margin: 0 4px 3px 10px;
@@ -1771,7 +1598,6 @@ html.dark #articulos {
 #articulos .filtros_left .cg-acc-head > i.fa-caret-down { display: none !important; }
 #articulos .filtros_left .cg-acc-body.cg-cerrado { display: none !important; }
 
-/* Filtros aplicados arriba, con "Limpiar todo" */
 #articulos .cg-activos { margin: 0 0 16px; }
 #articulos .cg-activos-head {
   display: flex; align-items: center; justify-content: space-between; gap: 8px; margin: 0 0 8px;
@@ -1792,7 +1618,7 @@ html.dark #articulos {
   letter-spacing: 0; text-transform: none; text-decoration: none !important;
 }
 #articulos .cg-limpiar:hover { text-decoration: underline !important; }
-/* La categoria elegida ya se ve arriba como etiqueta */
+
 #articulos .filtros_left span.cateactual,
 #articulos .filtros_left span.subcateactual,
 #articulos .filtros_left span.marcaactual,
@@ -1800,7 +1626,6 @@ html.dark #articulos {
 #articulos .filtros_left .borrarsubcate,
 #articulos .filtros_left .borrarmarca { display: none !important; }
 
-/* Interruptor "Solo con stock en el local" */
 #articulos .cg-local {
   display: flex; align-items: center; justify-content: space-between; gap: 10px;
   margin: 0 0 14px; padding: 11px 12px; border: 1px solid var(--lst-line); border-radius: 10px;
@@ -1822,7 +1647,6 @@ html.dark #articulos {
 #articulos .cg-local-aviso { margin: -6px 0 14px; color: var(--lst-m); font: 500 12px/1.4 "Manrope", Arial, sans-serif; }
 #articulos .cg-local-aviso[hidden] { display: none; }
 
-/* Paginacion de los listados: botones redondeados en lugar de las flechas viejas */
 #articulos .col_pager { text-align: center; padding-top: 10px; }
 #articulos .col_pager .button-pager {
   display: flex !important; flex-wrap: wrap; align-items: center; justify-content: center; gap: 6px;
@@ -1849,7 +1673,6 @@ html.dark #articulos {
 #articulos .col_pager .cg-flecha { font-size: 18px; line-height: 1; }
 #articulos .col_pager > p { margin: 0 0 10px !important; color: var(--lst-m) !important; font: 500 12.5px "Manrope", Arial, sans-serif; }
 
-/* Boton "FILTRAR" (celular) */
 #articulos .leftcolumn h1.botonfiltrar { margin: 0 0 12px !important; padding: 0 !important; background: none !important; border: 0 !important; }
 #articulos .leftcolumn h1.botonfiltrar a {
   display: flex !important; align-items: center; justify-content: center; gap: 8px; height: 42px;
@@ -1858,10 +1681,7 @@ html.dark #articulos {
 }
 #articulos .leftcolumn h1.botonfiltrar a i { color: var(--cg-accent, #d23f86); }
 
-/* =========================================================
-   LOADER UNICO (v47): el mismo doble anillo de la pantalla de carga (#cg-carga, en HEADER_CSS_JS)
-   tambien en las acciones (#loaderforchanges: checkout y comprobantes). Sin imagenes de otras cuentas.
-   ========================================================= */
+/* LOADER UNICO (v47): el mismo doble anillo de la pantalla de carga (#cg-carga, en */
 html body #loaderforchanges { background-image: none !important; background-color: #f5f5f7 !important; }
 html.dark body #loaderforchanges { background-color: #121317 !important; }
 html body #loaderforchanges::before,
@@ -1882,12 +1702,9 @@ html body #loaderforchanges::after { background-image: url("data:image/svg+xml,%
   html body #loaderforchanges::after { animation-duration: 2.2s; }
 }
 
-/* Carrusel: sin flechas, solo el espacio inferior */
 div.owl-stage { padding-bottom: 20px !important; }
 
-/* =========================================================
-   TARJETA DE PRODUCTO
-   ========================================================= */
+/* TARJETA DE PRODUCTO */
 .product { padding-bottom: 10px !important; }
 .product .image {
   display: flex;
@@ -1944,7 +1761,6 @@ img.img-responsive {
   width: 100%;
 }
 
-/* Celular: tarjetas mas compactas y el boton siempre entra completo */
 @media (max-width: 767px) {
   .product .image { min-height: 170px; max-height: 200px; }
   .product .image a img,
@@ -1960,9 +1776,7 @@ img.img-responsive {
   }
 }
 
-/* =========================================================
-   BOTON DEL MENU
-   ========================================================= */
+/* BOTON DEL MENU */
 .menu-toggle {
   position: absolute;
   top: 12px;
@@ -1989,9 +1803,7 @@ button#menuBtn:focus { outline: none !important; }
 #closeBtn { display: none; }
 #closeBtn.menu-toggle { top: 10px; }
 
-/* =========================================================
-   MENU LATERAL
-   ========================================================= */
+/* MENU LATERAL */
 .sidebar {
   position: fixed;
   top: 0;
@@ -1999,14 +1811,14 @@ button#menuBtn:focus { outline: none !important; }
   z-index: 2000;
   width: var(--cg-sidebar-w);
   height: 100vh;
-  height: 100dvh;   /* alto real en celulares; los navegadores viejos usan la linea de arriba */
+  height: 100dvh;
   padding: 70px 20px 20px;
   background: var(--cg-bg);
   border-right: 1px solid rgba(255, 255, 255, .05);
   overflow: hidden;
   -webkit-transform: translateX(-100%);
   transform: translateX(-100%);
-  visibility: hidden;   /* cerrado: no se puede recorrer con Tab */
+  visibility: hidden;
   transition: transform var(--cg-dur) ease, box-shadow var(--cg-dur) ease, visibility 0s linear var(--cg-dur);
 }
 .sidebar.active {
@@ -2020,7 +1832,7 @@ button#menuBtn:focus { outline: none !important; }
 .sidebar::-webkit-scrollbar { width: 6px; background: var(--cg-bg); }
 .sidebar::-webkit-scrollbar-thumb { background: #333; border-radius: 4px; }
 .sidebar::-webkit-scrollbar-thumb:hover { background: #444; }
-/* Solo Firefox (en Chrome esto anularia el estilo de arriba) */
+
 @supports (-moz-appearance: none) {
   .sidebar { scrollbar-width: thin; scrollbar-color: #333 var(--cg-bg); }
 }
@@ -2090,8 +1902,6 @@ button#menuBtn:focus { outline: none !important; }
 .sidebar.active .chevron { display: inline-block; }
 .menu-item.open .chevron { transform: rotate(90deg); }
 
-/* Submenu: el JS pone el alto exacto; 800px queda de respaldo.
-   El padding no se anima para que el JS mida bien el alto. */
 .submenu {
   max-height: 0;
   margin: 0 0 4px 10px;
@@ -2175,9 +1985,7 @@ button#menuBtn:focus { outline: none !important; }
   animation-delay: calc(.05s * var(--index, 0));
 }
 
-/* =========================================================
-   SWITCH TEMA CLARO / OSCURO
-   ========================================================= */
+/* SWITCH TEMA CLARO / OSCURO */
 .categorias-mobile p,
 .categorias-web p {
   margin-left: 5px;
@@ -2234,9 +2042,7 @@ input:checked + .slider-theme-mob::before { transform: translateX(26px); }
 .slider-theme.round::before,
 .slider-theme-mob.round::before { border-radius: 50%; }
 
-/* =========================================================
-   MENU SUPERIOR (dropdowns de GBP)
-   ========================================================= */
+/* MENU SUPERIOR (dropdowns de GBP) */
 #menu1 { background: #000 !important; }
 #menu1 a { color: var(--cg-accent) !important; }
 #menu1 a:hover { background: #000 !important; color: #fff !important; }
@@ -2244,9 +2050,7 @@ input:checked + .slider-theme-mob::before { transform: translateX(26px); }
 html.dark .nav-submenu-title,
 html.light .nav-submenu-title { color: var(--cg-accent); }
 
-/* =========================================================
-   TEMA OSCURO
-   ========================================================= */
+/* TEMA OSCURO */
 html.dark body { background: #1a1a1a; }
 html.dark a,
 html.dark body,
@@ -2277,9 +2081,7 @@ html.dark .product {
   border: 1px solid #2c2f36 !important;
   border-radius: var(--cg-radio-tarjeta, 12px) !important;
 }
-/* Tarjeta de producto menos "cuadrada": la foto va en un recuadro blanco
-   con esquinas redondeadas y un pequeno margen dentro de la tarjeta.
-   (Solo el recuadro; la imagen se comporta igual que siempre.) */
+
 .product { border-radius: var(--cg-radio-tarjeta, 12px) !important; overflow: hidden; }
 .product .image {
   width: auto !important;
@@ -2291,17 +2093,12 @@ html.dark .product {
 .product input.btn.btn-primary.btn-compra.compracantidad { border-radius: 8px !important; }
 html.dark .product:hover { border-color: #3a3d46 !important; }
 
-/* =========================================================
-   TARJETA DE PRODUCTO: mismo estilo en modo claro y oscuro
-   Solo cambia el color para que contraste con el fondo.
-   El magenta queda para el boton.
-   ========================================================= */
-/* Tarjeta y recuadro de la foto */
+/* TARJETA DE PRODUCTO: mismo estilo en modo claro y oscuro */
+
 html:not(.dark) .product { background: #ffffff !important; border: 1px solid #e6e8ec !important; }
 html:not(.dark) .product:hover { border-color: #d5d9df !important; }
 html:not(.dark) .product .image { border: 1px solid #eef0f3; }
 
-/* Titulo */
 html .product h4,
 html .product h4 a,
 html .product .titprod {
@@ -2314,11 +2111,9 @@ html.dark .product h4,
 html.dark .product h4 a,
 html.dark .product .titprod { color: #f2f3f5 !important; }
 
-/* Precio tachado */
 html .product .precio-tachado { color: #8a8f98 !important; font-size: 13px !important; font-weight: 600 !important; }
 html.dark .product .precio-tachado { color: #7d828c !important; }
 
-/* Precio: negrita y grande, neutro (casi negro en claro, blanco en oscuro) */
 html .product .price,
 html .product .price * {
   color: #111318 !important;
@@ -2330,16 +2125,14 @@ html .product .price * {
 html.dark .product .price,
 html.dark .product .price * { color: #ffffff !important; }
 
-/* Cuotas */
 html .product div.price + div,
 html .product div.price + div * { color: #5f6671 !important; font-size: 12.5px !important; font-weight: 500 !important; }
 html.dark .product div.price + div,
 html.dark .product div.price + div * { color: #a9b0bb !important; }
 
-/* Todas las tarjetas iguales: el boton siempre abajo, haya o no precio tachado */
 .product { display: flex !important; flex-direction: column !important; height: 100%; }
 .product .contentDescription { display: flex !important; flex-direction: column !important; flex: 1 1 auto !important; }
-/* Titulo: siempre el lugar de 2 lineas (si es mas largo, termina en "...") */
+
 html .product .description h4 {
   display: -webkit-box !important;
   -webkit-line-clamp: 2;
@@ -2347,9 +2140,9 @@ html .product .description h4 {
   overflow: hidden !important;
   min-height: 2.6em;
 }
-/* Precio tachado: el renglon queda reservado aunque no haya descuento */
+
 .product .precio-tachado-content { min-height: 22px; }
-/* Las cuotas empujan el boton hasta abajo de la tarjeta */
+
 html .product .contentDescription > div.price + div { margin-bottom: auto !important; padding-bottom: 10px; }
 
 @media (max-width: 767px) {
@@ -2366,7 +2159,7 @@ html.dark img.img-responsive { mix-blend-mode: normal !important; }
 html.dark .priceahora,
 html.dark .titprod,
 html.dark h5 { color: var(--dark-theme-blanco-oscuro); }
-/* Igual que se veia antes: titulos en blanco, precio en fucsia */
+
 html.dark .titprod:hover,
 html.dark h5:hover { color: #fff !important; }
 html.dark .priceahora:hover { color: var(--cg-accent); }
@@ -2417,7 +2210,6 @@ html.dark span.cateactual,
 html.dark span.marcaactual,
 html.dark span.subcateactual { color: var(--dark-theme-gris); }
 
-/* Antes apuntaba a una variable que no existia; se ve igual que antes (blanco) */
 html.dark h1.titulos { background: var(--dark-theme-gris-oscuro); color: var(--dark-theme-blanco-oscuro); }
 
 html.dark .card { background: var(--dark-theme-gris-oscuro); }
@@ -2442,9 +2234,7 @@ html.dark .micro-amd svg { fill: var(--dark-theme-blanco-oscuro) !important; }
 html.dark b.componente,
 html.dark h6.tit-armado-1 { color: var(--dark-theme-negro) !important; }
 
-/* =========================================================
-   RESPONSIVE
-   ========================================================= */
+/* RESPONSIVE */
 @media (max-width: 768px) {
   .gb-top-header { height: 0 !important; }
   .flexslider .slides img { margin-top: 0 !important; }
@@ -2466,11 +2256,7 @@ html.dark h6.tit-armado-1 { color: var(--dark-theme-negro) !important; }
   .menu-toggle { top: 10px; left: 3px; }
 }
 
-/* =========================================================
-   UNIFICACION DE COLOR
-   Colores viejos de la hoja principal del sitio (cgnew9.css)
-   pasan al color de marca. Se cambia solo desde --cg-accent.
-   ========================================================= */
+/* UNIFICACION DE COLOR */
 html .price { color: var(--cg-accent); }
 html .category-name { color: var(--cg-accent); }
 html #solapas a.nav-link.active { color: var(--cg-accent) !important; }
@@ -2481,350 +2267,25 @@ html .gb-button.primary {
 }
 html .gb-button.primary:hover { background-color: var(--cg-accent-hover); }
 
+/* 3. ARMADOR DE PC */
 
-/* ======================================================================
-   3. ARMADOR DE PC
-   (antes estaba en: HEADER_CSS_JS, bloque cg-armador-css)
-   ====================================================================== */
+/* Armador */
 
-/* ===== Armador - Portada (eleccion AMD / Intel) ===== */
+/* Armador */
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* ===== Armador - Pasos (barra de pasos, consejo y listado) ===== */
-
-
-
-
-
-/* Neutraliza la grilla Bootstrap dentro del armador */
-
-
-
-
-
-/* ---- Titulo de pagina ---- */
-
-
-
-
-
-
-
-
-/* ---- Panel de progreso ---- */
-
-/* Fila vieja "VER DETALLE": oculta (escondia la barra de pasos) */
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* El script del ERP escribe "Total acumulado: <b>ARS ...</b>": se muestra solo el importe */
-
-
-
-
-
-/* Barra de progreso */
-
-
-
-
-/* Pasos en chips */
-
-
-
-
-
-/* En los pasos con producto elegido solo se ven el icono y el nombre */
-
-
-
-
-
-
-
-/* Estados */
-
-
-
-
-
-
-
-
-/* ---- Consejo del paso ---- */
-
-
-
-
-
-
-
-/* ---- Titulo del listado ---- */
-
-
-
-/* ---- Listado de productos (plantillas armarpcitem / armarpcitemvacio) ---- */
-
-
-
-
-/* ---- Tarjeta de producto (plantilla armarpcitem) ---- */
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* ---- Tarjeta del armador con el mismo estilo que las de la tienda ---- */
-
-
-
-
-/* ---- Stock: etiqueta moderna en lugar de la imagen vieja del semaforo ---- */
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* ---- Tablet ---- */
-
-
-/* ---- Movil ---- */
-
-
-/* ---- Pagina de compra (resumen final) ---- */
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* Tilde de "elegido": siempre arriba a la derecha de la tarjeta */
-
-/* Nombre del componente (Microprocesador, Cooler...): arriba del producto, no detras */
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* ---- Presupuesto en PDF (al imprimir o "Guardar como PDF") ---- */
 @media print {
 	@page { margin: 14mm; }
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
 }
 
-/* ===== Armador Compugarden - aviso de armado sin terminar (portada del armador) ===== */
+/* COMPUGARDEN · diseño del sitio · cg-diseno-v66 */
 
+/* 4. FILTROS DEL ARMADOR */
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* ======================================================================
-   4. FILTROS DEL ARMADOR
-   (antes estaba en: HEADER_CSS_JS, bloque cg-filtros-css)
-   ====================================================================== */
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* Boton "No incluir / Usar incluido" (reemplaza a la tarjeta vacia) */
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* ======================================================================
-   5. FOOTER (CG-FOOTER v2.2)
-   Diseño nuevo, sobrio: grafito / gris claro, redes chicas y monocromas, datos bancarios
-   como submenú en Ayuda. Va ACÁ y no dentro de la plantilla del footer porque en el checkout
-   la página la arma Vue, que descarta los \3c style> de la plantilla (el footer quedaba sin diseño).
-   El diseño viejo (.cg-foot__…) se sacó: no se usaba más.
-   ====================================================================== */
+/* 5. FOOTER (CG-FOOTER v2.2) */
 
   html body footer.cg-foot.cgf {
-    /* v16: oscuro en los dos modos (antes era claro en modo claro) */
+
     --cgf-fondo: #111214; --cgf-texto: #e9e9ee; --cgf-suave: #8b8e99; --cgf-linea: #23242a;
     display: block !important; width: 100% !important; margin: 48px 0 0 !important; padding: 0 !important;
     background: var(--cgf-fondo) !important; color: var(--cgf-texto) !important; border: 0 !important;
@@ -2838,7 +2299,6 @@ html .gb-button.primary:hover { background-color: var(--cg-accent-hover); }
   footer.cgf *, footer.cgf *::before, footer.cgf *::after { box-sizing: border-box; }
   footer.cgf .cgf__wrap { width: 100%; max-width: 1440px; margin: 0 auto; padding: 36px var(--cg-margen, 20px) 22px; }
 
-  /* Marca y redes */
   footer.cgf .cgf__top { display: flex; align-items: flex-start; justify-content: space-between; gap: 20px; padding-bottom: 24px; border-bottom: 1px solid var(--cgf-linea); }
   footer.cgf .cgf__nom { display: block; font-size: 15px; font-weight: 800; letter-spacing: .14em; color: var(--cgf-texto); }
   footer.cgf .cgf__tag { margin: 6px 0 0; font-size: 13px; line-height: 1.5; color: var(--cgf-suave); }
@@ -2852,7 +2312,6 @@ html .gb-button.primary:hover { background-color: var(--cg-accent-hover); }
   html body footer.cgf .cgf__redes a:focus-visible { color: var(--cg-accent, #d23f86) !important; border-color: var(--cg-accent, #d23f86); outline: none; }
   footer.cgf .cgf__redes svg { display: block; width: 16px; height: 16px; }
 
-  /* Columnas */
   footer.cgf .cgf__cols { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 24px; padding: 26px 0; }
   footer.cgf .cgf__col > summary { display: block; list-style: none; margin: 0 0 12px; font-size: 11px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: var(--cgf-suave); cursor: default; }
   footer.cgf .cgf__col > summary::-webkit-details-marker { display: none; }
@@ -2863,7 +2322,6 @@ html .gb-button.primary:hover { background-color: var(--cg-accent-hover); }
   html body footer.cgf li a:focus-visible { color: var(--cg-accent, #d23f86) !important; outline: none; }
   footer.cgf .cgf__suave { color: var(--cgf-suave); }
 
-  /* Datos bancarios: submenú dentro de Ayuda, mismo tamaño que los demás enlaces */
   footer.cgf .cgf__banco { margin: 0; }
   footer.cgf .cgf__banco > summary {
     display: inline-flex; align-items: center; gap: 8px; list-style: none; cursor: pointer;
@@ -2886,16 +2344,14 @@ html .gb-button.primary:hover { background-color: var(--cg-accent-hover); }
   footer.cgf .cgf__banco-datos span:nth-child(odd) { color: var(--cgf-suave); }
   footer.cgf .cgf__banco-datos span:nth-child(even) { color: var(--cgf-texto); font-weight: 700; word-break: break-all; }
 
-  /* Pie */
   footer.cgf .cgf__pie { display: flex; flex-direction: column; gap: 6px; padding-top: 16px; border-top: 1px solid var(--cgf-linea); }
   footer.cgf .cgf__pie p { margin: 0; font-size: 12px; line-height: 1.55; color: var(--cgf-suave); }
   footer.cgf .cgf__pie .cgf__legal { font-size: 11.5px; max-width: 980px; }
 
-  /* Tablet */
   @media (max-width: 991px) {
     footer.cgf .cgf__cols { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   }
-  /* Celular: columnas plegables */
+
   @media (max-width: 700px) {
     html body footer.cg-foot.cgf { margin-top: 32px !important; }
     footer.cgf .cgf__wrap { padding: 26px 16px 18px; }
@@ -2909,10 +2365,7 @@ html .gb-button.primary:hover { background-color: var(--cg-accent-hover); }
   }
   @media (prefers-reduced-motion: reduce) { footer.cgf * { transition: none !important; } }
 
-/* ======================================================================
-   6. VENTANAS
-   (antes estaba en: HEADER, bloque cg-modales)
-   ====================================================================== */
+/* 6. VENTANAS */
 
 .modal-backdrop.show, .modal-backdrop.in { opacity: .7 !important; background: #07080b !important; }
 .modal .modal-dialog { width: auto; max-width: 520px; margin: 1.75rem auto; }
@@ -3029,7 +2482,7 @@ html .modal .modal-content .modal-title {
   box-shadow: none;
 }
 .modal .cg-modal-btn { width: 100%; min-height: 48px; font-size: 15px; gap: 8px; }
-/* Tablas dentro de ventanas (ej.: "Tarjetas y promociones" del detalle de producto) */
+
 .modal .modal-body table {
   width: 100%;
   margin: 4px 0 0;
@@ -3071,11 +2524,7 @@ html .modal .modal-content .modal-title {
   .modal .modal-footer .btn { width: 100%; }
 }
 
-
-/* ======================================================================
-   7. VENTANA DE CUOTAS
-   (antes estaba en: HEADER, bloque cg-cuotas)
-   ====================================================================== */
+/* 7. VENTANA DE CUOTAS */
 
 .modal.cg-cuotas-modal .modal-content { border-top: 0 !important; }
 .modal.cg-cuotas-modal .modal-header {
@@ -3167,11 +2616,7 @@ html .modal.cg-cuotas-modal .modal-content .modal-title {
   .modal.cg-cuotas-modal .cg-cuotas-mejor strong { font-size: 16px; }
 }
 
-
-/* ======================================================================
-   8. VENTANAS EN MODO CLARO
-   (antes estaba en: HEADER, bloque cg-modales-claro)
-   ====================================================================== */
+/* 8. VENTANAS EN MODO CLARO */
 
 html:not(.dark) .modal-backdrop.show, html:not(.dark) .modal-backdrop.in { opacity: .45 !important; background: #0b0c10 !important; }
 html:not(.dark) .modal .modal-content,
@@ -3205,7 +2650,7 @@ html:not(.dark) .modal .btn-secondary {
   color: #15171c !important;
 }
 html:not(.dark) .modal .btn-secondary:hover { border-color: var(--cg-accent, #d23f86) !important; color: var(--cg-accent, #d23f86) !important; }
-/* Tablas */
+
 html:not(.dark) .modal .modal-body table th,
 html:not(.dark) .modal .modal-body table thead td { color: #6b7280 !important; border-bottom-color: #e3e6ea !important; }
 html:not(.dark) .modal .modal-body table td { color: #3a3f4b !important; border-bottom-color: #eef0f3 !important; }
@@ -3214,7 +2659,7 @@ html:not(.dark) .modal .modal-body table td:last-child { color: #15171c !importa
 html:not(.dark) .modal.cg-cuotas-modal .modal-body table tr.cg-cuotas-par td { background: #f7f8fa !important; }
 html:not(.dark) .modal.cg-cuotas-modal .modal-body table tr.cg-cuotas-cabecera td { color: #6b7280 !important; border-bottom-color: #e3e6ea !important; }
 html:not(.dark) .modal.cg-cuotas-modal .modal-body table tr.cg-sin-interes td { background: rgba(210,63,134,.08) !important; }
-/* "Tarjetas y promociones": la franja de arriba en grafito en ambos temas */
+
 html:not(.dark) .modal.cg-cuotas-modal .modal-header {
   background: #16171c !important;
   border-bottom-color: var(--cg-accent, #d23f86) !important;
@@ -3228,11 +2673,7 @@ html:not(.dark) .modal.cg-cuotas-modal .cg-cuotas-mejor span { color: #3a3f4b; }
 html:not(.dark) .modal.cg-cuotas-modal .cg-etiqueta-si { background: rgba(210,63,134,.12); color: var(--cg-accent-hover); }
 html:not(.dark) .modal.cg-cuotas-modal .cg-cuotas-nota { color: #6b7280 !important; }
 
-
-/* ======================================================================
-   9. DISENO VIEJO cgnew9.css
-   (antes estaba en: GitHub MrObjection)
-   ====================================================================== */
+/* 9. DISENO VIEJO cgnew9.css */
 
 .main-header--center-nav {
  font-size:0;
@@ -3628,16 +3069,16 @@ div.ingresotop {
 }
 .dropdown-menu.sub-menu {
  background-color:#F6F6F6;
- border-top-right-radius:4px; /*! box-shadow: 0 4px 8px 0 rgba(0,0,0,0.4); */
+ border-top-right-radius:4px;
  font-size: 14px;
  margin-bottom:32px;
  min-height:868px;
  min-width:160px;
  vertical-align:top;
- margin-left:-0.6px; /*! transform: translateY(-1.6%); */
- border-bottom-right-radius: 4px; /*! border-bottom-left-radius: 4px; */
+ margin-left:-0.6px;
+ border-bottom-right-radius: 4px;
 }
-/* [v14] Aca habia una llave de mas que anulaba la regla .dropdown-content siguiente: se quitan las dos (el navegador ya las ignoraba). */
+
 #menu1 a {
  color:black;
  padding:8px 16px;
@@ -3692,7 +3133,7 @@ div.ingresotop {
 }
 .dropdown-content2 {
  background-color:#F6F6F6;
- border-radius:4px; /*! box-shadow: 0 4px 8px 0 rgba(0,0,0,0.4); */
+ border-radius:4px;
  display: none;
  font-size:14px;
  margin-bottom:32px;
@@ -3843,7 +3284,7 @@ div.ingresotop {
  }
 }
 @media screen and (max-width:2267px) {
- .gb-category-menu.main-header--bottom-nav { /*! margin-top: -1.1%; */
+ .gb-category-menu.main-header--bottom-nav {
  }
  .header-links.is-inline-block {
   margin-top:6%
@@ -4297,11 +3738,7 @@ div.tab-pane {
 	color: #f00;
 }
 
-
-/* ======================================================================
-   10. BOTON FLOTANTE DE WHATSAPP
-   (antes estaba en: HEADER)
-   ====================================================================== */
+/* 10. BOTON FLOTANTE DE WHATSAPP */
 
   #cg-whatsapp-float {
     position: fixed !important;
@@ -4371,13 +3808,8 @@ div.tab-pane {
     #cg-whatsapp-float { transition: none !important; }
   }
 
+/* 11. MENU LATERAL EN CELULAR */
 
-/* ======================================================================
-   11. MENU LATERAL EN CELULAR
-   (antes estaba en: HEADER)
-   ====================================================================== */
-
-		/* Permite recorrer todo el menu, especialmente en pantallas moviles. */
 		#sidebar {
 			padding-top: 0 !important;
 			overflow-x: hidden !important;
@@ -4385,8 +3817,7 @@ div.tab-pane {
 			-webkit-overflow-scrolling: touch;
 			overscroll-behavior: contain;
 		}
-		/* Resalta unicamente la fila que esta debajo de un puntero real.
-		   Evita el hover persistente de los navegadores tactiles. */
+
 		@media (hover: hover) and (pointer: fine) {
 			#sidebar .menu-item:hover,
 			#sidebar .submenu-item:hover {
@@ -4394,12 +3825,12 @@ div.tab-pane {
 				border-radius: 8px;
 			}
 		}
-		/* Submenu abierto: mismo tono en computadora y celular. */
+
 		#sidebar .menu-item.open {
 			background: #30232c !important;
 			border-radius: 8px;
 		}
-		/* En iPhone el menu ocupa tambien la zona de la hora: el encabezado baja lo justo. */
+
 		#sidebar .cg-sidebar-head {
 			padding-top: calc(10px + env(safe-area-inset-top, 0px)) !important;
 		}
@@ -4411,7 +3842,7 @@ div.tab-pane {
 		#sidebar .submenu-item a:focus {
 			text-decoration: none !important;
 		}
-		/* El enlace directo cubre toda la fila, no solamente el texto. */
+
 		#sidebar > .menu-item {
 			position: relative;
 		}
@@ -4420,11 +3851,11 @@ div.tab-pane {
 			position: absolute;
 			inset: 0;
 		}
-		/* Separador compacto entre las categorias y los servicios. */
+
 		#sidebar > .divider {
 			margin: 4px 10px !important;
 		}
-		/* Cabecera y accesos rapidos. */
+
 		#sidebar .cg-sidebar-head {
 			display: flex;
 			align-items: center;
@@ -4600,7 +4031,7 @@ div.tab-pane {
 				-webkit-tap-highlight-color: transparent;
 				transition: background-color .18s ease, border-color .18s ease;
 			}
-			/* Fila tocada / abierta: mismo resaltado plano en todo el menu. */
+
 			#sidebar .menu-item:active,
 			#sidebar .submenu-item:active,
 			#sidebar .menu-item.cg-category-tapped,
@@ -4630,29 +4061,19 @@ div.tab-pane {
 				box-shadow: none !important;
 			}
 		}
-	  
 
+/* 12. HEADER DE LA TIENDA */
 
-/* ======================================================================
-   12. HEADER DE LA TIENDA
-   (antes estaba en: HEADER, bloque cg-store-header-2026)
-   ====================================================================== */
-
-/* ---------- Base (tambien fuera de la tienda) ---------- */
 header.cg-site-header .cg-nav {display:none !important;}
 header.cg-site-header #cg-inline-mobile-search {display:none !important;}
 body.cg-store-enabled header.cg-site-header .cg-legacy-nav {display:none !important;}
 
-/* ---------- Colores de la barra superior: azul de las tarjetas de la home ---------- */
 body.cg-store-enabled {
   --cg-topbar-edge:#16171c;
   --cg-topbar-fill:#16171c;
   --cg-topbar-mid:#16171c;
 }
 
-/* ---------- Header fijo ---------- */
-/* El fondo propio del header es el azul de la barra: Safari (iPhone) usa el color
-   del elemento fijo de arriba para pintar la zona de la hora y la bateria. */
 body.cg-store-enabled header.cg-site-header {
   position:sticky !important; top:0 !important; left:0 !important;
   display:block !important; width:100% !important; max-width:100% !important;
@@ -4664,7 +4085,6 @@ body.cg-store-enabled header.cg-site-header *,
 body.cg-store-enabled header.cg-site-header *::before,
 body.cg-store-enabled header.cg-site-header *::after {box-sizing:border-box}
 
-/* ---------- Barra promocional ---------- */
 body.cg-store-enabled header.cg-site-header .cg-promo {
   display:flex !important; width:100% !important; max-width:none !important;
   height:auto !important; min-height:30px !important; max-height:none !important;
@@ -4678,7 +4098,6 @@ body.cg-store-enabled .cg-promo-track {display:flex; align-items:center; justify
 body.cg-store-enabled header.cg-site-header #cg-promo-message {color:#fff !important; font:600 12px/1.25 "Manrope",Arial,sans-serif; letter-spacing:.2px;}
 body.cg-store-enabled header.cg-site-header .cg-promo-icon {color:#fff !important; font-size:11px;}
 
-/* ---------- Fila principal (computadora) ---------- */
 body.cg-store-enabled header.cg-site-header #content-desktop {
   display:block !important; background:#101010 !important; width:100% !important;
   max-width:none !important; height:auto !important; padding:0 !important;
@@ -4721,7 +4140,6 @@ body.cg-store-enabled header.cg-site-header #content-desktop .ircarrito {display
 body.cg-store-enabled header.cg-site-header #content-desktop .ingresotop i,
 body.cg-store-enabled header.cg-site-header #content-desktop .ircarrito i {font-size:18px !important; line-height:1 !important; color:#f1f1f3 !important; vertical-align:middle !important; margin-right:5px !important;}
 
-/* Buscador de computadora: rectangular, carbon, borde magenta al escribir */
 body.cg-store-enabled header.cg-site-header .search-content .gb-search form {
   display:flex !important; align-items:center !important; min-height:42px !important; margin:0 !important;
   border:1px solid #515157 !important; border-radius:8px !important;
@@ -4759,7 +4177,7 @@ body.cg-store-enabled header.cg-site-header .search-content .gb-search-button im
   object-fit:contain !important; vertical-align:middle !important;
   filter:grayscale(1) brightness(0) invert(1) !important;
 }
-/* Lupa con icono propio (Font Awesome), sin depender de la imagen lupasearch.svg del GitHub viejo */
+
 body.cg-store-enabled header.cg-site-header .search-content .gb-search-button img {display:none !important;}
 body.cg-store-enabled header.cg-site-header .search-content .gb-search-button::before {
   content:""; font-family:"Font Awesome 6 Free"; font-weight:900; font-style:normal;
@@ -4767,7 +4185,6 @@ body.cg-store-enabled header.cg-site-header .search-content .gb-search-button::b
 }
 body.cg-store-enabled header.cg-site-header .search-content .gb-search-button:hover::before {color:var(--cg-accent,#d23f86);}
 
-/* ---------- Menu de categorias (computadora) ---------- */
 body.cg-store-enabled header.cg-site-header .cg-nav {
   display:grid !important;
   grid-template-columns:minmax(44px,1fr) max-content minmax(110px,1fr) !important;
@@ -4811,7 +4228,6 @@ body.cg-store-enabled header.cg-site-header .cg-nav .cg-nav-trigger:focus-visibl
 body.cg-store-enabled .cg-nav .cg-nav-trigger i {font-size:10px; color:var(--cg-accent,#d23f86); transition:transform .18s ease;}
 body.cg-store-enabled .cg-nav .cg-nav-trigger[aria-expanded="true"] i {transform:rotate(180deg)}
 
-/* Paneles desplegables */
 body.cg-store-enabled .cg-nav-panel {
   display:none !important; position:absolute !important; top:100% !important; left:0 !important;
   width:240px !important; max-width:min(290px,90vw) !important; max-height:min(70vh,520px) !important;
@@ -4824,7 +4240,6 @@ body.cg-store-enabled .cg-nav-panel a {display:block !important; padding:11px 12
 body.cg-store-enabled header.cg-site-header .cg-nav-panel a:hover,
 body.cg-store-enabled header.cg-site-header .cg-nav-panel a:focus-visible {background:#27272b !important; color:#fff !important; box-shadow:inset 3px 0 0 var(--cg-accent,#d23f86) !important;}
 
-/* Boton hamburguesa del menu de categorias */
 body.cg-store-enabled header.cg-site-header .cg-nav-products {
   grid-column:1 !important; grid-row:1 !important; justify-self:start !important; align-self:center !important;
   position:static !important; inset:auto !important; transform:none !important;
@@ -4839,7 +4254,7 @@ body.cg-store-enabled header.cg-site-header .cg-nav-products::before,
 body.cg-store-enabled header.cg-site-header .cg-nav-products::after {content:none !important; display:none !important;}
 body.cg-store-enabled header.cg-site-header .cg-nav-products:hover {background:transparent !important; border-color:transparent !important;}
 body.cg-store-enabled header.cg-site-header .cg-nav-products:focus-visible {outline:2px solid var(--cg-accent,#d23f86) !important; outline-offset:-3px !important;}
-/* v16: icono del color de los links; magenta solo al pasar el mouse, al presionar y con el menu lateral abierto */
+
 body.cg-store-enabled header.cg-site-header .cg-nav-products i {display:block !important; position:static !important; transform:none !important; margin:0 !important; padding:0 !important; line-height:1 !important; font-size:21px !important; color:#f5f5f5; transition:color .15s;}
 body.cg-store-enabled header.cg-site-header .cg-nav-products:hover i,
 body.cg-store-enabled header.cg-site-header .cg-nav-products:active i,
@@ -4847,7 +4262,6 @@ body.cg-store-enabled header.cg-site-header .cg-nav-products:focus-visible i,
 body.cg-store-enabled header.cg-site-header .cg-nav-products[aria-expanded="true"] i,
 body.cg-store-enabled:has(#sidebar.active) header.cg-site-header .cg-nav-products i {color:var(--cg-accent,#d23f86) !important;}
 
-/* Boton claro / oscuro (computadora) */
 body.cg-store-enabled header.cg-site-header .cg-nav-theme {
   grid-column:3 !important; grid-row:1 !important; justify-self:end !important; align-self:center !important;
   position:static !important; inset:auto !important; transform:none !important;
@@ -4883,10 +4297,9 @@ body.cg-store-enabled header.cg-site-header .cg-nav-theme .cg-desktop-theme-icon
 }
 body.cg-store-enabled header.cg-site-header .cg-nav-theme .cg-desktop-theme-icon::before {content:"" !important; font-family:"Font Awesome 6 Free" !important; font-style:normal !important; font-weight:900 !important; display:block !important;}
 html.dark body.cg-store-enabled header.cg-site-header .cg-nav-theme .cg-desktop-theme-icon::before {content:"" !important;}
-/* Contorno solo al llegar con el teclado */
+
 body.cg-store-enabled header.cg-site-header .cg-nav-theme .theme-switch:has(#checkbox:focus-visible) {border-color:var(--cg-accent,#d23f86) !important; outline:2px solid var(--cg-accent,#d23f86) !important; outline-offset:2px !important;}
 
-/* Sin reservas de espacio heredadas: el header es sticky y ocupa su lugar */
 body.cg-store-enabled #slides_ofertas,
 body.cg-store-enabled section#slides_ofertas.slider {margin-top:0 !important;}
 
@@ -4910,11 +4323,10 @@ body.cg-store-enabled section#slides_ofertas.slider {margin-top:0 !important;}
   body.cg-store-enabled header.cg-site-header #content-desktop > .inner-wrapper {min-height:65px !important;}
 }
 
-/* ---------- Celular y tablet (incluye telefonos girados) ---------- */
 @media (max-width:899px) {
   body.cg-store-enabled header.cg-site-header #content-desktop,
   body.cg-store-enabled header.cg-site-header .cg-nav {display:none !important;}
-  /* Barra promocional de lado a lado; en iPhone se extiende bajo la hora */
+
   body.cg-store-enabled header.cg-site-header .cg-promo {
     width:100vw !important; max-width:100vw !important; position:relative !important;
     left:50% !important; transform:translateX(-50%) !important;
@@ -4931,7 +4343,7 @@ body.cg-store-enabled section#slides_ofertas.slider {margin-top:0 !important;}
     height:68px !important; min-height:68px !important; margin:0 !important; padding:0 !important;
     background:#101010 !important; overflow:visible !important;
   }
-  /* Logo centrado */
+
   body.cg-store-enabled header.cg-site-header #content-mobile .navbar-brand {
     position:absolute !important; display:flex !important; align-items:center !important; justify-content:center !important;
     top:50% !important; left:47% !important; right:auto !important; transform:translate(-50%,-50%) !important;
@@ -4943,7 +4355,7 @@ body.cg-store-enabled section#slides_ofertas.slider {margin-top:0 !important;}
     width:100% !important; max-width:100% !important; height:auto !important; max-height:47px !important;
     margin:0 !important; object-fit:contain !important;
   }
-  /* Iconos de busqueda, cuenta y carrito a la derecha */
+
   body.cg-store-enabled header.cg-site-header #content-mobile .navbar > a.pull-right {
     position:absolute !important; top:50% !important; transform:translateY(-50%) !important; float:none !important;
     width:30px !important; height:40px !important; margin:0 !important; padding:0 !important;
@@ -4959,13 +4371,13 @@ body.cg-store-enabled section#slides_ofertas.slider {margin-top:0 !important;}
   body.cg-store-enabled header.cg-site-header #content-mobile #userDesktop,
   body.cg-store-enabled header.cg-site-header #content-mobile .navbar-collapse {display:none !important;}
   body.cg-store-enabled header.cg-site-header #content-mobile .dropdown-cart {position:absolute; z-index:1902;}
-  /* Boton del menu lateral */
+
   body.cg-store-enabled header.cg-site-header #menuBtn {
     position:absolute !important; top:calc(28px + env(safe-area-inset-top, 0px) + 12px) !important;
     left:clamp(10px,3vw,26px) !important; width:43px !important; height:43px !important; padding:8px !important;
     background:transparent !important; box-shadow:none !important; z-index:1901 !important;
   }
-  /* v17: icono del color de los otros iconos de esa fila; magenta al tocarlo y con el menu abierto */
+
   body.cg-store-enabled header.cg-site-header #menuBtn i {font-size:24px !important; color:#f4f4f5 !important; transition:color .15s;}
   body.cg-store-enabled header.cg-site-header #menuBtn:hover i,
   body.cg-store-enabled header.cg-site-header #menuBtn:active i,
@@ -4973,7 +4385,7 @@ body.cg-store-enabled section#slides_ofertas.slider {margin-top:0 !important;}
   body.cg-store-enabled header.cg-site-header #menuBtn[aria-expanded="true"] i,
   body.cg-store-enabled:has(#sidebar.active) header.cg-site-header #menuBtn i {color:var(--cg-accent,#d23f86) !important;}
   body.cg-store-enabled header.cg-site-header #closeBtn {position:static !important;}
-  /* Buscador desplegable debajo del logo */
+
   body.cg-store-enabled header.cg-site-header #cg-inline-mobile-search:not([hidden]) {
     display:block !important; position:relative !important; z-index:2 !important;
     width:100% !important; max-width:100% !important; margin:0 !important; padding:8px 12px 12px !important;
@@ -5004,7 +4416,7 @@ body.cg-store-enabled section#slides_ofertas.slider {margin-top:0 !important;}
 @media (max-width:350px) {
   body.cg-store-enabled header.cg-site-header #content-mobile .navbar-brand {width:min(36vw,112px) !important; max-width:112px !important;}
 }
-/* iPhone girado: el contenido no queda debajo de la camara */
+
 @media (orientation:landscape) and (pointer:coarse) {
   body.cg-store-enabled {padding-left:env(safe-area-inset-left, 0px); padding-right:env(safe-area-inset-right, 0px);}
 }
@@ -5012,7 +4424,6 @@ body.cg-store-enabled section#slides_ofertas.slider {margin-top:0 !important;}
   body.cg-store-enabled .cg-nav .cg-nav-trigger i {transition:none !important;}
 }
 
-/* ---------- Cuenta y carrito: icono arriba, texto abajo en una sola linea (solo computadora) ---------- */
 @media (min-width:900px) {
   body.cg-store-enabled header.cg-site-header #content-desktop .ingresotop a,
   body.cg-store-enabled header.cg-site-header #content-desktop .header-links .ircarrito {
@@ -5029,8 +4440,6 @@ body.cg-store-enabled section#slides_ofertas.slider {margin-top:0 !important;}
   body.cg-store-enabled header.cg-site-header #content-desktop .header-links .ircarrito:hover i {color:var(--cg-accent,#d23f86) !important;}
 }
 
-/* ---------- Modo claro: la barra de categorias pasa a clara (como Maximus) ----------
-   La barra azul y la fila del logo quedan oscuras en los dos modos. */
 html.light body.cg-store-enabled header.cg-site-header .cg-nav {
   background:#f3f4f6 !important; border-top:1px solid #e3e6ea !important; border-bottom:1px solid #e3e6ea !important;
 }
@@ -5047,13 +4456,12 @@ html.light body.cg-store-enabled header.cg-site-header .cg-nav-products i {color
 html.light body.cg-store-enabled header.cg-site-header .cg-nav-theme .cg-theme-label {color:#4b5058 !important;}
 html.light body.cg-store-enabled header.cg-site-header .cg-nav-theme .theme-switch {background:#ffffff !important; border-color:#d0d4da !important;}
 html.light body.cg-store-enabled header.cg-site-header .cg-nav-theme .cg-desktop-theme-icon {color:#23252b !important;}
-/* Desplegables (Componentes, Perifericos) tambien claros */
+
 html.light body.cg-store-enabled .cg-nav-panel {background:#ffffff !important; border-color:#e3e6ea !important; box-shadow:0 12px 30px rgba(15,17,25,.14) !important;}
 html.light body.cg-store-enabled .cg-nav-panel a {color:#23252b !important;}
 html.light body.cg-store-enabled header.cg-site-header .cg-nav-panel a:hover,
 html.light body.cg-store-enabled header.cg-site-header .cg-nav-panel a:focus-visible {background:#f3f4f6 !important; color:#111318 !important;}
 
-/* ---------- Menu lateral: botones rapidos como pastillas y accesos fijos abajo ---------- */
 #sidebar.sidebar {display:flex !important; flex-direction:column !important;}
 #sidebar.sidebar > * {flex-shrink:0;}
 #sidebar .cg-quick-actions {display:flex !important; flex-wrap:wrap !important; gap:8px !important; padding:6px 12px 12px !important;}
@@ -5079,12 +4487,12 @@ html.light body.cg-store-enabled header.cg-site-header .cg-nav-panel a:focus-vis
 #sidebar .cg-sidebar-foot a:hover,
 #sidebar .cg-sidebar-foot a:active {background:#30232c; color:#ffffff !important;}
 #sidebar .cg-sidebar-foot a:hover i {color:var(--cg-accent,#d23f86);}
-/* Computadora: sin Empresas ni Modo claro/oscuro en el menu lateral (ya estan en la barra de arriba) */
+
 @media (min-width:900px) {
   #sidebar .cg-quick-actions > a.cg-solo-movil,
   #sidebar .cg-quick-actions > .switch-theme-mobile.categorias-mobile {display:none !important;}
 }
-/* Celular: los cuatro botones en una sola fila; el de tema queda solo con el icono */
+
 @media (max-width:899px) {
   #sidebar .cg-quick-actions {flex-wrap:nowrap !important; gap:6px !important; padding:6px 10px 12px !important;}
   #sidebar .cg-quick-actions > a {flex:1 1 auto !important; min-width:0 !important;}
@@ -5106,7 +4514,6 @@ html.light #sidebar .cg-sidebar-foot a:hover,
 html.light #sidebar .cg-sidebar-foot a:active {background:#fbe9f2; color:#111318 !important;}
 html.light #sidebar .cg-sidebar-web {color:#9aa0a8;}
 
-/* ---------- Modo claro: menu lateral blanco ---------- */
 html.light #sidebar.sidebar {background:#ffffff !important; border-right:1px solid #e3e6ea !important;}
 html.light #sidebar.sidebar.active {box-shadow:0 0 30px rgba(15,17,25,.18) !important;}
 html.light #sidebar::-webkit-scrollbar {background:#ffffff;}
@@ -5115,7 +4522,7 @@ html.light #sidebar .cg-brand {color:#111318 !important;}
 html.light body.cg-store-enabled #sidebar .cg-sidebar-head #closeBtn,
 html.light body.cg-store-enabled #sidebar .cg-sidebar-head #closeBtn i,
 html.light #sidebar #closeBtn, html.light #sidebar #closeBtn i {color:#111318 !important; background:transparent !important;}
-/* Accesos rapidos (Arma tu PC, Ofertas, Modo oscuro) */
+
 html.light #sidebar .cg-quick-actions {border-bottom-color:#eceef1 !important;}
 html.light #sidebar .cg-quick-actions a,
 html.light #sidebar .cg-theme-action {background:#f3f4f6 !important; border-color:#e3e6ea !important; color:#111318 !important;}
@@ -5127,7 +4534,7 @@ html.light #sidebar .cg-theme-action:hover,
 html.light #sidebar .cg-quick-actions a:active,
 html.light #sidebar .cg-theme-action:active,
 html.light #sidebar .cg-quick-actions a.cg-tapped {background:#fbe9f2 !important; border-color:var(--cg-accent,#d23f86) !important;}
-/* Categorias */
+
 html.light #sidebar .menu-item,
 html.light #sidebar .menu-item a,
 html.light #sidebar .menu-item span,
@@ -5146,7 +4553,7 @@ html.light #sidebar .menu-item:active {background:#fbe9f2 !important;}
 html.light #sidebar .menu-item.open span,
 html.light #sidebar .menu-item[aria-expanded="true"] span,
 html.light #sidebar .menu-item.cg-category-tapped a {color:#111318 !important;}
-/* Submenus */
+
 html.light #sidebar .submenu {background:#f7f8fa !important;}
 html.light #sidebar .submenu-item a {color:#4b5058 !important;}
 html.light #sidebar .submenu-item:hover,
@@ -5169,14 +4576,10 @@ html.light #sidebar .divider {background:linear-gradient(to right, transparent, 
   html.light #sidebar .submenu-item:active {background:#fbe9f2 !important;}
 }
 
-
-/* ======================================================================
-   13. ARREGLOS PARA CELULAR
-   (antes estaba en: HEADER, bloque cg-mobile-three-fixes)
-   ====================================================================== */
+/* 13. ARREGLOS PARA CELULAR */
 
 @media (max-width:899px) {
-  /* 1. El boton de busqueda no conserva el recuadro azul del navegador al tocarlo. */
+
   body.cg-store-enabled header.cg-site-header #content-mobile #abrirpanelbusqueda,
   body.cg-store-enabled header.cg-site-header #content-mobile #abrirpanelbusqueda:hover,
   body.cg-store-enabled header.cg-site-header #content-mobile #abrirpanelbusqueda:focus,
@@ -5195,8 +4598,7 @@ html.light #sidebar .divider {background:linear-gradient(to right, transparent, 
     outline-offset:2px !important;
     border-radius:5px !important;
   }
-  /* 2. jQuery .show() asigna display:block al iniciar sesion: mantener flex
-     para centrar el icono, sin volver visible el enlace oculto. */
+
   body.cg-store-enabled header.cg-site-header #content-mobile .navbar > #usuarioMovilLogueado,
   body.cg-store-enabled header.cg-site-header #content-mobile .navbar > #usuarioMovilSinLoguear {
     position:absolute !important;
@@ -5228,7 +4630,7 @@ html.light #sidebar .divider {background:linear-gradient(to right, transparent, 
     line-height:1 !important;
     vertical-align:middle !important;
   }
-  /* 3. La X permanece visible y pulsable incluso al abrir el menu por deslizamiento. */
+
   body.cg-store-enabled #sidebar .cg-sidebar-head #closeBtn {
     display:inline-flex !important;
     visibility:visible !important;
@@ -5264,13 +4666,8 @@ html.light #sidebar .divider {background:linear-gradient(to right, transparent, 
   }
 }
 
+/* 15. HOME VIEJA cgnewhome3.css */
 
-/* ======================================================================
-   15. HOME VIEJA cgnewhome3.css
-   (antes estaba en: GitHub MrObjection)
-   ====================================================================== */
-
-/* Solo en la pagina de inicio. :where() no suma especificidad, asi se comporta igual que antes. */
 :where(html.cg-home) .product:hover {
 	border-radius: 4px 4px 4px 4px !important;
 	box-shadow: 1px 8px 16px 1px rgba(0,0,0,0.15) !important;
@@ -5295,21 +4692,18 @@ opacity: 50% !important;
 }
 }
 
-/* ======================================================================
-   16. LISTADOS EN CELULAR: 2 TARJETAS POR FILA (estilo Maximus)
-   Solo en los listados (#articulos) y solo en pantallas chicas.
-   ====================================================================== */
+/* 16. LISTADOS EN CELULAR: 2 TARJETAS POR FILA (estilo Maximus) */
 
 @media (max-width: 767px) {
-  /* Grilla: 2 por fila, con poco espacio entre tarjetas */
+
   body.cg-store-enabled #articulos .col-md-10 > .row { margin-left: -5px !important; margin-right: -5px !important; }
   body.cg-store-enabled #articulos .col-md-prod {
     width: 50% !important; max-width: 50% !important; flex: 0 0 50% !important;
     padding-left: 5px !important; padding-right: 5px !important; margin: 0 0 10px !important;
   }
-  /* Tarjeta compacta, texto alineado a la izquierda */
+
   body.cg-store-enabled #articulos .product { text-align: left !important; padding-bottom: 8px !important; }
-  /* Foto: recuadro mas bajo, la imagen entra entera y centrada */
+
   body.cg-store-enabled #articulos .product .image {
     height: 150px !important; min-height: 150px !important; max-height: 150px !important; margin: 6px 6px 0 !important;
   }
@@ -5318,43 +4712,36 @@ opacity: 50% !important;
     width: auto !important; max-width: 100% !important; max-height: 130px !important;
   }
   body.cg-store-enabled #articulos .product div.contentDescription { padding: 8px 8px 0 !important; }
-  /* Titulo: 2 lineas, mas chico */
+
   body.cg-store-enabled #articulos .product h4,
   body.cg-store-enabled #articulos .product h4 a,
   body.cg-store-enabled #articulos .product .titprod {
     font-size: 12px !important; line-height: 1.3 !important; text-align: left !important;
   }
-  /* Precios alineados a la izquierda */
+
   body.cg-store-enabled #articulos .product .precio-tachado,
   body.cg-store-enabled #articulos .product .precio-tachado-content { text-align: center !important; font-size: 11px !important; }
   body.cg-store-enabled #articulos .product .price,
   body.cg-store-enabled #articulos .product .price * { font-size: 17px !important; text-align: center !important; padding-left: 0 !important; padding-right: 0 !important; }
   body.cg-store-enabled #articulos .product div.price + div,
   body.cg-store-enabled #articulos .product div.price + div * { font-size: 11px !important; text-align: center !important; }
-  /* Boton: mas compacto */
+
   body.cg-store-enabled #articulos .product .btn.btn-compra,
   body.cg-store-enabled #articulos .product input.btn.btn-primary.btn-compra.compracantidad {
     padding: 9px 4px !important; font-size: 11px !important; letter-spacing: .2px !important; min-height: 0 !important;
   }
 }
 
-/* ===== FIN cg-diseno.css ===== */
+/* FIN cg-diseno.css */
 
-/* ======================================================================
-   [CG-ARREGLOS v1.0 · 2026-09] Carrito en el celular y buscador de arriba
-   Solo diseño: no cambia cómo funcionan el carrito ni el checkout.
-   ====================================================================== */
+/* Carrito en el celular y buscador de arriba */
 
-/* Carrito: la plantilla CHECKOUT pone "overflow-x: hidden" en html y body, y en el iPhone eso
-   hace saltar la página al hacer scroll. "clip" hace lo mismo (no deja correr la página hacia
-   los costados) sin confundir al Safari del iPhone. Solo actúa en la página del checkout. */
 html:has(#checkoutPage),
 html:has(#checkoutPage) body {
   overflow-x: clip !important;
 }
 html:has(#checkoutPage) #checkoutPage { overflow-anchor: none; }
 
-/* Carrito en el celular: "Resumen de pedido" (total y Continuar) arriba de la lista */
 @media (max-width: 767px) {
   #checkoutPage #step-cart .carritocontenido > .col-md-4 {
     order: -1;
@@ -5363,7 +4750,6 @@ html:has(#checkoutPage) #checkoutPage { overflow-anchor: none; }
   }
 }
 
-/* Buscador de arriba: el cuadro y la lupa del mismo alto y alineados, sin el recuadro azul */
 body.cg-store-enabled header.cg-site-header .search-content .gb-search form {
   height: 44px !important; min-height: 44px !important; align-items: stretch !important;
 }
@@ -5383,12 +4769,7 @@ body.cg-store-enabled header.cg-site-header .search-content .gb-search-button:fo
 }
 body.cg-store-enabled header.cg-site-header .search-content input#tags:focus,
 body.cg-store-enabled header.cg-site-header .search-content .gb-search-input:focus { outline: none !important; }
-/* [/CG-ARREGLOS] */
 
-/* [CG-TARJETAS-CORTAS v1.0 · 2026-09] Tarjetas de producto más cortas (solo el alto)
-   No cambia el ancho ni cuántas van por fila. Solo diseño: el botón agrega con la misma función de GBP.
-   Para volver atrás, se borra este bloque.
-   (Antes estaba dentro de HEADER_CSS_JS; se mudó acá.) */
 html body.cg-store-enabled .product { padding-bottom: 8px !important; }
 html body.cg-store-enabled .product .image {
   height: 190px !important; min-height: 190px !important; max-height: 190px !important; margin: 6px 6px 0 !important;
@@ -5425,15 +4806,8 @@ html body.cg-store-enabled .product input.btn.btn-primary.btn-compra.compracanti
   html body.cg-store-enabled .product:hover .btn.btn-compra,
   html body.cg-store-enabled .product input.btn.btn-primary.btn-compra.compracantidad { height: 32px !important; min-height: 32px !important; font-size: 11.5px !important; }
 }
-/* [/CG-TARJETAS-CORTAS] */
 
-/* ======================================================================
-   17. [CG-BOTON-AGREGAR v1.0 · 2026-10] Botón "Agregar" de las tarjetas de producto
-   Contorno fino y sobrio (antes: magenta relleno, ancho completo y letras espaciadas).
-   Gris en reposo, magenta al pasar el mouse, con ícono de carrito. Solo las TARJETAS
-   (.product): el botón grande de la ficha de producto sigue en magenta.
-   Va al final y con :not(#cg-x) para ganarle a las reglas anteriores del botón.
-   ====================================================================== */
+/* 17. Botón "Agregar" de las tarjetas de producto */
 html body .product .btn.btn-compra:not(#cg-x),
 html body .product:hover .btn.btn-compra:not(#cg-x) {
   display: block !important; width: 100% !important;
@@ -5476,9 +4850,7 @@ html body .product .btn.btn-compra:not(#cg-x):active { transform: scale(.98) !im
   }
 }
 @media (prefers-reduced-motion: reduce) { html body .product .btn.btn-compra:not(#cg-x) { transition: none !important; } }
-/* [CG-BOTON-AGREGAR v1.1] iPhone: Safari no respeta la altura de linea en los botones <input> y bajaba
-   el texto respecto del icono. Sin la apariencia propia de Safari y con altura de linea normal, el texto
-   se centra solo (igual en Safari y Chrome). Los botones que no son <input> siguen centrados con line-height. */
+
 html body .product input.btn.btn-compra:not(#cg-x),
 html body .product:hover input.btn.btn-compra:not(#cg-x) {
   -webkit-appearance: none !important; appearance: none !important;
@@ -5488,16 +4860,9 @@ html body .product:hover input.btn.btn-compra:not(#cg-x) {
   html body .product input.btn.btn-compra:not(#cg-x),
   html body .product:hover input.btn.btn-compra:not(#cg-x) { line-height: normal !important; }
 }
-/* [/CG-BOTON-AGREGAR] */
 
-/* ======================================================================
-   18. BARRA DE ARRIBA (CG-PROMO v2.1)
-   Antes estaba en la plantilla HEADER (bloque cg-promo-css).
-   ====================================================================== */
+/* 18. BARRA DE ARRIBA (CG-PROMO v2.1) */
 
-	  /* [CG-PROMO v2.1] El azul de la barra vieja venía de estas 3 variables de cg-diseno.css, que también
-	     pintan el fondo del header (Safari en iPhone usa ese color para la zona de la hora y la batería).
-	     Se redefinen con el grafito de la barra: header, barra y zona de la hora quedan del mismo color. */
 	  html body.cg-store-enabled { --cg-topbar-edge: #16171c; --cg-topbar-fill: #16171c; --cg-topbar-mid: #16171c; }
 	  html body header.cg-site-header .cg-promo {
 	    background: #16171c !important; background-image: none !important;
@@ -5517,14 +4882,9 @@ html body .product:hover input.btn.btn-compra:not(#cg-x) {
 	  html body header.cg-site-header .cg-promo #cg-promo-message.cg-promo-fuera { opacity: 0; }
 	  @media (prefers-reduced-motion: reduce) { html body header.cg-site-header .cg-promo #cg-promo-message { transition: none; } }
 
-/* ======================================================================
-   19. SLIDER DE LA PORTADA (SLIDER2 v3.0, Splide)
-   Antes estaba en la plantilla SLIDER2. Solo toca su seccion (#slides_ofertas).
-   ====================================================================== */
+/* 19. SLIDER DE LA PORTADA (SLIDER2 v3.0, Splide) */
 
-    /* ==========================================
-       SLIDER: caja, tamaño y bordes
-    ========================================== */
+    /* SLIDER: caja, tamaño y bordes */
     #slides_ofertas .splide { position: relative; visibility: visible !important; }
     #slides_ofertas .splide__track { overflow: hidden; isolation: isolate; border-radius: 16px; }
     #slides_ofertas .splide__list { margin: 0 !important; padding: 0 !important; }
@@ -5537,14 +4897,12 @@ html body .product:hover input.btn.btn-compra:not(#cg-x) {
     }
     #slides_ofertas .splide__list > li > a { display: block; position: relative; z-index: 1; }
 
-    /* Antes de que arranque Splide: se ve solo el primer banner (sin saltos ni espera) */
     #slides_ofertas .splide:not(.is-initialized) .splide__list { display: flex; }
     #slides_ofertas .splide:not(.is-initialized) .splide__list > li { flex: 0 0 100%; width: 100%; }
     #slides_ofertas .splide:not(.is-initialized) .splide__list > li:not(:first-child) { display: none !important; }
-    /* [v13] Con varios banners, lugar reservado para los puntitos antes de que arranque Splide (10 + 9 px) */
+
     #slides_ofertas .splide.cg-varios:not(.is-initialized) { padding-bottom: 19px; }
 
-    /* Computadora: tamaño fijo 10:3. La imagen se ve entera adentro. */
     #slides_ofertas .splide__list > li img {
         position: relative;
         z-index: 1;
@@ -5556,7 +4914,7 @@ html body .product:hover input.btn.btn-compra:not(#cg-x) {
         aspect-ratio: 10 / 3 !important;
         object-fit: contain !important;
     }
-    /* Relleno: copia difuminada de la misma imagen, detrás, para los espacios que sobran */
+
     #slides_ofertas .cg-fondo {
         position: absolute;
         inset: -24px;
@@ -5567,7 +4925,6 @@ html body .product:hover input.btn.btn-compra:not(#cg-x) {
         pointer-events: none;
     }
 
-    /* Computadora */
     @media (min-width: 768px) {
         html body.cg-store-enabled section#slides_ofertas.slider,
         html body section#slides_ofertas.slider {
@@ -5580,7 +4937,6 @@ html body .product:hover input.btn.btn-compra:not(#cg-x) {
         #slides_ofertas .splide__track { border-radius: 28px; }
     }
 
-    /* Celular: más separado de la barra de arriba, tamaño fijo 16:9 */
     @media (max-width: 767px) {
         html body.cg-store-enabled section#slides_ofertas.slider,
         html body section#slides_ofertas.slider {
@@ -5593,9 +4949,7 @@ html body .product:hover input.btn.btn-compra:not(#cg-x) {
         #slides_ofertas .splide__list > li img { aspect-ratio: 16 / 9 !important; }
     }
 
-    /* ==========================================
-       PUNTITOS DEBAJO DEL BANNER (estilo CompraGamer)
-    ========================================== */
+    /* PUNTITOS DEBAJO DEL BANNER (estilo CompraGamer) */
     #slides_ofertas .splide__pagination {
         position: static !important;
         display: flex !important;
@@ -5649,13 +5003,7 @@ html body .product:hover input.btn.btn-compra:not(#cg-x) {
         #slides_ofertas .splide__pagination__page.is-active { width: 18px !important; }
     }
 
-/* 20. (v34) La portada anterior de categorías (6 tarjetas verticales y carril del celular) se sacó: la portada nueva está en la sección 29. */
-
-/* ======================================================================
-   21. HOME (beneficios, encabezados, boton "Ver todas", carruseles)
-   Antes estaba en la plantilla de la home. Cada regla lleva html.cg-home: SOLO se aplica en la pagina
-   principal (la marca la pone HEADER_CSS_JS). Version compacta (una regla por linea).
-   ====================================================================== */
+/* 21. HOME (beneficios, encabezados, boton "Ver todas", carruseles) */
 
 @media (max-width:360px){html.cg-home .flexslider .slides img{max-height:142px}}
 @media (max-width:400px){html.cg-home .flexslider .slides img{max-height:157px}}
@@ -5704,13 +5052,7 @@ html.cg-home.dark body a.cg-ver-todas{color:#e36aa3!important;-webkit-text-fill-
 html.cg-home.dark body a.cg-ver-todas:hover,html.cg-home.dark body a.cg-ver-todas:focus-visible{color:#ffffff!important;-webkit-text-fill-color:#ffffff!important}
 @media (max-width:767px){html.cg-home body a.cg-ver-todas,html.cg-home body section#cg-categorias-home a.cg-ver-todas{height:32px!important;padding:0 12px!important;font-size:12.5px!important}}
 
-
-/* ======================================================================
-   22. [CG-HEADER-900 v1.0 · 2026-10] HEADER COMPLETO DESDE 900 PX (como Maximus)
-   El header de computadora (buscador y barra de categorias) se muestra desde 900 px de ancho,
-   tambien con el celular acostado. Antes: solo desde 1025 px y nunca en un celular acostado.
-   Entre 900 y 1100 px el menu se compacta para que entren todos los items.
-   ====================================================================== */
+/* 22. HEADER COMPLETO DESDE 900 PX (como Maximus) */
 @media (min-width:900px) and (max-width:1100px) {
   body.cg-store-enabled header.cg-site-header .cg-nav-theme .cg-theme-label {display:none !important;}
   body.cg-store-enabled header.cg-site-header .cg-nav {grid-template-columns:minmax(44px,1fr) max-content minmax(44px,1fr) !important;}
@@ -5721,42 +5063,13 @@ html.cg-home.dark body a.cg-ver-todas:hover,html.cg-home.dark body a.cg-ver-toda
   body.cg-store-enabled header.cg-site-header #content-desktop .header-links .ircarrito {font-size:10.5px !important;}
 }
 html body header.cg-site-header .cg-promo {position:relative !important;}
-/* iPhone: el boton flotante de WhatsApp no queda debajo de las esquinas ni de la camara */
+
 html body #cg-whatsapp-float { right:calc(22px + env(safe-area-inset-right, 0px)) !important; }
 @media (max-width:767px) { html body #cg-whatsapp-float { right:calc(14px + env(safe-area-inset-right, 0px)) !important; } }
 
-/* ======================================================================
-   23. [CG-ARM-PORTADA v2.1 · 2026-10] ARMADOR: PORTADA (detalles alrededor de las tarjetas)
-   Las tarjetas AMD e Intel quedan COMO ESTABAN (degradado de cada marca, linea de luz y logo blanco).
-   Solo cambian: los pasos, los beneficios y los accesos de abajo (icono en recuadro oscuro).
-   ====================================================================== */
+/* 23. ARMADOR: PORTADA (detalles alrededor de las tarjetas) */
 
-/* ---- Pasos ---- */
-
-
-
-
-/* ---- Beneficios: icono en recuadro oscuro, separadores finos ---- */
-
-
-
-
-
-
-
-
-/* ---- Accesos de abajo ---- */
-
-
-
-/* [/CG-ARM-PORTADA v2.1] */
-
-/* ======================================================================
-   24. [CG-WA-FLOTANTE v2.0 · 2026-10] BOTON FLOTANTE DE WHATSAPP
-   Verde de WhatsApp (antes magenta). Cuando el footer aparece en pantalla, el boton se desvanece
-   (el footer ya tiene su propio WhatsApp) y asi no tapa Instagram ni nada del footer. La clase
-   html.cg-ve-footer la pone HEADER_CSS_JS.
-   ====================================================================== */
+/* 24. BOTON FLOTANTE DE WHATSAPP */
 html body #cg-whatsapp-float {
   background: #25D366 !important; border-color: rgba(255,255,255,.22) !important; color: #fff !important;
   box-shadow: 0 4px 14px rgba(37,211,102,.35) !important;
@@ -5770,15 +5083,10 @@ html body #cg-whatsapp-float:focus-visible { outline: 2px solid #25D366 !importa
 html.cg-ve-footer body #cg-whatsapp-float { opacity: 0 !important; visibility: hidden !important; transform: scale(.85) !important; pointer-events: none !important; }
 @media (prefers-reduced-motion: reduce) { html body #cg-whatsapp-float { transition: none !important; } }
 
-/* ===== FIN cg-diseno-v14.css ===== */
+/* FIN cg-diseno-v14.css */
 
-/* ======================================================================
-   27. TARJETAS EN OFERTA, MAS SOBRIAS (v16)
-   El script cg-repetidos-y-filtros agrega al cargar sus propios estilos (id cg-ofertas-css): cinta grande,
-   porcentaje de 18 px con sombra y precio en magenta. Estas reglas tienen mas peso y los reemplazan:
-   cinta mas fina, porcentaje chico en magenta y precio en el color del texto (el magenta queda como detalle).
-   ====================================================================== */
-/* v18: la cinta pasa a la esquina IZQUIERDA (antes tapaba el corazon de favoritos, que esta a la derecha) */
+/* 27. TARJETAS EN OFERTA, MAS SOBRIAS (v16) */
+
 html body .product .cg-of-cinta { top: 12px !important; left: -40px !important; right: auto !important; transform: rotate(-35deg) !important; width: 140px !important; padding: 3px 0 !important;
   font: 800 9.5px/1 "Manrope", Arial, sans-serif !important; letter-spacing: .12em !important; box-shadow: none !important; }
 html body .product .cg-of-grande { left: 8px !important; bottom: 8px !important; padding: 3px 7px !important; border-radius: 6px !important;
@@ -5789,31 +5097,12 @@ html.dark body div .product.cg-en-oferta .price,
 html.dark body div .product.cg-en-oferta .price * { color: #ffffff !important; }
 html body .product .cg-of-inline span { padding: 3px 7px !important; font-size: 10px !important; }
 
-/* ======================================================================
-   29. PORTADA NUEVA · solo con la llave html.cg-portada2 (?cgportada=1 en la home; ver HOME v4.1)
-   Sin la llave, nada de esta sección se aplica y la home se ve como antes.
-   Va con HOME v4.1 (encabezado + recuadro .cg-portada) y BANNERS_HOME_1 v8.2 (textos y mini banner).
+/* 29. PORTADA NUEVA */
 
-   COMPUTADORA (grilla de 12 columnas)
-     Fila 1: encabezado (etiqueta, título y "Ver todas").
-     Filas 2-3: banner de campaña a la IZQUIERDA (9 columnas) · "Armá tu PC" y "PC armadas" a la derecha (Spots Type 1, orden 1 y 2).
-     Fila 4: cuatro cuadros (orden 3 a 6). Fila 5: beneficios con íconos, sin recuadro.
-   CELULAR (2 columnas)
-     Banner · "Armá tu PC" y "PC armadas" como franjas · cuadros 2 x 2 · mini banner "Todas las categorías".
-     Sin encabezado ni beneficios.
-   CUADROS: el estilo depende de la imagen del Spot (carpeta bottom-boxes del GitHub):
-     - JPG: foto de fondo recortada + degradado + texto blanco.
-     - PNG o WebP (producto recortado, fondo transparente): fondo plano claro o grafito, franja diagonal suave,
-       punta magenta, texto a la izquierda, 01/02 en los dos grandes y el producto a la derecha.
-   Medidas: banner 1920 x 576 (celular 1200 x 675, "-mov"); cuadros 1200 x 800 PNG/WebP transparente, recortado al ras.
-   ====================================================================== */
-
-/* ---------- Recuadro y grilla ---------- */
 html.cg-portada2 body .cg-portada { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 10px;
   width: 100%; max-width: 1440px; margin: 16px auto 0; padding: 0 var(--cg-margen, 20px); box-sizing: border-box; }
 html.cg-portada2 body #novedades_home { margin-top: 10px !important; }
 
-/* ---------- Encabezado (HOME v4.1) ---------- */
 html body .cg-portada-hd { display: none; }
 html.cg-portada2 body .cg-portada > .cg-portada-hd { display: flex !important; grid-column: 1 / -1; grid-row: 1; align-items: flex-end; justify-content: space-between; gap: 12px 16px; flex-wrap: wrap; margin: 2px 0 2px; }
 html.cg-portada2 body .cg-portada-hd .cg-tit-kicker { display: block; margin: 0 0 6px; font: 700 11px/1 "Manrope", system-ui, sans-serif; letter-spacing: .16em; text-transform: uppercase; color: var(--cg-accent, #d23f86); }
@@ -5821,24 +5110,21 @@ html.cg-portada2 body .cg-portada-hd .cg-portada-tit { margin: 0; font: 800 26px
 html.cg-portada2.dark body .cg-portada-hd .cg-portada-tit { color: #ffffff; }
 html.cg-portada2 body .cg-portada-hd a.cg-ver-todas { margin: 0 0 3px !important; flex: 0 0 auto !important; }
 
-/* ---------- Encabezados de Notebooks y Ofertas: "Ver todas" a la derecha del título ---------- */
 html.cg-home.cg-portada2 body .sec-hd { flex-direction: row !important; flex-wrap: wrap !important; align-items: flex-end !important; justify-content: space-between !important; gap: 10px 16px !important; }
 html.cg-home.cg-portada2 body .sec-hd .sec-hd-left { flex: 1 1 auto !important; }
 html.cg-home.cg-portada2 body .sec-hd a.cg-ver-todas { margin: 0 0 3px !important; flex: 0 0 auto !important; }
 html.cg-home.cg-portada2 body .sec-hd > a.cg-ver-todas, html.cg-home.cg-portada2 body .sec-hd .cg-tit-der { margin-left: auto !important; }
 
-/* ---------- Banner de campaña (slider) ---------- */
 html.cg-portada2 body .cg-portada > section#slides_ofertas.slider,
 html.cg-portada2 body.cg-store-enabled .cg-portada > section#slides_ofertas.slider {
   grid-column: 1 / 10; grid-row: 2 / 4; width: 100% !important; max-width: none !important; margin: 0 !important; padding: 0 !important; min-width: 0; }
 html.cg-portada2 body .cg-portada #slides_ofertas .splide__track { border-radius: 6px !important; }
-/* Puntitos adentro del banner, abajo */
+
 html.cg-portada2 body .cg-portada #slides_ofertas .splide.cg-varios:not(.is-initialized) { padding-bottom: 0 !important; }
 html.cg-portada2 body .cg-portada #slides_ofertas .splide__pagination { position: absolute !important; left: 50% !important; bottom: 10px !important; transform: translateX(-50%); margin: 0 !important; z-index: 3; }
 html.cg-portada2 body .cg-portada #slides_ofertas .splide__pagination__page { border-color: rgba(255,255,255,.85) !important; background: rgba(255,255,255,.25) !important; }
 html.cg-portada2 body .cg-portada #slides_ofertas .splide__pagination__page.is-active { background: var(--cg-accent, #d23f86) !important; border-color: var(--cg-accent, #d23f86) !important; }
 
-/* ---------- Beneficios: íconos y texto, sin recuadro ---------- */
 html.cg-portada2 body .cg-portada > section#bajoSlider { display: block !important; grid-column: 1 / -1; grid-row: 5; margin: 0 !important; padding: 0 !important; }
 html.cg-portada2 body .cg-portada > section#bajoSlider > .container.row { display: grid !important; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0 !important;
   width: 100% !important; max-width: none !important; margin: 0 !important; padding: 2px 0 0 !important; box-sizing: border-box !important;
@@ -5853,7 +5139,6 @@ html.cg-portada2 body .cg-portada > section#bajoSlider br { display: none !impor
 html.cg-portada2 body .cg-portada > section#bajoSlider .cg-beneficio-sub { display: block !important; font: 500 11.5px/1.3 "Manrope", Arial, sans-serif !important; color: #62656f !important; margin-top: 2px; }
 html.cg-portada2.dark body .cg-portada > section#bajoSlider .cg-beneficio-sub { color: #a9adb8 !important; }
 
-/* ---------- Base de los cuadros (v34: venía de la sección 20, que se sacó) ---------- */
 html body section#cg-categorias-home .row.cg-spots::before,
 html body section#cg-categorias-home .row.cg-spots::after { display: none !important; content: none !important; }
 html body section#cg-categorias-home .row.cg-spots div[class*="spot"] {
@@ -5864,7 +5149,6 @@ html body section#cg-categorias-home .row.cg-spots a {
 html body section#cg-categorias-home .row.cg-spots img {
   display: block !important; max-width: 100% !important; max-height: none !important; min-height: 0 !important; margin: 0 !important; border-radius: 0 !important; }
 
-/* ---------- Cuadros: la sección de categorías se integra a la grilla ---------- */
 html.cg-portada2 body section#cg-categorias-home.spots_home_1,
 html.cg-portada2 body section#cg-categorias-home .container,
 html.cg-portada2 body section#cg-categorias-home .row,
@@ -5884,12 +5168,11 @@ html.cg-portada2 body section#cg-categorias-home .row.cg-spots div.spot4 { grid-
 html.cg-portada2 body section#cg-categorias-home .row.cg-spots div.spot5 { grid-column: 7 / 10 !important; grid-row: 4; }
 html.cg-portada2 body section#cg-categorias-home .row.cg-spots div.spot6 { grid-column: 10 / 13 !important; grid-row: 4; }
 
-/* ---------- Cuadro con foto JPG (estilo base) ---------- */
 html.cg-portada2 body section#cg-categorias-home .row.cg-spots div[class*="spot"] > a {
   display: block !important; position: relative !important; height: 100%; min-height: 110px; overflow: hidden !important;
   border-radius: 6px !important; background: #15161b; border: 1px solid rgba(255,255,255,.07) !important; isolation: isolate; }
 html.cg-portada2 body section#cg-categorias-home .row.cg-spots :is(.spot3, .spot4, .spot5, .spot6) > a { aspect-ratio: 550 / 190; height: auto; min-height: 0; }
-/* v31: sin el alto minimo de 110 px (con el los cuadros se ensanchaban y se salian de la pantalla entre 768 y 1060 px) */
+
 html.cg-portada2 body section#cg-categorias-home .row.cg-spots div:is(.spot3, .spot4, .spot5, .spot6) > a { min-height: 0; }
 html.cg-portada2 body section#cg-categorias-home .row.cg-spots div[class*="spot"] > a img {
   position: absolute !important; inset: 0; width: 100% !important; height: 100% !important; aspect-ratio: auto !important;
@@ -5906,7 +5189,6 @@ html.cg-portada2 body section#cg-categorias-home .cg-tile-fl { position: absolut
 html.cg-portada2 body section#cg-categorias-home .cg-tile-fl svg { width: 13px; height: 13px; }
 html.cg-portada2 body section#cg-categorias-home .row.cg-spots div[class*="spot"] > a:hover .cg-tile-fl { background: var(--cg-accent, #d23f86); }
 
-/* ---------- Cuadro con producto recortado (PNG o WebP) ---------- */
 html.cg-portada2 body section#cg-categorias-home .row.cg-spots div[class*="spot"] > a:has(> img:is([data-o$=".png" i], [data-o$=".webp" i])) {
   background: #ffffff !important; border-color: #e3e4e9 !important; }
 html.cg-portada2.dark body section#cg-categorias-home .row.cg-spots div[class*="spot"] > a:has(> img:is([data-o$=".png" i], [data-o$=".webp" i])) {
@@ -5920,7 +5202,7 @@ html.cg-portada2 body section#cg-categorias-home .row.cg-spots div[class*="spot"
   background: linear-gradient(115deg, transparent calc(100% - var(--cg-punta, 78px)), rgba(210,63,134,.55) calc(100% - var(--cg-punta, 78px)), rgba(78,102,140,.75) 100%) !important; z-index: 1 !important; }
 html.cg-portada2 body section#cg-categorias-home .row.cg-spots div[class*="spot"] > a > img:is([data-o$=".png" i], [data-o$=".webp" i]) {
   inset: 6% 6px 3% auto !important; width: 58% !important; height: 91% !important; max-height: none !important; object-fit: contain !important; object-position: right bottom !important; z-index: 2 !important; }
-/* Fila de cuatro: un poco menos de ancho para el producto, asi no toca el titulo (placas de video, perifericos) */
+
 html.cg-portada2 body section#cg-categorias-home .row.cg-spots div:is(.spot3, .spot4, .spot5, .spot6) > a > img:is([data-o$=".png" i], [data-o$=".webp" i]) { width: 52% !important; }
 html.cg-portada2 body section#cg-categorias-home .row.cg-spots div[class*="spot"] > a:has(> img:is([data-o$=".png" i], [data-o$=".webp" i])) .cg-tile-txt {
   top: 14px; bottom: auto; left: 16px; right: 44%; color: #111318; z-index: 3; }
@@ -5939,11 +5221,8 @@ html.cg-portada2 body section#cg-categorias-home .row.cg-spots div[class*="spot"
   left: 16px; right: auto; bottom: 12px; z-index: 3; background: transparent; border: 1.5px solid var(--cg-accent, #d23f86); color: var(--cg-accent, #d23f86); }
 html.cg-portada2 body section#cg-categorias-home .row.cg-spots div[class*="spot"] > a:has(> img:is([data-o$=".png" i], [data-o$=".webp" i])):hover .cg-tile-fl { background: var(--cg-accent, #d23f86); color: #fff; }
 
-/* ---------- Mini banner "Todas las categorías": solo en el celular ---------- */
 @media (min-width: 768px) { html body section#cg-categorias-home .row.cg-spots a.cg-cat-mini, html.cg-portada2 body section#cg-categorias-home .row.cg-spots a.cg-cat-mini { display: none !important; } }
 
-/* ---------- Pantallas medianas (768 a 991 px: teléfono girado, tablet) ----------
-   Banner a todo el ancho; debajo "Armá tu PC" y "PC armadas" lado a lado; después la fila de cuatro. */
 @media (min-width: 768px) and (max-width: 991px) {
   html.cg-portada2 body .cg-portada > section#slides_ofertas.slider,
   html.cg-portada2 body.cg-store-enabled .cg-portada > section#slides_ofertas.slider { grid-column: 1 / -1; grid-row: 2; }
@@ -5956,7 +5235,6 @@ html.cg-portada2 body section#cg-categorias-home .row.cg-spots div[class*="spot"
   html.cg-portada2 body section#cg-categorias-home .row.cg-spots { --cg-punta: 60px; --cg-aire: 18px; --cg-banda: 90px; }
 }
 
-/* ---------- Celular ---------- */
 @media (max-width: 767px) {
   html.cg-portada2 body .cg-portada { grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 8px; padding: 0 var(--cg-margen, 16px); }
   html.cg-portada2 body section#cg-categorias-home .row.cg-spots { --cg-punta: 46px; --cg-aire: 14px; --cg-banda: 70px; }
@@ -5964,11 +5242,11 @@ html.cg-portada2 body section#cg-categorias-home .row.cg-spots div[class*="spot"
   html.cg-home.cg-portada2 body .cg-portada > section#bajoSlider { display: none !important; }
   html.cg-home.cg-portada2 body .sec-hd { flex-direction: column !important; align-items: flex-start !important; }
   html.cg-home.cg-portada2 body .sec-hd > a.cg-ver-todas, html.cg-home.cg-portada2 body .sec-hd .cg-tit-der { margin-left: 0 !important; }
-  /* Banner */
+
   html.cg-portada2 body .cg-portada > section#slides_ofertas.slider,
   html.cg-portada2 body.cg-store-enabled .cg-portada > section#slides_ofertas.slider { grid-column: 1 / -1; grid-row: 1; }
   html.cg-portada2 body .cg-portada #slides_ofertas .splide__pagination { bottom: 6px !important; }
-  /* Ubicación de los cuadros */
+
   html.cg-portada2 body section#cg-categorias-home .row.cg-spots div[class*="spot"],
   html.cg-portada2 body section#cg-categorias-home .row.cg-spots:not(:has(.spot6)) div.spot4 { flex: none !important; width: auto !important; min-width: 0; }
   html.cg-portada2 body section#cg-categorias-home .row.cg-spots div.spot1 { grid-column: 1 / -1 !important; grid-row: 2; }
@@ -5979,7 +5257,7 @@ html.cg-portada2 body section#cg-categorias-home .row.cg-spots div[class*="spot"
   html.cg-portada2 body section#cg-categorias-home .row.cg-spots div.spot6 { grid-column: 2 !important; grid-row: 5; }
   html.cg-portada2 body section#cg-categorias-home .cg-tile-txt { left: 8px; right: 8px; bottom: 7px; }
   html.cg-portada2 body section#cg-categorias-home .cg-tile-txt i { display: none; }
-  /* Franjas: Armá tu PC y PC armadas */
+
   html.cg-portada2 body section#cg-categorias-home .row.cg-spots :is(.spot1, .spot2) > a { aspect-ratio: auto !important; height: 74px !important; min-height: 0 !important; }
   html.cg-portada2 body section#cg-categorias-home .row.cg-spots :is(.spot1, .spot2) .cg-tile-txt { top: 50% !important; bottom: auto !important; transform: translateY(-50%); left: 14px !important; right: 46% !important; }
   html.cg-portada2 body section#cg-categorias-home .row.cg-spots :is(.spot1, .spot2) .cg-tile-txt b { font-size: 15.5px !important; }
@@ -5989,15 +5267,15 @@ html.cg-portada2 body section#cg-categorias-home .row.cg-spots div[class*="spot"
     left: auto !important; right: 12px !important; width: 26px; height: 26px; background: #ffffff !important; color: var(--cg-accent, #d23f86) !important; border: 1.5px solid #ffffff !important; }
   html.cg-portada2.dark body section#cg-categorias-home .row.cg-spots :is(.spot1, .spot2) .cg-tile-fl { background: #1c1d23 !important; border-color: #1c1d23 !important; }
   html.cg-portada2 body section#cg-categorias-home .row.cg-spots div:is(.spot1, .spot2) > a > img:is([data-o$=".png" i], [data-o$=".webp" i]) { inset: 5px 48px 3px auto !important; width: 38% !important; height: calc(100% - 8px) !important; }
-  /* Sin el alto minimo de la computadora (si no, los cuadros se ensanchan y se salen de la pantalla) */
+
   html.cg-portada2 body section#cg-categorias-home .row.cg-spots div[class*="spot"] > a { min-height: 0; }
-  /* Cuadros 2 x 2 */
+
   html.cg-portada2 body section#cg-categorias-home .row.cg-spots :is(.spot3, .spot4, .spot5, .spot6) > a { aspect-ratio: 16 / 9 !important; height: auto !important; min-height: 0; }
   html.cg-portada2 body section#cg-categorias-home .row.cg-spots :is(.spot3, .spot4, .spot5, .spot6) .cg-tile-txt b { font-size: 13px !important; }
   html.cg-portada2 body section#cg-categorias-home .row.cg-spots :is(.spot3, .spot4, .spot5, .spot6) .cg-tile-fl { display: flex !important; width: 20px; height: 20px; right: 8px; bottom: 8px; }
   html.cg-portada2 body section#cg-categorias-home .row.cg-spots :is(.spot3, .spot4, .spot5, .spot6) > a:has(> img:is([data-o$=".png" i], [data-o$=".webp" i])) .cg-tile-txt { top: 10px; left: 10px; right: 40%; }
   html.cg-portada2 body section#cg-categorias-home .row.cg-spots :is(.spot3, .spot4, .spot5, .spot6) > a:has(> img:is([data-o$=".png" i], [data-o$=".webp" i])) .cg-tile-fl { left: 10px; right: auto; bottom: 8px; }
-  /* Mini banner "Todas las categorías" */
+
   html.cg-portada2 body section#cg-categorias-home a.cg-cat-mini { grid-column: 1 / -1; grid-row: 6; display: flex !important; align-items: center; justify-content: space-between; gap: 10px;
     height: 46px; padding: 0 14px; border-radius: 6px !important; text-decoration: none !important; color: #fff !important; border: 1px solid rgba(255,255,255,.08);
     background: linear-gradient(90deg, #3a1d2e 0%, #15161b 70%); }
@@ -6007,11 +5285,7 @@ html.cg-portada2 body section#cg-categorias-home .row.cg-spots div[class*="spot"
   html.cg-portada2 body section#cg-categorias-home a.cg-cat-mini .cg-tile-fl { display: flex; position: static; width: 24px; height: 24px; background: var(--cg-accent, #d23f86); flex: 0 0 24px; }
 }
 
-/* ======================================================================
-   30. PÁGINA DE TODAS LAS CATEGORÍAS (plantilla categorias_completas v1.0)
-   /categorias_completas/productos/compugarden.aspx · 21 tarjetas cuadradas iguales: ícono Lucide y nombre.
-   Computadora 7 por fila · pantallas medianas 5 o 4 · celular 3. Blanco, gris y negro; magenta solo al pasar el mouse.
-   ====================================================================== */
+/* 30. PÁGINA DE TODAS LAS CATEGORÍAS (plantilla categorias_completas v1.0) */
 html body .cg-cats-pag { width: 100%; max-width: 1440px; margin: 0 auto; padding: 28px var(--cg-margen, 20px) 48px; box-sizing: border-box; }
 html body .cg-cats-pag .cg-cats-hd { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; margin: 0 0 18px; }
 html body .cg-cats-pag .cg-cats-hd h1 { margin: 0; font: 800 28px/1.1 "Manrope", system-ui, sans-serif; letter-spacing: -.03em; color: #111318; }
@@ -6043,14 +5317,8 @@ html.dark body .cg-cats-pag a.cg-cat:hover .cg-cat-ico, html.dark body .cg-cats-
   html body .cg-cats-pag .cg-cat-nom { font-size: 11.5px; }
 }
 
-/* ======================================================================
-   31. FICHA DE PRODUCTO (v35) · estilos que estaban dentro de la plantilla DETALLE (BODY - HTML):
-   diseño de la ficha (cg-detalle-2026), margen de 22 px con el header nuevo, ventana de cuotas y texto de la descripción.
-   Van al final, en el mismo orden: allá se cargaban después de este archivo.
-   ====================================================================== */
-/* =========================================================
-   FICHA DE PRODUCTO (detalle) — mismo estilo que las tarjetas y el resto del sitio
-   ========================================================= */
+/* 31. FICHA DE PRODUCTO (v35) */
+/* FICHA DE PRODUCTO (detalle) */
 #detalle {
   --dt-t: #111318; --dt-t2: #3a3f4b; --dt-m: #6b7280;
   --dt-bg: #ffffff; --dt-soft: #f6f7f9; --dt-line: #e6e8ec;
@@ -6060,24 +5328,23 @@ html.dark #detalle {
   --dt-t: #f2f3f5; --dt-t2: #d4d7dd; --dt-m: #9aa3af;
   --dt-bg: #1d1f24; --dt-soft: #23262d; --dt-line: #2c2f36;
 }
-/* Título y ruta */
+
 html body #detalle h1.prod-titulo { color: var(--dt-t) !important; font: 800 26px/1.2 "Manrope", Arial, sans-serif !important; letter-spacing: -.015em; margin: 6px 0 14px !important; }
 html body #detalle .col-md-6 > div:first-child a { color: var(--dt-m) !important; font-size: 13px; text-decoration: none; }
 html body #detalle .col-md-6 > div:first-child a:hover { color: var(--cg-accent, #d23f86) !important; }
 html body #detalle h3.prod-codigo:empty { display: none; }
 
-/* Caja de precio */
 html body #detalle .opcionesPago {
   overflow: hidden; margin: 0 0 18px; border: 1px solid var(--dt-line) !important;
   border-radius: 12px !important; background: var(--dt-bg) !important;
 }
-/* [CG-FICHA-OFERTA] Producto marcado como Oferta: la caja del precio con borde magenta */
+
 html body #detalle .opcionesPago.cg-en-oferta { border: 1.5px solid var(--cg-accent, #d23f86) !important; }
 html body #detalle .mejorprecio {
   position: relative; padding: 16px 18px !important; color: var(--dt-m) !important; font-size: 13px;
   background: linear-gradient(135deg, rgba(210,63,134,.07), transparent 60%) !important;
 }
-/* Fila de oferta: etiqueta "Oferta" y porcentaje de descuento (solo si corresponde) */
+
 html body #detalle .cg-of-fila { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; margin: 0 0 8px; }
 html body #detalle .cg-of-fila[hidden] { display: none; }
 html body #detalle .cg-of-tag {
@@ -6097,11 +5364,11 @@ html body #detalle .price #precio {
   display: block; margin: 2px 0 4px; color: var(--dt-t) !important;
   font: 800 32px/1.15 "Manrope", Arial, sans-serif !important; letter-spacing: -.02em;
 }
-/* "Ahorrás $…" debajo del precio */
+
 html body #detalle .cg-ahorro { margin: 0 0 6px; color: #16a34a; font: 800 14px/1.3 "Manrope", Arial, sans-serif; }
 html.dark body #detalle .cg-ahorro { color: #4ade80; }
 html body #detalle .cg-ahorro:empty { display: none; }
-/* "Mejor precio" pegado a "Pagando con depósito bancario o transferencia" */
+
 html body #detalle .cg-mp-fila { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-top: 6px; color: var(--dt-m); font-size: 13px; }
 html body #detalle .cg-mp-fila .tx b {
   display: inline-block; padding: 4px 9px; border: 1px solid var(--cg-accent, #d23f86); border-radius: 999px;
@@ -6133,7 +5400,6 @@ html body #detalle .opcionesPago .otrasopciones a.cg-ver-cuotas {
 html body #detalle .opcionesPago .otrasopciones a.cg-ver-cuotas::after { content: "›"; font-size: 17px; line-height: 1; }
 html body #detalle .opcionesPago .otrasopciones a.cg-ver-cuotas:hover { background: var(--cg-accent-hover, #b02f6d) !important; }
 
-/* Envío, garantía y stock */
 html body #detalle #extrasDetalle { margin: 0 0 4px !important; padding: 0 !important; list-style: none; border-top: 1px solid var(--dt-line); }
 html body #detalle #extrasDetalle li {
   margin: 0 !important; padding: 12px 4px; border-bottom: 1px solid var(--dt-line);
@@ -6141,7 +5407,7 @@ html body #detalle #extrasDetalle li {
 }
 html body #detalle #extrasDetalle li img { width: 20px !important; margin-right: 8px; vertical-align: -4px; }
 html.dark body #detalle #extrasDetalle li img.invert { filter: invert(1); }
-/* Cajas de stock (web / local) con el mismo estilo de filas */
+
 html body #detalle .stock-box {
   display: flex !important; align-items: flex-start; gap: 10px; margin: 0 !important; padding: 12px 4px !important;
   border: 0 !important; border-bottom: 1px solid var(--dt-line) !important; border-radius: 0 !important; background: transparent !important;
@@ -6155,7 +5421,6 @@ html body #detalle .stock-box .stock-line { color: var(--dt-m) !important; font:
 html body #detalle #detalle-codigo, html body #detalle small { color: var(--dt-m); }
 html body #detalle #extrasDetalle li a { color: var(--cg-accent, #d23f86) !important; font-weight: 700; cursor: pointer; }
 
-/* Cantidad + comprar en una sola fila */
 html body #detalle .cg-comprar { display: flex; align-items: center; gap: 10px; margin: 6px 0 20px; clear: both; }
 html body #detalle .latCant {
   display: inline-flex !important; align-items: center; flex: 0 0 auto; height: 50px; margin: 0 !important;
@@ -6180,7 +5445,6 @@ html body #detalle #boton-compra {
 }
 html body #detalle #boton-compra:hover { background: var(--cg-accent-hover, #b02f6d) !important; }
 
-/* Galería: miniaturas centradas debajo de la foto */
 html body #detalle .sp-wrap { background: transparent !important; border: 0 !important; }
 html body #detalle .sp-thumbs {
   display: flex !important; flex-wrap: wrap; justify-content: center; gap: 8px;
@@ -6195,7 +5459,6 @@ html body #detalle .sp-thumbs a {
 html body #detalle .sp-thumbs a:hover { opacity: 1; }
 html body #detalle .sp-thumbs a.sp-current { opacity: 1; border-color: var(--cg-accent, #d23f86) !important; box-shadow: 0 0 0 1px var(--cg-accent, #d23f86); }
 
-/* Ventana "Calcular envío" */
 #modalZippin .modal-dialog { max-width: 460px; }
 #modalZippin .modal-body { padding: 18px 22px 6px !important; }
 #modalZippin #contenidoModalSelector, #modalZippin #contenidoModalCotizacion { margin: 0; }
@@ -6232,7 +5495,6 @@ html:not(.dark) #modalZippin .cg-envio-error { color: #dc2626 !important; }
 #modalZippin .modal-footer .cg-modal-btn { width: 100%; }
 @media (max-width: 420px) { #modalZippin .cg-envio-fila { grid-template-columns: 1fr; } }
 
-/* Solapa Descripción */
 html body #detalle #solapas .nav,
 html body #detalle #solapas .nav-tabs { background: transparent !important; border: 0 !important; border-bottom: 1px solid var(--dt-line) !important; }
 html body #detalle #solapas .nav-tabs .nav-link {
@@ -6244,7 +5506,6 @@ html body #detalle #solapas .nav-tabs .nav-link:hover { color: var(--dt-t) !impo
 html body #detalle #solapas .nav-tabs .nav-link.active { color: var(--dt-t) !important; border-bottom-color: var(--cg-accent, #d23f86) !important; }
 html body #detalle .dcorta { color: var(--dt-t2) !important; }
 
-/* Contenido de las solapas */
 html body #detalle #solapas { padding: 15px 0 !important; margin: 10px 0 0 !important; }
 html body #detalle #solapas .tab-content { width: 100%; padding: 22px 2px 6px; }
 html body #detalle #solapas .tab-pane { max-width: 900px; color: var(--dt-t2); font: 400 15.5px/1.65 "Manrope", Arial, sans-serif; }
@@ -6257,7 +5518,6 @@ html body #detalle #solapas .tab-pane li { margin: 0 0 6px; }
 html body #detalle #solapas .tab-pane img { max-width: 100%; height: auto; border-radius: 10px; }
 html body #detalle #solapas .tab-pane hr { border: 0; border-top: 1px solid var(--dt-line); margin: 18px 0; }
 
-/* Modelo de ficha técnica (tabla "cg-specs") */
 html body #detalle .cg-specs { width: 100%; margin: 6px 0 16px; border-collapse: separate; border-spacing: 0; border: 1px solid var(--dt-line); border-radius: 12px; overflow: hidden; }
 html body #detalle .cg-specs th,
 html body #detalle .cg-specs td { padding: 11px 14px; border-bottom: 1px solid var(--dt-line); text-align: left; vertical-align: top; font-size: 14.5px; }
@@ -6271,7 +5531,7 @@ html body #detalle .cg-specs td { color: var(--dt-t); font-weight: 600; }
   html body #detalle .price, html body #detalle .price #precio { font-size: 27px !important; }
   html body #detalle #boton-compra { max-width: none; }
 }
-/* Solo fichas con HEADER nuevo: elimina la reserva antigua de 200px. */
+
 body.cg-store-enabled div#detalle.container { margin-top: 22px !important; }
   div#modalCuotas div.modal-body { padding:15px 25px }
   div#modalCuotas table tr td { padding:10px 0 }
@@ -6287,13 +5547,7 @@ body.cg-store-enabled div#detalle.container { margin-top: 22px !important; }
 	font-size: 16px;
 }
 
-/* ======================================================================
-   32. FIRMA DEL ERP (Powered by GlobalBluePoint · Diseño by NetOne · QR de Data Fiscal) (v37 · v38)
-   La agrega el ERP debajo del footer, sin diseño propio: quedaba sobre el fondo de la página (blanco en modo claro).
-   Ahora es la última línea del footer: mismo grafito, línea fina arriba, letra chica y el QR alineado.
-   v38: las dos cajas del ERP que la envuelven (#divGlobalBluePointFooter y .divGlobalBluePointContenedor) pasan a
-   ocupar todo el ancho y con el mismo fondo: antes la dejaban al 80 % y a la mitad, con una franja blanca arriba.
-   ====================================================================== */
+/* 32. FIRMA DEL ERP (Powered by GlobalBluePoint */
 html body .divGlobalBluePointFirma {
   margin: 0 !important; padding: 10px var(--cg-margen, 20px) 16px !important; background: #111214 !important;
   border-top: 1px solid #23242a; text-align: center; font: 500 11.5px/1.4 "Manrope", system-ui, sans-serif; color: #8b8e99;
@@ -6312,20 +5566,9 @@ html body #divGlobalBluePointFooter, html body .divGlobalBluePointContenedor {
 }
 html body .divGlobalBluePointFirma { width: 100% !important; max-width: none !important; float: none !important; box-sizing: border-box; }
 
-/* v39: el iframe invisible del ERP (#iframeUIE) quedaba entre el footer y la firma y, aunque mide 4 px, ocupaba un renglón:
-   dejaba una franja blanca de 19 px. Sigue funcionando igual, solo deja de ocupar lugar. */
 html body #iframeUIE { position: absolute !important; width: 0 !important; height: 0 !important; border: 0 !important; }
 
-/* ======================================================================
-   33. [CG-GLASS-CARD v1.0 · 2026-10] TARJETA DE PRODUCTO EN VIDRIO ESMERILADO
-   Mismo sistema que el armador nuevo (mismas variables, mismos resplandores):
-   --cgx-vidrio / --cgx-vidrio2 / --cgx-borde se arman a partir de un color de
-   texto base (--cgx-t), asi se adaptan solos a claro y oscuro.
-   Solo cambia el fondo, el borde y el desenfoque de la tarjeta: la foto, el
-   precio, las etiquetas de oferta y el boton siguen exactamente igual.
-   Va con el mismo peso que las reglas de color de arriba (html.dark .product /
-   html:not(.dark) .product) para poder reemplazar su fondo solido.
-   ====================================================================== */
+/* 33. TARJETA DE PRODUCTO EN VIDRIO ESMERILADO */
 html.dark { --cgx-t: #ededef; }
 html:not(.dark) { --cgx-t: #1a1b20; }
 html { --cgx-vidrio: color-mix(in srgb, var(--cgx-t) 9%, transparent); --cgx-vidrio2: color-mix(in srgb, var(--cgx-t) 4%, transparent); --cgx-borde: color-mix(in srgb, var(--cgx-t) 16%, transparent); --cgx-grad: linear-gradient(135deg, #ff5fa8, #d23f86); }
@@ -6339,19 +5582,9 @@ html:not(.dark) .product {
 }
 html.dark .product:hover,
 html:not(.dark) .product:hover { border-color: color-mix(in srgb, var(--cg-accent, #d23f86) 45%, transparent) !important; }
-/* [/CG-GLASS-CARD v1.0] */
 
-/* ======================================================================
-   34. [CG-GLASS-SITE v1.0 · 2026-10] VIDRIO EN TODA LA WEB
-   Mismo sistema que la tarjeta (seccion 33) y que el armador: barra de
-   categorias, menu lateral y ventanas emergentes, mas los resplandores de
-   fondo (magenta arriba a la izquierda, violeta a la derecha) que hacen que
-   el vidrio se note. El header pegado arriba de todo (logo, buscador) no se
-   toca: solo la fila de categorias (Ofertas, Arma tu PC...), para no perder
-   legibilidad con el contenido pasando por debajo al hacer scroll.
-   ====================================================================== */
+/* 34. VIDRIO EN TODA LA WEB */
 
-/* Resplandores de fondo, en toda la web (van detras de todo, sin afectar el click) */
 body.cg-store-enabled::before,
 body.cg-store-enabled::after {
   content: ""; position: fixed; z-index: -1; pointer-events: none; border-radius: 50%;
@@ -6361,11 +5594,6 @@ body.cg-store-enabled::after { width: 560px; height: 560px; right: -200px; top: 
 html:not(.dark) body.cg-store-enabled::before,
 html:not(.dark) body.cg-store-enabled::after { opacity: .55; }
 
-/* Barra de categorias (Ofertas, Arma tu PC, Computadoras...)
-   v44: la barra y el menu estan encima de fotos (el slider, las fichas), no de un fondo liso como las
-   tarjetas. Con poca opacidad el desenfoque mezclaba los colores de esas fotos y quedaba todo gris,
-   dificil de leer. Por eso acan quedan CASI opacas (ancladas a su color de siempre) y el vidrio se nota
-   en el matiz y el brillo del borde, no dejando ver el fondo. */
 html.dark body.cg-store-enabled header.cg-site-header .cg-nav {
   background: linear-gradient(160deg, color-mix(in srgb, #fff 10%, #202020), color-mix(in srgb, #fff 4%, #202020)) !important;
   border-top: 1px solid color-mix(in srgb, #fff 16%, transparent) !important;
@@ -6380,7 +5608,6 @@ html.light body.cg-store-enabled header.cg-site-header .cg-nav {
   backdrop-filter: blur(14px) saturate(140%);
 }
 
-/* Menu lateral (se abre con el boton de hamburguesa) — mismo motivo que la barra: base casi opaca. */
 html.dark #sidebar.sidebar {
   background: linear-gradient(160deg, color-mix(in srgb, #fff 9%, var(--cg-bg)), color-mix(in srgb, #fff 3%, var(--cg-bg))) !important;
   border-right: 1px solid color-mix(in srgb, #fff 16%, transparent) !important;
@@ -6394,20 +5621,13 @@ html.light #sidebar.sidebar {
   backdrop-filter: blur(16px) saturate(140%);
 }
 
-/* Ventanas emergentes (carrito, cuotas, login, cotizar envio...): siempre con la
-   misma base oscura que ya tenian (el diseno actual las usa oscuras en los dos
-   modos), ahora en vidrio en vez de solidas. */
 .modal .modal-content {
   background: linear-gradient(160deg, color-mix(in srgb, #fff 10%, #15171c), color-mix(in srgb, #fff 4%, #15171c)) !important;
   border: 1px solid color-mix(in srgb, #fff 14%, transparent) !important;
   -webkit-backdrop-filter: blur(20px) saturate(150%);
   backdrop-filter: blur(20px) saturate(150%);
 }
-/* [/CG-GLASS-SITE v1.0] */
 
-/* v45: dos piezas que faltaban con el mismo vidrio casi opaco.
-   1) Pie del menu lateral (Seguir mi envio / Subir comprobante / Ayuda).
-   2) Submenu que se despliega en la barra (por ejemplo "Componentes"). */
 html.dark #sidebar .cg-sidebar-foot {
   background: linear-gradient(160deg, color-mix(in srgb, #fff 9%, var(--cg-bg, #0a0a0a)), color-mix(in srgb, #fff 3%, var(--cg-bg, #0a0a0a))) !important;
   border-top: 1px solid color-mix(in srgb, #fff 16%, transparent) !important;
@@ -6432,121 +5652,98 @@ html.light body.cg-store-enabled .cg-nav-panel {
   -webkit-backdrop-filter: blur(16px) saturate(140%);
   backdrop-filter: blur(16px) saturate(140%);
 }
-/* [/CG-GLASS-SITE v1.1] */
 
-
-/* ======================================================================
-   23. [CG-HEADER-NUEVO v0.2 · 2026-10] ENCABEZADO NUEVO (EN PRUEBA, version sutil)
-   Solo se ve con ?cgprueba=1 en la direccion (queda guardado; ?cgprueba=0 lo apaga).
-   Un solo color en toda la zona de arriba, barra flotante en el celular al bajar,
-   boton "Productos" en la computadora y menu lateral en vidrio.
-   Todo va bajo html.cg-prueba: sin la llave, la web queda igual que antes.
-   ====================================================================== */
+/* 23. ENCABEZADO NUEVO */
 .cg-nav-products-txt { display: none; }
-html.cg-prueba { --cg-hdr: #1c1f25; --cg-t: #f2f3f5; --cg-hdr-linea: color-mix(in srgb, #f2f3f5 11%, transparent); --cg-p: 0; }
-html.cg-prueba body #abrirpanelcarrito .caret,
-html.cg-prueba body ul.dropdown-cart { display: none !important; }
-html.cg-prueba body #abrirpanelcarrito.dropdown-toggle::after { display: none !important; }
+html:root { --cg-hdr: #1c1f25; }
+html:root body #abrirpanelcarrito .caret,
+html:root body ul.dropdown-cart { display: none !important; }
+html:root body #abrirpanelcarrito.dropdown-toggle::after { display: none !important; }
 
-/* ---- Celular (hasta 899 px): un solo color; la franja de "1 hora" se va con la pagina y la barra pasa a flotante de un golpe (sin estados a medias) ---- */
+.cg-tope { display: none; }
 @media (max-width: 899px) {
-  html.cg-prueba body.cg-store-enabled header.cg-site-header { display: contents !important; }
-  html.cg-prueba body.cg-store-enabled header.cg-site-header .gb-top-header { background: var(--cg-hdr) !important; }
-  html.cg-prueba body.cg-store-enabled header.cg-site-header #content-mobile {
-    position: sticky !important; top: 8px; z-index: 1030;
-    background-color: var(--cg-hdr) !important;
-    width: auto !important; max-width: none !important; margin: 0;
-    transition: margin .22s ease, background-color .22s ease;
+  html:root body.cg-store-enabled header.cg-site-header { display: contents !important; }
+  html:root body.cg-store-enabled header.cg-site-header .gb-top-header { background: var(--cg-hdr) !important; }
+  html:root body.cg-store-enabled header.cg-site-header .cg-promo { left: 0 !important; transform: none !important; margin-left: calc(50% - 50vw) !important; }
+  html:root body.cg-store-enabled header.cg-site-header #content-mobile {
+    position: sticky !important; top: 0 !important; z-index: 1030; margin: 0;
+    width: auto !important; max-width: none !important;
+    background-color: var(--cg-hdr) !important; transition: none !important; animation: none !important;
   }
-  html.cg-prueba.cg-flota body.cg-store-enabled header.cg-site-header #content-mobile { margin: 0 8px; background-color: transparent !important; }
-  html.cg-prueba body.cg-store-enabled header.cg-site-header #content-mobile .container.header,
-  html.cg-prueba body.cg-store-enabled header.cg-site-header #content-mobile .navbar { background: transparent !important; }
-  html.cg-prueba body.cg-store-enabled header.cg-site-header #content-mobile .container.header { position: relative; z-index: 1; }
-  html.cg-prueba body.cg-store-enabled header.cg-site-header #content-mobile::before {
+  html:root body.cg-store-enabled header.cg-site-header #content-mobile .container.header,
+  html:root body.cg-store-enabled header.cg-site-header #content-mobile .navbar { background: transparent !important; }
+  html:root body.cg-store-enabled header.cg-site-header #content-mobile .container.header { position: relative; z-index: 1; }
+  html:root body.cg-store-enabled header.cg-site-header #content-mobile::before {
     content: ""; position: absolute; z-index: 0; left: 0; right: 0; top: 0; bottom: 0;
-    border-radius: 0; background-color: var(--cg-hdr); border: 1px solid transparent;
-    -webkit-backdrop-filter: blur(0px) saturate(1); backdrop-filter: blur(0px) saturate(1);
-    transition: top .22s ease, bottom .22s ease, border-radius .22s ease, background-color .22s ease, border-color .22s ease, backdrop-filter .22s ease, -webkit-backdrop-filter .22s ease;
+    border-radius: 0; border: 1px solid transparent; background-color: #1c1f25 !important;
+    -webkit-backdrop-filter: none !important; backdrop-filter: none !important; transition: none !important; animation: none !important;
   }
-  html.cg-prueba.cg-flota body.cg-store-enabled header.cg-site-header #content-mobile::before {
-    top: 7px; bottom: 7px; border-radius: 16px;
-    background-color: color-mix(in srgb, #1c1f25 80%, transparent);
-    border-color: color-mix(in srgb, #f2f3f5 11%, transparent);
-    -webkit-backdrop-filter: blur(16px) saturate(1.4); backdrop-filter: blur(16px) saturate(1.4);
-  }
-  /* linea de marca debajo de la barra (solo arriba de todo; al flotar se va) */
-  html.cg-prueba body.cg-store-enabled header.cg-site-header #content-mobile::after {
+  html:root body.cg-store-enabled header.cg-site-header #content-mobile::after {
     content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 2px; pointer-events: none; z-index: 1;
     background: linear-gradient(90deg, transparent, rgba(210,63,134,.90) 22%, rgba(130,80,230,.85) 78%, transparent);
-    opacity: 1; transition: opacity .15s ease;
+    opacity: 1; transition: none !important; animation: none !important;
   }
-  html.cg-prueba.cg-flota body.cg-store-enabled header.cg-site-header #content-mobile::after { opacity: 0; }
-  /* el boton del menu vive dentro de la barra (lo acomoda el script) */
-  html.cg-prueba body #content-mobile .navbar #menuBtn { position: absolute !important; left: 0 !important; top: 50% !important; transform: translateY(-50%) !important; }
-  /* Orden: menu, lupa, logo (centro), persona, bolsa */
-  html.cg-prueba body #content-mobile #abrirpanelbusqueda { left: 58px !important; right: auto !important; }
-  html.cg-prueba body #content-mobile #usuarioMovilSinLoguear,
-  html.cg-prueba body #content-mobile #usuarioMovilLogueado { left: auto !important; right: 52px !important; }
-  html.cg-prueba body #content-mobile #abrirpanelcarrito { left: auto !important; right: 12px !important; }
+  html:root body.cg-store-enabled header.cg-site-header .cg-tope {
+    display: block; position: fixed; top: 0; left: 0; right: 0; z-index: 1031; pointer-events: auto;
+    height: calc(env(safe-area-inset-top, 0px) + 10px); background-color: #1c1f25 !important;
+    -webkit-backdrop-filter: none !important; backdrop-filter: none !important; transition: none !important; animation: none !important;
+  }
+  html:root body #content-mobile .navbar #menuBtn { position: absolute !important; left: 0 !important; top: 50% !important; transform: translateY(-50%) !important; }
+  html:root body #content-mobile #abrirpanelbusqueda { left: 58px !important; right: auto !important; }
+  html:root body #content-mobile #usuarioMovilSinLoguear,
+  html:root body #content-mobile #usuarioMovilLogueado { left: auto !important; right: 52px !important; }
+  html:root body #content-mobile #abrirpanelcarrito { left: auto !important; right: 12px !important; }
 }
 
-/* ---- Computadora (desde 900 px): solo la palabra Productos y la linea hasta donde llega el contenido ---- */
 @media (min-width: 900px) {
-  html.cg-prueba body.cg-store-enabled header.cg-site-header .cg-nav-products {
+  html:root body.cg-store-enabled header.cg-site-header .cg-nav-products {
     width: auto !important; min-width: 0 !important; max-width: none !important; overflow: visible !important;
     display: inline-flex !important; align-items: center; gap: 8px; justify-self: start; white-space: nowrap;
     padding-right: 12px !important; font-size: 13px !important;
   }
-  html.cg-prueba body.cg-store-enabled header.cg-site-header .cg-nav-products .cg-nav-products-txt { display: inline; font-size: 13px; font-weight: 600; }
-  html.cg-prueba body.cg-store-enabled header.cg-site-header nav.cg-nav { border-top: 0 !important; }
-  html.cg-prueba body.cg-store-enabled header.cg-site-header nav.cg-nav::before {
+  html:root body.cg-store-enabled header.cg-site-header .cg-nav-products .cg-nav-products-txt { display: inline; font-size: 13px; font-weight: 600; }
+  html:root body.cg-store-enabled header.cg-site-header nav.cg-nav { border-top: 0 !important; }
+  html:root body.cg-store-enabled header.cg-site-header nav.cg-nav::before {
     content: ""; position: absolute; top: 0; height: 1px; pointer-events: none;
     left: max(var(--cg-margen, 20px), calc((100% - var(--cg-ancho, 1440px)) / 2 + var(--cg-margen, 20px)));
     right: max(var(--cg-margen, 20px), calc((100% - var(--cg-ancho, 1440px)) / 2 + var(--cg-margen, 20px)));
     background: rgb(243 244 246 / .16);
   }
-  html.cg-prueba.light body.cg-store-enabled header.cg-site-header nav.cg-nav::before { background: rgb(20 20 30 / .12); }
+  html:root.light body.cg-store-enabled header.cg-site-header nav.cg-nav::before { background: rgb(20 20 30 / .12); }
 }
 
 @media (min-width: 900px) {
-  html.cg-prueba.dark body.cg-store-enabled header.cg-site-header .cg-nav-products,
-  html.cg-prueba.dark body.cg-store-enabled header.cg-site-header .cg-nav-products i,
-  html.cg-prueba.dark body.cg-store-enabled header.cg-site-header .cg-nav-products .cg-nav-products-txt { color: #f5f5f5 !important; -webkit-text-fill-color: #f5f5f5 !important; }
-  html.cg-prueba.light body.cg-store-enabled header.cg-site-header .cg-nav-products,
-  html.cg-prueba.light body.cg-store-enabled header.cg-site-header .cg-nav-products i,
-  html.cg-prueba.light body.cg-store-enabled header.cg-site-header .cg-nav-products .cg-nav-products-txt { color: #23252b !important; -webkit-text-fill-color: #23252b !important; }
+  html:root.dark body.cg-store-enabled header.cg-site-header .cg-nav-products,
+  html:root.dark body.cg-store-enabled header.cg-site-header .cg-nav-products i,
+  html:root.dark body.cg-store-enabled header.cg-site-header .cg-nav-products .cg-nav-products-txt { color: #f5f5f5 !important; -webkit-text-fill-color: #f5f5f5 !important; }
+  html:root.light body.cg-store-enabled header.cg-site-header .cg-nav-products,
+  html:root.light body.cg-store-enabled header.cg-site-header .cg-nav-products i,
+  html:root.light body.cg-store-enabled header.cg-site-header .cg-nav-products .cg-nav-products-txt { color: #23252b !important; -webkit-text-fill-color: #23252b !important; }
 }
 
-/* ---- Menu lateral: igual que hoy, solo el fondo pasa a vidrio; Empresas se saca del celular ---- */
-html.cg-prueba.dark body #sidebar { background: color-mix(in srgb, #1c1f25 86%, transparent) !important; -webkit-backdrop-filter: blur(16px) saturate(140%) !important; backdrop-filter: blur(16px) saturate(140%) !important; border-right: 1px solid color-mix(in srgb, #f2f3f5 11%, transparent) !important; }
-html.cg-prueba.light body #sidebar { background: #f4f5f7 !important; -webkit-backdrop-filter: none !important; backdrop-filter: none !important; border-right: 1px solid #e3e5e9 !important; }
-html.cg-prueba body #sidebar .cg-quick-actions .cg-solo-movil { display: none !important; }
+html:root.dark body #sidebar { background: color-mix(in srgb, #1c1f25 86%, transparent) !important; -webkit-backdrop-filter: blur(16px) saturate(140%) !important; backdrop-filter: blur(16px) saturate(140%) !important; border-right: 1px solid color-mix(in srgb, #f2f3f5 11%, transparent) !important; }
+html:root.light body #sidebar { background: #f4f5f7 !important; -webkit-backdrop-filter: none !important; backdrop-filter: none !important; border-right: 1px solid #e3e5e9 !important; }
+html:root body #sidebar .cg-quick-actions .cg-solo-movil { display: none !important; }
 
-
-/* 23b. [CG-HEADER-NUEVO v0.3] Computadora: el mismo gris del celular (#1c1f25) en la barra de arriba y el encabezado, en claro y oscuro;
-   la barra del menu tambien en oscuro. En claro la barra del menu sigue clara, como hoy. */
 @media (min-width: 900px) {
-  html.cg-prueba body.cg-store-enabled header.cg-site-header,
-  html.cg-prueba body.cg-store-enabled header.cg-site-header .cg-promo,
-  html.cg-prueba body.cg-store-enabled header.cg-site-header #content-desktop { background: var(--cg-hdr) !important; background-image: none !important; }
-  html.cg-prueba.dark body.cg-store-enabled header.cg-site-header nav.cg-nav {
+  html:root body.cg-store-enabled header.cg-site-header,
+  html:root body.cg-store-enabled header.cg-site-header .cg-promo,
+  html:root body.cg-store-enabled header.cg-site-header #content-desktop { background: var(--cg-hdr) !important; background-image: none !important; }
+  html:root.dark body.cg-store-enabled header.cg-site-header nav.cg-nav {
     background: var(--cg-hdr) !important; background-image: none !important; box-shadow: none !important;
     -webkit-backdrop-filter: none !important; backdrop-filter: none !important;
   }
 }
 
-
-/* 23c. [CG-HEADER-NUEVO v0.4] Detalles propios (computadora, todo bajo html.cg-prueba): buscador con el vidrio del armador (solo oscuro)
-   y una linea de marca magenta-violeta debajo de la barra del menu, del ancho del contenido. El boton Productos NO lleva recuadro. */
 @media (min-width: 900px) {
-  html.cg-prueba.dark body.cg-store-enabled header.cg-site-header .form-search form {
+  html:root.dark body.cg-store-enabled header.cg-site-header .form-search form {
     background: linear-gradient(160deg, color-mix(in srgb, #f2f3f5 5%, transparent), color-mix(in srgb, #f2f3f5 2.5%, transparent)) !important;
     border: 1px solid color-mix(in srgb, #f2f3f5 11%, transparent) !important;
     -webkit-backdrop-filter: blur(16px) saturate(140%); backdrop-filter: blur(16px) saturate(140%);
     border-radius: 12px !important;
   }
-  html.cg-prueba.dark body.cg-store-enabled header.cg-site-header .form-search form input { background: transparent !important; }
-  html.cg-prueba body.cg-store-enabled header.cg-site-header nav.cg-nav::after {
+  html:root.dark body.cg-store-enabled header.cg-site-header .form-search form input { background: transparent !important; }
+  html:root body.cg-store-enabled header.cg-site-header nav.cg-nav::after {
     content: ""; position: absolute; bottom: 0; height: 2px; pointer-events: none;
     left: max(var(--cg-margen, 20px), calc((100% - var(--cg-ancho, 1440px)) / 2 + var(--cg-margen, 20px)));
     right: max(var(--cg-margen, 20px), calc((100% - var(--cg-ancho, 1440px)) / 2 + var(--cg-margen, 20px)));
@@ -6554,99 +5751,130 @@ html.cg-prueba body #sidebar .cg-quick-actions .cg-solo-movil { display: none !i
   }
 }
 
-
-/* 23e. [CG-HEADER-NUEVO v0.6] Menu del celular: la fila que se abre y su lista con el vidrio del armador (oscuro) o con su gris sólido (claro).
-   Antes eran colores sólidos que tapaban el vidrio del panel. Iconos, textos y orden no cambian. Todo bajo html.cg-prueba. */
-html.cg-prueba.dark body #sidebar .menu-item.open {
+html:root.dark body #sidebar .menu-item.open {
   background: linear-gradient(160deg, color-mix(in srgb, #f2f3f5 6%, transparent), color-mix(in srgb, #f2f3f5 3%, transparent)) !important;
   border: 1px solid color-mix(in srgb, #f2f3f5 11%, transparent) !important;
   border-left: 3px solid rgb(210 63 134 / .85) !important;
   border-radius: 12px !important;
 }
-html.cg-prueba.dark body #sidebar .submenu {
+html:root.dark body #sidebar .submenu {
   background: linear-gradient(160deg, color-mix(in srgb, #f2f3f5 4%, transparent), color-mix(in srgb, #f2f3f5 1.5%, transparent)) !important;
   border-left: 2px solid rgb(210 63 134 / .55) !important;
   border-radius: 0 0 12px 12px !important;
 }
-html.cg-prueba.light body #sidebar .menu-item.open {
+html:root.light body #sidebar .menu-item.open {
   background: #ffffff !important; border: 1px solid #e3e5e9 !important;
   border-left: 3px solid rgb(210 63 134 / .85) !important; border-radius: 12px !important;
 }
-html.cg-prueba.light body #sidebar .submenu {
+html:root.light body #sidebar .submenu {
   background: #fbfbfc !important; border-left: 2px solid rgb(210 63 134 / .55) !important; border-radius: 0 0 12px 12px !important;
 }
-html.cg-prueba.light body #sidebar .menu-item.open .chevron { color: #15171c !important; }
+html:root.light body #sidebar .menu-item.open .chevron { color: #15171c !important; }
 
-
-/* 23f. [CG-HEADER-NUEVO v0.8] Iconos nuevos del encabezado (persona, bolsa, lupa, menu, rayo de Ofertas, sol y luna): trazo fino y relleno translucido tipo vidrio.
-   Dibujados como mascara con el color del texto (sin rgb() dentro del dibujo: el minificador de jsDelivr lo convertia en #hex y rompia la imagen).
-   Misma caja que los de antes, asi no se mueve nada. Todo bajo html.cg-prueba. */
-/* ICONOS NUEVOS (prueba): trazo fino y relleno translucido tipo vidrio, dibujados como mascara con el color del texto */
 @media (min-width: 900px) {
-html.cg-prueba body.cg-store-enabled header.cg-site-header .cg-nav-products i.fa-bars { font-size: 0 !important; line-height: 0 !important; width: 18px !important; height: 18px !important; display: block !important; position: relative !important; overflow: visible !important; }
-html.cg-prueba body.cg-store-enabled header.cg-site-header .cg-nav-products i.fa-bars::before { content: "" !important; display: block !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; width: 26px; height: 26px; background: currentColor !important; -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M4 7.5h16M4 12h16M4 16.5h16' fill='none' stroke='black' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E") center / contain no-repeat !important; mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M4 7.5h16M4 12h16M4 16.5h16' fill='none' stroke='black' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E") center / contain no-repeat !important; }
-html.cg-prueba body.cg-store-enabled header.cg-site-header #content-desktop .ingresotop a i.fa-circle-user { font-size: 0 !important; line-height: 0 !important; width: 20px !important; height: 20px !important; display: block !important; position: relative !important; overflow: visible !important; color: #f5f5f5 !important; }
-html.cg-prueba body.cg-store-enabled header.cg-site-header #content-desktop .ingresotop a i.fa-circle-user::before { content: "" !important; display: block !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; width: 28px; height: 28px; background: currentColor !important; -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Ccircle cx='12' cy='8.1' r='3.7' stroke='black' stroke-opacity='.96' stroke-width='1.4' stroke-linecap='round' stroke-linejoin='round' fill='black' fill-opacity='.14'/%3E%3Cpath d='M4.9 20.3c.7-3.6 3.5-5.7 7.1-5.7s6.4 2.1 7.1 5.7z' stroke='black' stroke-opacity='.96' stroke-width='1.4' stroke-linecap='round' stroke-linejoin='round' fill='black' fill-opacity='.14'/%3E%3C/svg%3E") center / contain no-repeat !important; mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Ccircle cx='12' cy='8.1' r='3.7' stroke='black' stroke-opacity='.96' stroke-width='1.4' stroke-linecap='round' stroke-linejoin='round' fill='black' fill-opacity='.14'/%3E%3Cpath d='M4.9 20.3c.7-3.6 3.5-5.7 7.1-5.7s6.4 2.1 7.1 5.7z' stroke='black' stroke-opacity='.96' stroke-width='1.4' stroke-linecap='round' stroke-linejoin='round' fill='black' fill-opacity='.14'/%3E%3C/svg%3E") center / contain no-repeat !important; }
-html.cg-prueba body.cg-store-enabled header.cg-site-header #content-desktop .cg-cart-ico i.fa-bag-shopping { font-size: 0 !important; line-height: 0 !important; width: 20px !important; height: 20px !important; display: block !important; position: relative !important; overflow: visible !important; color: #f5f5f5 !important; }
-html.cg-prueba body.cg-store-enabled header.cg-site-header #content-desktop .cg-cart-ico i.fa-bag-shopping::before { content: "" !important; display: block !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; width: 28px; height: 28px; background: currentColor !important; -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M5.5 8.7h13l-1.1 10.5a1.9 1.9 0 0 1-1.9 1.7H8.5a1.9 1.9 0 0 1-1.9-1.7z' stroke='black' stroke-opacity='.96' stroke-width='1.4' stroke-linecap='round' stroke-linejoin='round' fill='black' fill-opacity='.14'/%3E%3Cpath d='M9 8.7V7.5a3 3 0 0 1 6 0v1.2' stroke='black' stroke-opacity='.96' stroke-width='1.4' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3C/svg%3E") center / contain no-repeat !important; mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M5.5 8.7h13l-1.1 10.5a1.9 1.9 0 0 1-1.9 1.7H8.5a1.9 1.9 0 0 1-1.9-1.7z' stroke='black' stroke-opacity='.96' stroke-width='1.4' stroke-linecap='round' stroke-linejoin='round' fill='black' fill-opacity='.14'/%3E%3Cpath d='M9 8.7V7.5a3 3 0 0 1 6 0v1.2' stroke='black' stroke-opacity='.96' stroke-width='1.4' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3C/svg%3E") center / contain no-repeat !important; }
-html.cg-prueba body.cg-store-enabled header.cg-site-header nav.cg-nav .cg-nav-links a i.fa-bolt { font-size: 0 !important; width: 11px !important; height: 13px !important; display: inline-block !important; position: relative !important; overflow: visible !important; vertical-align: middle; }
-html.cg-prueba body.cg-store-enabled header.cg-site-header nav.cg-nav .cg-nav-links a i.fa-bolt::before { content: "" !important; display: block !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; width: 16px; height: 16px; background: currentColor !important; -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M13.2 2.5 4.8 13.4h6.4l-1 8.1 8.9-11.4h-6.5z' fill='none' stroke='black' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / contain no-repeat !important; mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M13.2 2.5 4.8 13.4h6.4l-1 8.1 8.9-11.4h-6.5z' fill='none' stroke='black' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / contain no-repeat !important; }
-html.cg-prueba body.cg-store-enabled header.cg-site-header #content-desktop .gb-search-button::before { content: "" !important; display: block !important; width: 26px; height: 26px; margin: auto; color: #f5f5f5 !important; border: 0 !important; background: currentColor !important; -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Ccircle cx='10.8' cy='10.8' r='6.3' stroke='black' stroke-opacity='.96' stroke-width='1.4' stroke-linecap='round' stroke-linejoin='round' fill='black' fill-opacity='.14'/%3E%3Cpath d='M15.5 15.5 20 20' stroke='black' stroke-opacity='.96' stroke-width='1.4' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3C/svg%3E") center / contain no-repeat !important; mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Ccircle cx='10.8' cy='10.8' r='6.3' stroke='black' stroke-opacity='.96' stroke-width='1.4' stroke-linecap='round' stroke-linejoin='round' fill='black' fill-opacity='.14'/%3E%3Cpath d='M15.5 15.5 20 20' stroke='black' stroke-opacity='.96' stroke-width='1.4' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3C/svg%3E") center / contain no-repeat !important; }
-html.cg-prueba body.cg-store-enabled header.cg-site-header #content-desktop .gb-search-button::after { content: none !important; }
-html.cg-prueba body.cg-store-enabled header.cg-site-header label.theme-switch .cg-desktop-theme-icon { font-size: 0 !important; width: 22px !important; height: 22px !important; display: block !important; }
-html.cg-prueba body.cg-store-enabled header.cg-site-header label.theme-switch .cg-desktop-theme-icon::before { content: "" !important; display: block; width: 22px; height: 22px; background: currentColor !important; -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Ccircle cx='12' cy='12' r='3.8' stroke='black' stroke-opacity='.96' stroke-width='1.4' stroke-linecap='round' stroke-linejoin='round' fill='black' fill-opacity='.14'/%3E%3Cpath d='M12 3.4v1.7M12 18.9v1.7M3.4 12h1.7M18.9 12h1.7M5.9 5.9l1.2 1.2M16.9 16.9l1.2 1.2M5.9 18.1l1.2-1.2M16.9 7.1l1.2-1.2' stroke='black' stroke-opacity='.96' stroke-width='1.4' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3C/svg%3E") center / contain no-repeat !important; mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Ccircle cx='12' cy='12' r='3.8' stroke='black' stroke-opacity='.96' stroke-width='1.4' stroke-linecap='round' stroke-linejoin='round' fill='black' fill-opacity='.14'/%3E%3Cpath d='M12 3.4v1.7M12 18.9v1.7M3.4 12h1.7M18.9 12h1.7M5.9 5.9l1.2 1.2M16.9 16.9l1.2 1.2M5.9 18.1l1.2-1.2M16.9 7.1l1.2-1.2' stroke='black' stroke-opacity='.96' stroke-width='1.4' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3C/svg%3E") center / contain no-repeat !important; }
-html.cg-prueba body.cg-store-enabled header.cg-site-header label.theme-switch .cg-desktop-theme-icon.fa-moon::before { -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M19.5 14.7A7.7 7.7 0 0 1 9.3 4.5a7.7 7.7 0 1 0 10.2 10.2z' stroke='black' stroke-opacity='.96' stroke-width='1.4' stroke-linecap='round' stroke-linejoin='round' fill='black' fill-opacity='.14'/%3E%3C/svg%3E") center / contain no-repeat !important; mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M19.5 14.7A7.7 7.7 0 0 1 9.3 4.5a7.7 7.7 0 1 0 10.2 10.2z' stroke='black' stroke-opacity='.96' stroke-width='1.4' stroke-linecap='round' stroke-linejoin='round' fill='black' fill-opacity='.14'/%3E%3C/svg%3E") center / contain no-repeat !important; }
-html.cg-prueba.dark body.cg-store-enabled header.cg-site-header label.theme-switch .cg-desktop-theme-icon { color: #f5f5f5 !important; }
-html.cg-prueba.light body.cg-store-enabled header.cg-site-header label.theme-switch .cg-desktop-theme-icon { color: #23252b !important; }
-html.cg-prueba.dark body.cg-store-enabled header.cg-site-header label.theme-switch {
+html:root body.cg-store-enabled header.cg-site-header .cg-nav-products i.fa-bars { font-size: 0 !important; line-height: 0 !important; width: 18px !important; height: 18px !important; display: block !important; position: relative !important; overflow: visible !important; }
+html:root body.cg-store-enabled header.cg-site-header .cg-nav-products i.fa-bars::before { content: "" !important; display: block !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; width: 26px; height: 26px; background: currentColor !important; -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M4 7.5h16M4 12h16M4 16.5h16' fill='none' stroke='black' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E") center / contain no-repeat !important; mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M4 7.5h16M4 12h16M4 16.5h16' fill='none' stroke='black' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E") center / contain no-repeat !important; }
+html:root body.cg-store-enabled header.cg-site-header #content-desktop .ingresotop a i.fa-circle-user { font-size: 0 !important; line-height: 0 !important; width: 20px !important; height: 20px !important; display: block !important; position: relative !important; overflow: visible !important; color: #f5f5f5 !important; }
+html:root body.cg-store-enabled header.cg-site-header #content-desktop .ingresotop a i.fa-circle-user::before { content: "" !important; display: block !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; width: 28px; height: 28px; background: currentColor !important; -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Ccircle cx='12' cy='8.1' r='3.7' stroke='black' stroke-opacity='.96' stroke-width='1.4' stroke-linecap='round' stroke-linejoin='round' fill='black' fill-opacity='.14'/%3E%3Cpath d='M4.9 20.3c.7-3.6 3.5-5.7 7.1-5.7s6.4 2.1 7.1 5.7z' stroke='black' stroke-opacity='.96' stroke-width='1.4' stroke-linecap='round' stroke-linejoin='round' fill='black' fill-opacity='.14'/%3E%3C/svg%3E") center / contain no-repeat !important; mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Ccircle cx='12' cy='8.1' r='3.7' stroke='black' stroke-opacity='.96' stroke-width='1.4' stroke-linecap='round' stroke-linejoin='round' fill='black' fill-opacity='.14'/%3E%3Cpath d='M4.9 20.3c.7-3.6 3.5-5.7 7.1-5.7s6.4 2.1 7.1 5.7z' stroke='black' stroke-opacity='.96' stroke-width='1.4' stroke-linecap='round' stroke-linejoin='round' fill='black' fill-opacity='.14'/%3E%3C/svg%3E") center / contain no-repeat !important; }
+html:root body.cg-store-enabled header.cg-site-header #content-desktop .cg-cart-ico i.fa-bag-shopping { font-size: 0 !important; line-height: 0 !important; width: 20px !important; height: 20px !important; display: block !important; position: relative !important; overflow: visible !important; color: #f5f5f5 !important; }
+html:root body.cg-store-enabled header.cg-site-header #content-desktop .cg-cart-ico i.fa-bag-shopping::before { content: "" !important; display: block !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; width: 28px; height: 28px; background: currentColor !important; -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M5.5 8.7h13l-1.1 10.5a1.9 1.9 0 0 1-1.9 1.7H8.5a1.9 1.9 0 0 1-1.9-1.7z' stroke='black' stroke-opacity='.96' stroke-width='1.4' stroke-linecap='round' stroke-linejoin='round' fill='black' fill-opacity='.14'/%3E%3Cpath d='M9 8.7V7.5a3 3 0 0 1 6 0v1.2' stroke='black' stroke-opacity='.96' stroke-width='1.4' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3C/svg%3E") center / contain no-repeat !important; mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M5.5 8.7h13l-1.1 10.5a1.9 1.9 0 0 1-1.9 1.7H8.5a1.9 1.9 0 0 1-1.9-1.7z' stroke='black' stroke-opacity='.96' stroke-width='1.4' stroke-linecap='round' stroke-linejoin='round' fill='black' fill-opacity='.14'/%3E%3Cpath d='M9 8.7V7.5a3 3 0 0 1 6 0v1.2' stroke='black' stroke-opacity='.96' stroke-width='1.4' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3C/svg%3E") center / contain no-repeat !important; }
+html:root body.cg-store-enabled header.cg-site-header nav.cg-nav .cg-nav-links a i.fa-bolt { font-size: 0 !important; width: 11px !important; height: 13px !important; display: inline-block !important; position: relative !important; overflow: visible !important; vertical-align: middle; }
+html:root body.cg-store-enabled header.cg-site-header nav.cg-nav .cg-nav-links a i.fa-bolt::before { content: "" !important; display: block !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; width: 16px; height: 16px; background: currentColor !important; -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M13.2 2.5 4.8 13.4h6.4l-1 8.1 8.9-11.4h-6.5z' fill='none' stroke='black' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / contain no-repeat !important; mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M13.2 2.5 4.8 13.4h6.4l-1 8.1 8.9-11.4h-6.5z' fill='none' stroke='black' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / contain no-repeat !important; }
+html:root body.cg-store-enabled header.cg-site-header #content-desktop .gb-search-button::before { content: "" !important; display: block !important; width: 26px; height: 26px; margin: auto; color: #f5f5f5 !important; border: 0 !important; background: currentColor !important; -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Ccircle cx='10.8' cy='10.8' r='6.3' stroke='black' stroke-opacity='.96' stroke-width='1.4' stroke-linecap='round' stroke-linejoin='round' fill='black' fill-opacity='.14'/%3E%3Cpath d='M15.5 15.5 20 20' stroke='black' stroke-opacity='.96' stroke-width='1.4' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3C/svg%3E") center / contain no-repeat !important; mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Ccircle cx='10.8' cy='10.8' r='6.3' stroke='black' stroke-opacity='.96' stroke-width='1.4' stroke-linecap='round' stroke-linejoin='round' fill='black' fill-opacity='.14'/%3E%3Cpath d='M15.5 15.5 20 20' stroke='black' stroke-opacity='.96' stroke-width='1.4' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3C/svg%3E") center / contain no-repeat !important; }
+html:root body.cg-store-enabled header.cg-site-header #content-desktop .gb-search-button::after { content: none !important; }
+html:root body.cg-store-enabled header.cg-site-header label.theme-switch .cg-desktop-theme-icon { font-size: 0 !important; width: 22px !important; height: 22px !important; display: block !important; }
+html:root body.cg-store-enabled header.cg-site-header label.theme-switch .cg-desktop-theme-icon::before { content: "" !important; display: block; width: 22px; height: 22px; background: currentColor !important; -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Ccircle cx='12' cy='12' r='3.8' stroke='black' stroke-opacity='.96' stroke-width='1.4' stroke-linecap='round' stroke-linejoin='round' fill='black' fill-opacity='.14'/%3E%3Cpath d='M12 3.4v1.7M12 18.9v1.7M3.4 12h1.7M18.9 12h1.7M5.9 5.9l1.2 1.2M16.9 16.9l1.2 1.2M5.9 18.1l1.2-1.2M16.9 7.1l1.2-1.2' stroke='black' stroke-opacity='.96' stroke-width='1.4' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3C/svg%3E") center / contain no-repeat !important; mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Ccircle cx='12' cy='12' r='3.8' stroke='black' stroke-opacity='.96' stroke-width='1.4' stroke-linecap='round' stroke-linejoin='round' fill='black' fill-opacity='.14'/%3E%3Cpath d='M12 3.4v1.7M12 18.9v1.7M3.4 12h1.7M18.9 12h1.7M5.9 5.9l1.2 1.2M16.9 16.9l1.2 1.2M5.9 18.1l1.2-1.2M16.9 7.1l1.2-1.2' stroke='black' stroke-opacity='.96' stroke-width='1.4' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3C/svg%3E") center / contain no-repeat !important; }
+html:root body.cg-store-enabled header.cg-site-header label.theme-switch .cg-desktop-theme-icon.fa-moon::before { -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M19.5 14.7A7.7 7.7 0 0 1 9.3 4.5a7.7 7.7 0 1 0 10.2 10.2z' stroke='black' stroke-opacity='.96' stroke-width='1.4' stroke-linecap='round' stroke-linejoin='round' fill='black' fill-opacity='.14'/%3E%3C/svg%3E") center / contain no-repeat !important; mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M19.5 14.7A7.7 7.7 0 0 1 9.3 4.5a7.7 7.7 0 1 0 10.2 10.2z' stroke='black' stroke-opacity='.96' stroke-width='1.4' stroke-linecap='round' stroke-linejoin='round' fill='black' fill-opacity='.14'/%3E%3C/svg%3E") center / contain no-repeat !important; }
+html:root.dark body.cg-store-enabled header.cg-site-header label.theme-switch .cg-desktop-theme-icon { color: #f5f5f5 !important; }
+html:root.light body.cg-store-enabled header.cg-site-header label.theme-switch .cg-desktop-theme-icon { color: #23252b !important; }
+html:root.dark body.cg-store-enabled header.cg-site-header label.theme-switch {
   background: linear-gradient(160deg, color-mix(in srgb, #f2f3f5 5%, transparent), color-mix(in srgb, #f2f3f5 2.5%, transparent)) !important;
   border: 1px solid color-mix(in srgb, #f2f3f5 11%, transparent) !important; -webkit-backdrop-filter: blur(16px) saturate(140%); backdrop-filter: blur(16px) saturate(140%); }
-html.cg-prueba.light body.cg-store-enabled header.cg-site-header label.theme-switch { background: #ffffff !important; border: 1px solid #e3e5e9 !important; }
+html:root.light body.cg-store-enabled header.cg-site-header label.theme-switch { background: #ffffff !important; border: 1px solid #e3e5e9 !important; }
 }
 @media (max-width: 899px) {
-html.cg-prueba body #menuBtn i.fa-bars { font-size: 0 !important; line-height: 0 !important; width: 20px !important; height: 20px !important; display: block !important; position: relative !important; overflow: visible !important; color: #f5f5f5 !important; }
-html.cg-prueba body #menuBtn i.fa-bars::before { content: "" !important; display: block !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; width: 26px; height: 26px; background: currentColor !important; -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M4 7.5h16M4 12h16M4 16.5h16' fill='none' stroke='black' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E") center / contain no-repeat !important; mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M4 7.5h16M4 12h16M4 16.5h16' fill='none' stroke='black' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E") center / contain no-repeat !important; }
-html.cg-prueba body.cg-store-enabled header.cg-site-header #content-mobile #usuarioMovilSinLoguear i { font-size: 0 !important; line-height: 0 !important; width: 20px !important; height: 20px !important; display: block !important; position: relative !important; overflow: visible !important; color: #f5f5f5 !important; }
-html.cg-prueba body.cg-store-enabled header.cg-site-header #content-mobile #usuarioMovilSinLoguear i::before { content: "" !important; display: block !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; width: 28px; height: 28px; background: currentColor !important; -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Ccircle cx='12' cy='8.1' r='3.7' stroke='black' stroke-opacity='.96' stroke-width='1.4' stroke-linecap='round' stroke-linejoin='round' fill='black' fill-opacity='.14'/%3E%3Cpath d='M4.9 20.3c.7-3.6 3.5-5.7 7.1-5.7s6.4 2.1 7.1 5.7z' stroke='black' stroke-opacity='.96' stroke-width='1.4' stroke-linecap='round' stroke-linejoin='round' fill='black' fill-opacity='.14'/%3E%3C/svg%3E") center / contain no-repeat !important; mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Ccircle cx='12' cy='8.1' r='3.7' stroke='black' stroke-opacity='.96' stroke-width='1.4' stroke-linecap='round' stroke-linejoin='round' fill='black' fill-opacity='.14'/%3E%3Cpath d='M4.9 20.3c.7-3.6 3.5-5.7 7.1-5.7s6.4 2.1 7.1 5.7z' stroke='black' stroke-opacity='.96' stroke-width='1.4' stroke-linecap='round' stroke-linejoin='round' fill='black' fill-opacity='.14'/%3E%3C/svg%3E") center / contain no-repeat !important; }
-html.cg-prueba body.cg-store-enabled header.cg-site-header #content-mobile #usuarioMovilLogueado i { font-size: 0 !important; line-height: 0 !important; width: 20px !important; height: 20px !important; display: block !important; position: relative !important; overflow: visible !important; color: #f5f5f5 !important; }
-html.cg-prueba body.cg-store-enabled header.cg-site-header #content-mobile #usuarioMovilLogueado i::before { content: "" !important; display: block !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; width: 28px; height: 28px; background: currentColor !important; -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Ccircle cx='12' cy='8.1' r='3.7' stroke='black' stroke-opacity='.96' stroke-width='1.4' stroke-linecap='round' stroke-linejoin='round' fill='black' fill-opacity='.14'/%3E%3Cpath d='M4.9 20.3c.7-3.6 3.5-5.7 7.1-5.7s6.4 2.1 7.1 5.7z' stroke='black' stroke-opacity='.96' stroke-width='1.4' stroke-linecap='round' stroke-linejoin='round' fill='black' fill-opacity='.14'/%3E%3C/svg%3E") center / contain no-repeat !important; mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Ccircle cx='12' cy='8.1' r='3.7' stroke='black' stroke-opacity='.96' stroke-width='1.4' stroke-linecap='round' stroke-linejoin='round' fill='black' fill-opacity='.14'/%3E%3Cpath d='M4.9 20.3c.7-3.6 3.5-5.7 7.1-5.7s6.4 2.1 7.1 5.7z' stroke='black' stroke-opacity='.96' stroke-width='1.4' stroke-linecap='round' stroke-linejoin='round' fill='black' fill-opacity='.14'/%3E%3C/svg%3E") center / contain no-repeat !important; }
-html.cg-prueba body.cg-store-enabled header.cg-site-header #content-mobile #abrirpanelcarrito .cg-cart-ico i { font-size: 0 !important; line-height: 0 !important; width: 20px !important; height: 20px !important; display: block !important; position: relative !important; overflow: visible !important; color: #f5f5f5 !important; }
-html.cg-prueba body.cg-store-enabled header.cg-site-header #content-mobile #abrirpanelcarrito .cg-cart-ico i::before { content: "" !important; display: block !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; width: 28px; height: 28px; background: currentColor !important; -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M5.5 8.7h13l-1.1 10.5a1.9 1.9 0 0 1-1.9 1.7H8.5a1.9 1.9 0 0 1-1.9-1.7z' stroke='black' stroke-opacity='.96' stroke-width='1.4' stroke-linecap='round' stroke-linejoin='round' fill='black' fill-opacity='.14'/%3E%3Cpath d='M9 8.7V7.5a3 3 0 0 1 6 0v1.2' stroke='black' stroke-opacity='.96' stroke-width='1.4' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3C/svg%3E") center / contain no-repeat !important; mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M5.5 8.7h13l-1.1 10.5a1.9 1.9 0 0 1-1.9 1.7H8.5a1.9 1.9 0 0 1-1.9-1.7z' stroke='black' stroke-opacity='.96' stroke-width='1.4' stroke-linecap='round' stroke-linejoin='round' fill='black' fill-opacity='.14'/%3E%3Cpath d='M9 8.7V7.5a3 3 0 0 1 6 0v1.2' stroke='black' stroke-opacity='.96' stroke-width='1.4' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3C/svg%3E") center / contain no-repeat !important; }
-html.cg-prueba body.cg-store-enabled header.cg-site-header #content-mobile #abrirpanelbusqueda i { font-size: 0 !important; line-height: 0 !important; width: 20px !important; height: 20px !important; display: block !important; position: relative !important; overflow: visible !important; color: #f5f5f5 !important; }
-html.cg-prueba body.cg-store-enabled header.cg-site-header #content-mobile #abrirpanelbusqueda i::before { content: "" !important; display: block !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; width: 28px; height: 28px; background: currentColor !important; -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Ccircle cx='10.8' cy='10.8' r='6.3' stroke='black' stroke-opacity='.96' stroke-width='1.4' stroke-linecap='round' stroke-linejoin='round' fill='black' fill-opacity='.14'/%3E%3Cpath d='M15.5 15.5 20 20' stroke='black' stroke-opacity='.96' stroke-width='1.4' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3C/svg%3E") center / contain no-repeat !important; mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Ccircle cx='10.8' cy='10.8' r='6.3' stroke='black' stroke-opacity='.96' stroke-width='1.4' stroke-linecap='round' stroke-linejoin='round' fill='black' fill-opacity='.14'/%3E%3Cpath d='M15.5 15.5 20 20' stroke='black' stroke-opacity='.96' stroke-width='1.4' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3C/svg%3E") center / contain no-repeat !important; }
+html:root body #menuBtn i.fa-bars { font-size: 0 !important; line-height: 0 !important; width: 20px !important; height: 20px !important; display: block !important; position: relative !important; overflow: visible !important; color: #f5f5f5 !important; }
+html:root body #menuBtn i.fa-bars::before { content: "" !important; display: block !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; width: 26px; height: 26px; background: currentColor !important; -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M4 7.5h16M4 12h16M4 16.5h16' fill='none' stroke='black' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E") center / contain no-repeat !important; mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M4 7.5h16M4 12h16M4 16.5h16' fill='none' stroke='black' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E") center / contain no-repeat !important; }
+html:root body.cg-store-enabled header.cg-site-header #content-mobile #usuarioMovilSinLoguear i { font-size: 0 !important; line-height: 0 !important; width: 20px !important; height: 20px !important; display: block !important; position: relative !important; overflow: visible !important; color: #f5f5f5 !important; }
+html:root body.cg-store-enabled header.cg-site-header #content-mobile #usuarioMovilSinLoguear i::before { content: "" !important; display: block !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; width: 28px; height: 28px; background: currentColor !important; -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Ccircle cx='12' cy='8.1' r='3.7' stroke='black' stroke-opacity='.96' stroke-width='1.4' stroke-linecap='round' stroke-linejoin='round' fill='black' fill-opacity='.14'/%3E%3Cpath d='M4.9 20.3c.7-3.6 3.5-5.7 7.1-5.7s6.4 2.1 7.1 5.7z' stroke='black' stroke-opacity='.96' stroke-width='1.4' stroke-linecap='round' stroke-linejoin='round' fill='black' fill-opacity='.14'/%3E%3C/svg%3E") center / contain no-repeat !important; mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Ccircle cx='12' cy='8.1' r='3.7' stroke='black' stroke-opacity='.96' stroke-width='1.4' stroke-linecap='round' stroke-linejoin='round' fill='black' fill-opacity='.14'/%3E%3Cpath d='M4.9 20.3c.7-3.6 3.5-5.7 7.1-5.7s6.4 2.1 7.1 5.7z' stroke='black' stroke-opacity='.96' stroke-width='1.4' stroke-linecap='round' stroke-linejoin='round' fill='black' fill-opacity='.14'/%3E%3C/svg%3E") center / contain no-repeat !important; }
+html:root body.cg-store-enabled header.cg-site-header #content-mobile #usuarioMovilLogueado i { font-size: 0 !important; line-height: 0 !important; width: 20px !important; height: 20px !important; display: block !important; position: relative !important; overflow: visible !important; color: #f5f5f5 !important; }
+html:root body.cg-store-enabled header.cg-site-header #content-mobile #usuarioMovilLogueado i::before { content: "" !important; display: block !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; width: 28px; height: 28px; background: currentColor !important; -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Ccircle cx='12' cy='8.1' r='3.7' stroke='black' stroke-opacity='.96' stroke-width='1.4' stroke-linecap='round' stroke-linejoin='round' fill='black' fill-opacity='.14'/%3E%3Cpath d='M4.9 20.3c.7-3.6 3.5-5.7 7.1-5.7s6.4 2.1 7.1 5.7z' stroke='black' stroke-opacity='.96' stroke-width='1.4' stroke-linecap='round' stroke-linejoin='round' fill='black' fill-opacity='.14'/%3E%3C/svg%3E") center / contain no-repeat !important; mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Ccircle cx='12' cy='8.1' r='3.7' stroke='black' stroke-opacity='.96' stroke-width='1.4' stroke-linecap='round' stroke-linejoin='round' fill='black' fill-opacity='.14'/%3E%3Cpath d='M4.9 20.3c.7-3.6 3.5-5.7 7.1-5.7s6.4 2.1 7.1 5.7z' stroke='black' stroke-opacity='.96' stroke-width='1.4' stroke-linecap='round' stroke-linejoin='round' fill='black' fill-opacity='.14'/%3E%3C/svg%3E") center / contain no-repeat !important; }
+html:root body.cg-store-enabled header.cg-site-header #content-mobile #abrirpanelcarrito .cg-cart-ico i { font-size: 0 !important; line-height: 0 !important; width: 20px !important; height: 20px !important; display: block !important; position: relative !important; overflow: visible !important; color: #f5f5f5 !important; }
+html:root body.cg-store-enabled header.cg-site-header #content-mobile #abrirpanelcarrito .cg-cart-ico i::before { content: "" !important; display: block !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; width: 28px; height: 28px; background: currentColor !important; -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M5.5 8.7h13l-1.1 10.5a1.9 1.9 0 0 1-1.9 1.7H8.5a1.9 1.9 0 0 1-1.9-1.7z' stroke='black' stroke-opacity='.96' stroke-width='1.4' stroke-linecap='round' stroke-linejoin='round' fill='black' fill-opacity='.14'/%3E%3Cpath d='M9 8.7V7.5a3 3 0 0 1 6 0v1.2' stroke='black' stroke-opacity='.96' stroke-width='1.4' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3C/svg%3E") center / contain no-repeat !important; mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M5.5 8.7h13l-1.1 10.5a1.9 1.9 0 0 1-1.9 1.7H8.5a1.9 1.9 0 0 1-1.9-1.7z' stroke='black' stroke-opacity='.96' stroke-width='1.4' stroke-linecap='round' stroke-linejoin='round' fill='black' fill-opacity='.14'/%3E%3Cpath d='M9 8.7V7.5a3 3 0 0 1 6 0v1.2' stroke='black' stroke-opacity='.96' stroke-width='1.4' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3C/svg%3E") center / contain no-repeat !important; }
+html:root body.cg-store-enabled header.cg-site-header #content-mobile #abrirpanelbusqueda i { font-size: 0 !important; line-height: 0 !important; width: 20px !important; height: 20px !important; display: block !important; position: relative !important; overflow: visible !important; color: #f5f5f5 !important; }
+html:root body.cg-store-enabled header.cg-site-header #content-mobile #abrirpanelbusqueda i::before { content: "" !important; display: block !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; width: 28px; height: 28px; background: currentColor !important; -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Ccircle cx='10.8' cy='10.8' r='6.3' stroke='black' stroke-opacity='.96' stroke-width='1.4' stroke-linecap='round' stroke-linejoin='round' fill='black' fill-opacity='.14'/%3E%3Cpath d='M15.5 15.5 20 20' stroke='black' stroke-opacity='.96' stroke-width='1.4' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3C/svg%3E") center / contain no-repeat !important; mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Ccircle cx='10.8' cy='10.8' r='6.3' stroke='black' stroke-opacity='.96' stroke-width='1.4' stroke-linecap='round' stroke-linejoin='round' fill='black' fill-opacity='.14'/%3E%3Cpath d='M15.5 15.5 20 20' stroke='black' stroke-opacity='.96' stroke-width='1.4' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3C/svg%3E") center / contain no-repeat !important; }
 }
 
-
-/* 23g. [CG-HEADER-NUEVO v0.9] Celular: franja "tope" fija en el borde de arriba, del color del encabezado, con un degradado corto hacia abajo.
-   Mantiene siempre oscura la zona de la hora del iPhone (Safari toma el color de lo que hay arriba) y tapa el texto de la pagina que se
-   asomaba entre esa zona y la barra flotante. Solo con la llave (html.cg-prueba). */
-.cg-tope { display: none; }
+/* 32. FICHA DE PRODUCTO: DESCRIPCION (cg-ficha v2.1, oct. 2026) - MANUAL DE LA FICHA
+   Una sola estructura y un solo diseno para TODAS las categorias. Cambia el contenido, no las clases.
+   La ficha se guarda en tbItem.item_annotation2 (en DETALLE es §ITEM_DESCORTA§), maximo 4000 caracteres, y se carga con un script SQL.
+   ESTRUCTURA (todas las clases empiezan con cgf-):
+     section.cgf  = la ficha completa (siempre dentro de #detalle: nada de esto se aplica fuera)
+       .cgf-c .cgf-h = tarjeta de encabezado: .cgf-e (etiqueta chica), .cgf-t (titulo; .cgf-g = parte con degrade), .cgf-ch (chips)
+       .cgf-col      = columna izquierda con 2 tarjetas .cgf-c ("Ideal para" y "No es para"; en la segunda la lista lleva .no)
+       .cgf-c .cgf-f = ficha tecnica: filas .cgf-r con <span>etiqueta</span><b>valor</b>
+       .cgf-c .cgf-w = "Antes de comprar": lista .cgf-l de 3 items (ocupa todo el ancho)
+   CHIPS: cada <span> lleva una clase de icono: i-cpu, i-mon, i-dos, i-zap, i-gau, i-hdd, i-mem, i-fan, i-plg, i-rul, i-wif, i-shd, i-kbd, i-mou, i-hph, i-prn, i-ter, i-box.
+   REGLAS:
+     1) Cada dato UNA sola vez; no repetir lo que la pagina ya muestra (precio, garantia, envio, stock, codigo).
+     2) Datos reales del fabricante; si falta un dato obligatorio, el producto no entra al lote (nunca "No informado").
+     3) El ERP solo guarda bien caracteres de Windows-1252 (acentos, n con tilde, signos de apertura): cualquier otro simbolo va como entidad HTML (ej.: &#10003;).
+     4) Todas las etiquetas bien cerradas: una etiqueta a medias se "traga" el resto de la pagina (paso con una carga por Excel que corto el texto a 255 caracteres).
+     5) El footer de la web tambien usa la clase cgf (cgf__*), por eso todo esto va con el prefijo #detalle.
+   Se activa solo en la ficha; si una descripcion no tiene .cgf, el diseno anterior queda igual. */
+#detalle .cgf { position: relative; isolation: isolate; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; margin: 6px 0 14px; font-family: "Manrope", Arial, sans-serif; color: var(--dt-t2, #d4d7dd);
+  --f-v: color-mix(in srgb, var(--dt-t, #f2f3f5) 5%, transparent); --f-v2: color-mix(in srgb, var(--dt-t, #f2f3f5) 2.5%, transparent); --f-b: color-mix(in srgb, var(--dt-t, #f2f3f5) 11%, transparent); --f-a: #ff6fb0;
+  --ck: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 6 9 17l-5-5'/%3E%3C/svg%3E"); --cx: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M18 6 6 18M6 6l12 12'/%3E%3C/svg%3E"); }
+html:not(.dark) #detalle .cgf { --f-a: #d23f86; }
+#detalle .cgf:before, #detalle .cgf:after { content: ""; position: absolute; z-index: -1; border-radius: 50%; pointer-events: none; }
+#detalle .cgf:before { width: 480px; height: 480px; left: 0; top: -140px; background: radial-gradient(circle, rgba(210, 63, 134, .26), transparent 65%); }
+#detalle .cgf:after { width: 420px; height: 420px; right: 0; bottom: -120px; background: radial-gradient(circle, rgba(130, 80, 230, .18), transparent 65%); }
+html:not(.dark) #detalle .cgf:before { opacity: .4; }
+html:not(.dark) #detalle .cgf:after { opacity: .35; }
+#detalle .cgf-c { min-width: 0; padding: 20px 22px; border: 1px solid var(--f-b); border-radius: 18px; background: linear-gradient(160deg, var(--f-v), var(--f-v2)); -webkit-backdrop-filter: blur(16px) saturate(140%); backdrop-filter: blur(16px) saturate(140%); transition: border-color .15s ease; }
+#detalle .cgf-c:hover { border-color: color-mix(in srgb, #d23f86 45%, transparent); }
+#detalle .cgf-h, #detalle .cgf-w { grid-column: 1 / -1; }
+#detalle .cgf-h { padding: 24px 26px; }
+#detalle .cgf-e { display: block; margin: 0 0 12px; font: 800 11.5px/1.2 "Manrope", Arial, sans-serif; letter-spacing: .18em; text-transform: uppercase; color: var(--f-a); }
+#detalle .cgf-t { margin: 0 0 18px; font: 800 28px/1.12 "Manrope", Arial, sans-serif; letter-spacing: -.02em; color: var(--dt-t, #f2f3f5); }
+#detalle .cgf-g { background: linear-gradient(90deg, #ff5fa8, #d23f86 55%, #b85cff); -webkit-background-clip: text; background-clip: text; color: transparent; }
+#detalle .cgf-ch { display: flex; flex-wrap: wrap; gap: 8px; }
+#detalle .cgf-ch span { display: inline-flex; align-items: center; gap: 8px; padding: 8px 14px; border: 1px solid var(--f-b); border-radius: 999px; background: var(--f-v); font: 700 13px/1 "Manrope", Arial, sans-serif; color: var(--dt-t, #f2f3f5); }
+#detalle .cgf-ch span:before { content: ""; width: 16px; height: 16px; background: var(--f-a); -webkit-mask: var(--ic) center / contain no-repeat; mask: var(--ic) center / contain no-repeat; }
+#detalle .cgf-col { display: grid; grid-template-rows: auto 1fr; gap: 16px; min-width: 0; }
+#detalle .cgf-l { display: grid; gap: 10px; margin: 0; padding: 0; list-style: none; }
+#detalle .cgf-l li { position: relative; margin: 0; padding-left: 28px; font-size: 14px; line-height: 1.5; color: var(--dt-t2, #d4d7dd); }
+#detalle .cgf-l li:before { content: ""; position: absolute; left: 0; top: 2px; width: 18px; height: 18px; background: #2fbf71; -webkit-mask: var(--ck) center / contain no-repeat; mask: var(--ck) center / contain no-repeat; }
+#detalle .cgf-l.no li:before { background: var(--dt-m, #9aa3af); -webkit-mask-image: var(--cx); mask-image: var(--cx); }
+#detalle .cgf-w .cgf-l { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px 24px; align-items: start; }
+#detalle .cgf-r { display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 11px 0; border-bottom: 1px solid var(--f-b); font-size: 13.5px; line-height: 1.4; }
+#detalle .cgf-r:last-child { border-bottom: 0; }
+#detalle .cgf-f { display: flex; flex-direction: column; }
+#detalle .cgf-f .cgf-r { flex: 1; align-items: center; }
+#detalle .cgf-r span { color: var(--dt-m, #9aa3af); }
+#detalle .cgf-r b { font-weight: 800; text-align: right; color: var(--dt-t, #f2f3f5); }
 @media (max-width: 899px) {
-  html.cg-prueba body.cg-store-enabled header.cg-site-header .cg-tope {
-    display: block; position: fixed; top: 0; left: 0; right: 0; z-index: 1029; pointer-events: none;
-    height: calc(env(safe-area-inset-top, 0px) + 10px); background: #1c1f25;
-  }
-  html.cg-prueba body.cg-store-enabled header.cg-site-header .cg-tope::after {
-    content: ""; position: absolute; left: 0; right: 0; top: 100%; height: 5px; pointer-events: none;
-    background: linear-gradient(to bottom, #1c1f25, rgba(28, 31, 37, 0));
-  }
+  #detalle .cgf { grid-template-columns: minmax(0, 1fr); }
+  #detalle .cgf-w .cgf-l { grid-template-columns: minmax(0, 1fr); }
+  #detalle .cgf-t { font-size: 23px; }
 }
-
-
-/* 23h. [CG-HEADER-NUEVO v1.4] Celular: barra COLGANTE (la elegida por el usuario). Barra completa pegada arriba, siempre del color de la zona de la hora,
-   con las esquinas de abajo redondeadas y vidrio al bajar. La franja de "1 hora" corre con la pagina y se centra sin transform
-   (el translateX(-50%) podia dejar "Hasta 18 cuotas fijas" borroso en el iPhone). Todo bajo html.cg-prueba. */
-@media (max-width: 899px) {
-  html.cg-prueba body.cg-store-enabled header.cg-site-header .cg-promo {
-    left: 0 !important; transform: none !important; margin-left: calc(50% - 50vw) !important;
-  }
-  html.cg-prueba body.cg-store-enabled header.cg-site-header #content-mobile { top: 0 !important; }
-  html.cg-prueba.cg-flota body.cg-store-enabled header.cg-site-header #content-mobile { margin: 0 !important; }
-  html.cg-prueba.cg-flota body.cg-store-enabled header.cg-site-header #content-mobile::before {
-    top: 0 !important; bottom: 0 !important; border-radius: 0 0 18px 18px !important;
-    background-color: color-mix(in srgb, #1c1f25 94%, transparent) !important;
-    border-color: color-mix(in srgb, #f2f3f5 11%, transparent) !important; border-top-color: transparent !important;
-    -webkit-backdrop-filter: blur(16px) saturate(1.4) !important; backdrop-filter: blur(16px) saturate(1.4) !important;
-  }
-  html.cg-prueba.cg-flota body.cg-store-enabled header.cg-site-header #content-mobile::after { opacity: 0 !important; }
-}
+html body #detalle #solapas .tab-pane:has(.cgf) { max-width: none; }
+/* iconos de los chips (mascara: toman el color de la etiqueta) */
+#detalle .i-cpu { --ic: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect width='16' height='16' x='4' y='4' rx='2'/%3E%3Crect width='6' height='6' x='9' y='9' rx='1'/%3E%3Cpath d='M15 2v2M15 20v2M2 15h2M2 9h2M20 15h2M20 9h2M9 2v2M9 20v2'/%3E%3C/svg%3E"); }
+#detalle .i-mon { --ic: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect width='20' height='14' x='2' y='3' rx='2'/%3E%3Cpath d='M8 21h8M12 17v4'/%3E%3C/svg%3E"); }
+#detalle .i-dos { --ic: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='2' y='4' width='13' height='10' rx='2'/%3E%3Crect x='9' y='10' width='13' height='10' rx='2'/%3E%3C/svg%3E"); }
+#detalle .i-zap { --ic: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z'/%3E%3C/svg%3E"); }
+#detalle .i-gau { --ic: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m12 14 4-4'/%3E%3Cpath d='M3.34 19a10 10 0 1 1 17.32 0'/%3E%3C/svg%3E"); }
+#detalle .i-hdd { --ic: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M22 12H2'/%3E%3Cpath d='M5.45 5.11 2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z'/%3E%3Cpath d='M6 16h.01M10 16h.01'/%3E%3C/svg%3E"); }
+#detalle .i-mem { --ic: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 19v-3M10 19v-3M14 19v-3M18 19v-3M8 11V9M16 11V9M12 11V9M2 15h20'/%3E%3Cpath d='M2 7a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v1.1a2 2 0 0 0 0 3.837V17a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2v-5.1a2 2 0 0 0 0-3.837Z'/%3E%3C/svg%3E"); }
+#detalle .i-fan { --ic: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M10.827 16.379a6.082 6.082 0 0 1-8.618-7.002l5.412 1.45a6.082 6.082 0 0 1 7.002-8.618l-1.45 5.412a6.082 6.082 0 0 1 8.618 7.002l-5.412-1.45a6.082 6.082 0 0 1-7.002 8.618l1.45-5.412Z'/%3E%3Cpath d='M12 12v.01'/%3E%3C/svg%3E"); }
+#detalle .i-plg { --ic: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 22v-5M9 8V2M15 8V2'/%3E%3Cpath d='M18 8v5a4 4 0 0 1-4 4h-4a4 4 0 0 1-4-4V8Z'/%3E%3C/svg%3E"); }
+#detalle .i-rul { --ic: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M21.3 15.3a2.4 2.4 0 0 1 0 3.4l-2.6 2.6a2.4 2.4 0 0 1-3.4 0L2.7 8.7a2.41 2.41 0 0 1 0-3.4l2.6-2.6a2.41 2.41 0 0 1 3.4 0Z'/%3E%3Cpath d='m14.5 12.5 2-2M11.5 9.5l2-2M8.5 6.5l2-2M17.5 15.5l2-2'/%3E%3C/svg%3E"); }
+#detalle .i-wif { --ic: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 20h.01'/%3E%3Cpath d='M2 8.82a15 15 0 0 1 20 0'/%3E%3Cpath d='M5 12.859a10 10 0 0 1 14 0'/%3E%3Cpath d='M8.5 16.429a5 5 0 0 1 7 0'/%3E%3C/svg%3E"); }
+#detalle .i-shd { --ic: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z'/%3E%3Cpath d='m9 12 2 2 4-4'/%3E%3C/svg%3E"); }
+#detalle .i-kbd { --ic: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M10 8h.01M12 12h.01M14 8h.01M16 12h.01M18 8h.01M6 8h.01M8 12h.01M7 16h10'/%3E%3Crect width='20' height='16' x='2' y='4' rx='2'/%3E%3C/svg%3E"); }
+#detalle .i-mou { --ic: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='5' y='2' width='14' height='20' rx='7'/%3E%3Cpath d='M12 6v4'/%3E%3C/svg%3E"); }
+#detalle .i-hph { --ic: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M3 14h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-7a9 9 0 0 1 18 0v7a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3'/%3E%3C/svg%3E"); }
+#detalle .i-prn { --ic: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2'/%3E%3Cpath d='M6 9V3a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v6'/%3E%3Crect x='6' y='14' width='12' height='8' rx='1'/%3E%3C/svg%3E"); }
+#detalle .i-ter { --ic: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M14 4v10.54a4 4 0 1 1-4 0V4a2 2 0 0 1 4 0Z'/%3E%3C/svg%3E"); }
+#detalle .i-box { --ic: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z'/%3E%3Cpath d='m3.3 7 8.7 5 8.7-5M12 22V12'/%3E%3C/svg%3E"); }
