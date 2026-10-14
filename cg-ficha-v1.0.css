@@ -1,0 +1,21 @@
+/* cg-ficha v1.0 (oct. 2026) - Diseno de las fichas de producto con estructura tipo Maximus.
+   Clases cortas (cgf-*) para que el HTML de cada ficha entre en los 4.000 caracteres de item_annotation2.
+   Usa las variables de la ficha (--dt-*) de cg-diseno, asi que funciona en modo claro y oscuro. */
+#detalle .cgf { max-width: 760px; margin: 6px 0 4px; font-family: "Manrope", Arial, sans-serif; color: var(--dt-t2, #d4d7dd); }
+#detalle .cgf-b { margin: 0 0 24px; }
+#detalle .cgf-b:first-child { padding-bottom: 20px; border-bottom: 1px solid var(--dt-line, #2c2f36); }
+#detalle .cgf-h { margin: 0 0 12px; padding-left: 10px; border-left: 3px solid var(--cg-accent, #d23f86); color: var(--cg-accent, #d23f86); font: 800 12.5px/1.3 "Manrope", Arial, sans-serif; letter-spacing: .08em; text-transform: uppercase; }
+#detalle .cgf-t { font-size: 15px; line-height: 1.7; color: var(--dt-t2, #d4d7dd); }
+#detalle .cgf-r { display: grid; grid-template-columns: minmax(150px, 34%) 1fr; gap: 12px; padding: 11px 14px; font-size: 13.5px; line-height: 1.5; color: var(--dt-t2, #d4d7dd); border: 1px solid var(--dt-line, #2c2f36); border-top: 0; }
+#detalle .cgf-r:nth-child(even) { background: var(--dt-soft, #23262d); }
+#detalle .cgf-h + .cgf-r { border-top: 1px solid var(--dt-line, #2c2f36); border-radius: 10px 10px 0 0; }
+#detalle .cgf-r:last-child { border-radius: 0 0 10px 10px; }
+#detalle .cgf-h + .cgf-r:last-child { border-radius: 10px; }
+#detalle .cgf-l { font-weight: 800; color: var(--dt-t, #f2f3f5); }
+#detalle .cgf-l::before { content: ""; display: inline-block; width: 6px; height: 6px; margin: 0 10px 2px 0; border-radius: 50%; background: var(--cg-accent, #d23f86); vertical-align: middle; }
+#detalle .cgf-v { color: var(--dt-t2, #d4d7dd); }
+#detalle .cgf-k { margin-top: 4px; padding: 14px 16px; border-left: 3px solid var(--cg-accent, #d23f86); border-radius: 0 8px 8px 0; background: rgba(210, 63, 134, .10); color: var(--cg-accent, #d23f86); font: 800 13px/1.8 "Manrope", Arial, sans-serif; }
+@media (max-width: 600px) {
+  #detalle .cgf-r { grid-template-columns: 1fr; gap: 2px; }
+  #detalle .cgf-t { font-size: 14.5px; }
+}
