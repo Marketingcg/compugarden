@@ -5291,10 +5291,10 @@ html.dark #detalle {
 html body #detalle h1.prod-titulo { color: var(--dt-t) !important; font: 800 26px/1.2 "Manrope", Arial, sans-serif !important; letter-spacing: -.015em; margin: 6px 0 0 !important; }
 html body #detalle .cg-cab a { color: var(--dt-m) !important; font-size: 13px; text-decoration: none; }
 html body #detalle .cg-cab a:hover { color: var(--cg-accent, #d23f86) !important; }
-html body #detalle h3.prod-codigo:empty { display: none; }
+html body #detalle h3.prod-codigo { display: none; }
 
 html body #detalle .opcionesPago {
-  overflow: hidden; margin: 0 0 18px; border: 1px solid var(--cgx-borde) !important; border-radius: 16px !important; background: linear-gradient(160deg, var(--cgx-vidrio), var(--cgx-vidrio2)) !important; -webkit-backdrop-filter: blur(14px) saturate(105%); backdrop-filter: blur(14px) saturate(105%);
+  overflow: hidden; margin: 0 0 18px; border: 1px solid var(--cgx-borde) !important; border-radius: 16px !important; background: linear-gradient(160deg, var(--cgx-vidrio), var(--cgx-vidrio2)) !important;
 }
 
 html body #detalle .opcionesPago.cg-en-oferta { border: 1.5px solid var(--cg-accent, #d23f86) !important; }
@@ -5362,16 +5362,17 @@ html body #detalle #extrasDetalle { --fila-icono: 22px; display: contents; margi
 html body #detalle .cg-info { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; margin: 0 0 14px; }
 html body #detalle .cg-info .cg-stock:not([style*="none"]), html body #detalle .cg-info .local:not([style*="none"]) { display: contents !important; }
 html body #detalle .cg-info .cg-stock-local .stock-box, html body #detalle .cg-info #cg-li-stock { grid-column: 1 / -1; }
-html body #detalle #extrasDetalle li { box-sizing: border-box; margin: 0 !important; padding: 12px 14px; border: 1px solid var(--cgx-borde); border-radius: 12px; background: color-mix(in srgb, var(--cgx-t) 3%, transparent); }
-html body #detalle #extrasDetalle li > span { display: flex; align-items: flex-start; gap: 10px; color: var(--dt-t) !important; font: 700 13.5px/1.35 "Manrope", Arial, sans-serif; }
-html body #detalle #extrasDetalle li > span::before { content: ""; flex: 0 0 var(--fila-icono); height: var(--fila-icono); background-position: center; background-repeat: no-repeat; background-size: 20px; }
+html body #detalle .logospagos { display: none !important; }
+html body #detalle #extrasDetalle li { box-sizing: border-box; margin: 0 !important; padding: 12px 18px; border: 0; border-radius: 12px; background: color-mix(in srgb, var(--cgx-t) 5%, transparent); }
+html body #detalle #extrasDetalle li > span { position: relative; display: block; min-height: var(--fila-icono); padding-left: 32px; color: var(--dt-t) !important; font: 700 13.5px/1.35 "Manrope", Arial, sans-serif; }
+html body #detalle #extrasDetalle li > span::before { content: ""; position: absolute; left: 0; top: 0; width: var(--fila-icono); height: var(--fila-icono); background-position: center; background-repeat: no-repeat; background-size: 20px; }
 html body #detalle #extrasDetalle .cg-envio > span::before { background-image: url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2024%2024'%20fill='none'%20stroke='%23ec5a9e'%20stroke-width='2'%20stroke-linecap='round'%20stroke-linejoin='round'%3E%3Cpath%20d='M14%2018V6a2%202%200%200%200-2-2H4a2%202%200%200%200-2%202v11a1%201%200%200%200%201%201h2'/%3E%3Cpath%20d='M15%2018H9'/%3E%3Cpath%20d='M19%2018h2a1%201%200%200%200%201-1v-3.65a1%201%200%200%200-.22-.624l-3.48-4.35A1%201%200%200%200%2017.52%208H14'/%3E%3Ccircle%20cx='17'%20cy='18'%20r='2'/%3E%3Ccircle%20cx='7'%20cy='18'%20r='2'/%3E%3C/svg%3E"); }
 html body #detalle #extrasDetalle .cg-garantia > span::before { background-image: url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2024%2024'%20fill='none'%20stroke='%23ec5a9e'%20stroke-width='2'%20stroke-linecap='round'%20stroke-linejoin='round'%3E%3Cpath%20d='M20%2013c0%205-3.5%207.5-7.66%208.95a1%201%200%200%201-.67-.01C7.5%2020.5%204%2018%204%2013V6a1%201%200%200%201%201-1c2%200%204.5-1.2%206.24-2.72a1.17%201.17%200%200%201%201.52%200C14.51%203.81%2017%205%2019%205a1%201%200%200%201%201%201z'/%3E%3Cpath%20d='m9%2012%202%202%204-4'/%3E%3C/svg%3E"); }
 html body #detalle #extrasDetalle .cg-sinstock > span::before { background-image: url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2024%2024'%20fill='none'%20stroke='%239aa3af'%20stroke-width='2'%20stroke-linecap='round'%20stroke-linejoin='round'%3E%3Ccircle%20cx='12'%20cy='12'%20r='10'/%3E%3Cpath%20d='M12%206v6l4%202'/%3E%3C/svg%3E"); }
 
 html body #detalle .stock-box {
-  --fila-icono: 22px; box-sizing: border-box; display: flex !important; align-items: flex-start; gap: 10px; margin: 0 !important; padding: 12px 14px !important;
-  border: 1px solid var(--cgx-borde) !important; border-radius: 12px !important; background: color-mix(in srgb, var(--cgx-t) 3%, transparent) !important;
+  --fila-icono: 22px; box-sizing: border-box; display: flex !important; align-items: flex-start; gap: 10px; margin: 0 !important; padding: 12px 18px !important;
+  border: 0 !important; border-radius: 12px !important; background: color-mix(in srgb, var(--cgx-t) 5%, transparent) !important;
 }
 html body #detalle .stock-box .stock-icon { flex: 0 0 var(--fila-icono); width: var(--fila-icono); height: var(--fila-icono); display: flex; align-items: center; justify-content: center; }
 html body #detalle .stock-box .stock-icon::before { content: ""; width: 18px; height: 18px; background: url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2024%2024'%20fill='none'%20stroke='%2322c55e'%20stroke-width='2'%20stroke-linecap='round'%20stroke-linejoin='round'%3E%3Cpath%20d='M20%206%209%2017l-5-5'/%3E%3C/svg%3E") center / contain no-repeat; }
@@ -5384,7 +5385,7 @@ html.dark body #detalle .stock-box.sin-stock .stock-title { color: #f87171 !impo
 html body #detalle .stock-box .stock-line { color: var(--dt-m) !important; font: 400 12.5px/1.45 "Manrope", Arial, sans-serif !important; }
 html body #detalle #detalle-codigo, html body #detalle #cg-codigo, html body #detalle small { color: var(--dt-m); }
 html body #detalle #cg-codigo { margin: 12px 0 0; text-align: center; }
-html body #detalle #extrasDetalle li a { color: var(--cg-accent, #d23f86) !important; font-weight: 700; cursor: pointer; }
+html body #detalle #extrasDetalle li a { display: block; color: var(--cg-accent, #d23f86) !important; font-weight: 700; cursor: pointer; }
 
 html body #detalle .cg-comprar { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; margin: 14px 0 0; clear: both; }
 html body #detalle .latCant {
@@ -5409,17 +5410,27 @@ html body #detalle #boton-compra {
   font: 800 15px "Manrope", Arial, sans-serif !important; letter-spacing: .4px;
 }
 html body #detalle #boton-compra:hover { background: var(--cg-accent-hover, #b02f6d) !important; }
-html body #detalle .cg-btn-carrito { order: 3; flex: 1 1 100%; display: inline-flex; align-items: center; justify-content: center; gap: 8px; height: 50px; margin: 0; padding: 0 12px; border: 1px solid color-mix(in srgb, #d23f86 55%, transparent); border-radius: 10px; background: linear-gradient(160deg, var(--cgx-vidrio), var(--cgx-vidrio2)); color: var(--cg-accent, #d23f86); font: 800 14px "Manrope", Arial, sans-serif; letter-spacing: .4px; text-transform: uppercase; white-space: nowrap; cursor: pointer; transition: border-color .15s ease, background-color .15s ease; }
+html body #detalle .cg-btn-carrito { order: 3; flex: 1 1 100%; display: inline-flex; align-items: center; justify-content: center; gap: 8px; height: 50px; margin: 0; padding: 0 12px; border: 1px solid var(--cg-accent, #d23f86); border-radius: 10px; background: transparent; color: var(--cg-accent, #d23f86); font: 800 14px "Manrope", Arial, sans-serif !important; letter-spacing: .4px; text-transform: uppercase; white-space: nowrap; cursor: pointer; transition: border-color .15s ease, background-color .15s ease; }
 html body #detalle .cg-btn-carrito::before { content: ""; flex: 0 0 20px; width: 20px; height: 20px; background: url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2024%2024'%20fill='none'%20stroke='%23ec5a9e'%20stroke-width='2'%20stroke-linecap='round'%20stroke-linejoin='round'%3E%3Ccircle%20cx='8'%20cy='21'%20r='1'/%3E%3Ccircle%20cx='19'%20cy='21'%20r='1'/%3E%3Cpath%20d='M2.05%202.05h2l2.66%2012.42a2%202%200%200%200%202%201.58h9.78a2%202%200%200%200%201.95-1.57l1.65-7.43H5.12'/%3E%3C/svg%3E") center / contain no-repeat; }
-html body #detalle .cg-btn-carrito:hover { border-color: var(--cg-accent, #d23f86); }
+html body #detalle .cg-btn-carrito:hover { background: color-mix(in srgb, var(--cg-accent, #d23f86) 12%, transparent); }
+html.dark body #detalle .cg-btn-carrito { color: #ff6fb0; }
 html body #detalle .cg-btn-carrito.cg-ok { border-color: #22c55e; background: color-mix(in srgb, #22c55e 16%, transparent); }
 html body #detalle .cg-btn-carrito.cg-ok::before { background-image: url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2024%2024'%20fill='none'%20stroke='%2322c55e'%20stroke-width='2'%20stroke-linecap='round'%20stroke-linejoin='round'%3E%3Cpath%20d='M20%206%209%2017l-5-5'/%3E%3C/svg%3E"); }
-html body #detalle .sp-wrap { box-sizing: border-box; max-width: 100%; padding: 0; }
+html body #detalle .sp-wrap { box-sizing: border-box; max-width: 100%; padding: 0; border: 0; background: none; box-shadow: none; }
 html:not(.dark) body #detalle .sp-wrap .sp-large { border: 1px solid var(--cgx-borde); }
 /* CUADRO UNICO (v79): la fila de arriba (foto + informacion) va dentro de un solo panel de vidrio. Cabecera a todo el ancho con categorias, titulo y favorito. */
 html body #detalle > .cg-top { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 32px; align-items: start; box-sizing: border-box; margin: 0 0 18px !important; padding: 24px 28px 28px; border: 1px solid var(--cgx-borde); border-radius: 20px; background: linear-gradient(160deg, var(--cgx-vidrio), var(--cgx-vidrio2)); -webkit-backdrop-filter: blur(14px) saturate(105%); backdrop-filter: blur(14px) saturate(105%); }
 html body #detalle > .cg-top > div { float: none; width: auto; max-width: none; min-width: 0; margin: 0; padding: 0; }
 html body #detalle > .cg-top > .cg-cab { position: relative; grid-column: 1 / -1; margin: 0 0 22px; padding: 0 44px 20px 0; border-bottom: 1px solid var(--cgx-borde); }
+html body #detalle .cg-cab div#campana { top: 0; right: 0; }
+@media (min-width: 701px) {
+  html body #detalle > .cg-top { align-items: stretch; }
+  html body #detalle > .cg-top > .cg-cab { align-self: start; }
+  html body #detalle > .cg-top > .col-md-6 { display: flex; flex-direction: column; gap: 14px; }
+  html body #detalle .opcionesPago { margin-bottom: auto; }
+  html body #detalle .cg-info { margin-bottom: auto; }
+  html body #detalle .cg-comprar, html body #detalle #cg-codigo { margin-top: 0; }
+}
 @media (max-width: 700px) {
   html body #detalle > .cg-top { grid-template-columns: minmax(0, 1fr); gap: 16px 0; padding: 14px; border-radius: 16px; }
   html body #detalle > .cg-top > .cg-cab { margin: 0; padding-bottom: 14px; }
@@ -5781,9 +5792,9 @@ html:root body.cg-store-enabled header.cg-site-header #content-mobile #abrirpane
    ESTRUCTURA (todas las clases empiezan con cgf-):
      section.cgf  = la ficha completa (siempre dentro de #detalle: nada de esto se aplica fuera)
        .cgf-c .cgf-h = tarjeta de encabezado: .cgf-e (etiqueta chica), .cgf-t (titulo; .cgf-g = parte con degrade), .cgf-ch (chips)
-       .cgf-col      = columna izquierda con 2 tarjetas .cgf-c ("Ideal para" y "No es para"; en la segunda la lista lleva .no)
-       .cgf-c .cgf-f = ficha tecnica: filas .cgf-r con <span>etiqueta</span><b>valor</b>
-       .cgf-c .cgf-w = "Antes de comprar": lista .cgf-l de 3 items (ocupa todo el ancho)
+       .cgf-col      = columna con la tarjeta .cgf-c de "Ideal para" (a todo el ancho en .cgf-an, con la lista en dos columnas; hasta la v81 llevaba una segunda, "Si necesitas mas", con la lista .mas y flecha rosa: se saca de todas las fichas)
+       .cgf-c .cgf-f = hoja de datos: filas .cgf-r con <span>etiqueta</span><b>valor</b>
+       .cgf-c .cgf-w = "Compatibilidad del sistema": lista .cgf-l de 3 items (ocupa todo el ancho)
    CHIPS: cada <span> lleva una clase de icono: i-cpu, i-mon, i-dos, i-zap, i-gau, i-hdd, i-mem, i-fan, i-plg, i-rul, i-wif, i-shd, i-kbd, i-mou, i-hph, i-prn, i-ter, i-box.
    REGLAS:
      1) Cada dato UNA sola vez; no repetir lo que la pagina ya muestra (precio, garantia, envio, stock, codigo).
@@ -5791,10 +5802,10 @@ html:root body.cg-store-enabled header.cg-site-header #content-mobile #abrirpane
      3) El ERP solo guarda bien caracteres de Windows-1252 (acentos, n con tilde, signos de apertura): cualquier otro simbolo va como entidad HTML (ej.: &#10003;).
      4) Todas las etiquetas bien cerradas: una etiqueta a medias se "traga" el resto de la pagina (paso con una carga por Excel que corto el texto a 255 caracteres).
      5) El footer de la web tambien usa la clase cgf (cgf__*), por eso todo esto va con el prefijo #detalle.
-   Se activa solo en la ficha; si una descripcion no tiene .cgf, el diseno anterior queda igual.  NOVEDAD v69: .cgf-c .cgf-p = 'Sobre este producto' (ancho completo; lleva <span class="cgf-e"> y <p class="cgf-d">), va justo despues de la cabecera. Segun el tipo de ficha (datos/tipos_de_ficha.json en el repositorio de estado): R lleva Ideal para y No es para; C no lleva ninguna de las dos (no hay .cgf-col); U solo Ideal para. Sin .cgf-col la ficha tecnica ocupa todo el ancho. */
+   Se activa solo en la ficha; si una descripcion no tiene .cgf, el diseno anterior queda igual.  VISION GENERAL: .cgf-c .cgf-p (ancho completo; lleva <span class="cgf-e"> y <p class="cgf-d">), va justo despues de la cabecera. FORMATO 2.5 (v82): las fichas llevan Vision general, Ideal para, Hoja de datos y Compatibilidad del sistema (sin Si necesitas mas). Si la hoja de datos tiene mas de 8 filas la section lleva .cgf-an: en computadora (900 px o mas) Ideal para ocupa todo el ancho con su lista en dos columnas y la hoja de datos tambien va en dos columnas; con 8 filas o menos queda la distribucion de dos columnas. Las fichas con dos tarjetas (v81) se siguen viendo bien hasta que se les saque la segunda. La clase .cgf-l.no (X) es de las fichas viejas de placas de video: se borra cuando se regeneren. */
 #detalle .cgf { position: relative; isolation: isolate; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; margin: 6px 0 14px; font-family: "Manrope", Arial, sans-serif; color: var(--dt-t2, #d4d7dd);
   --f-v: color-mix(in srgb, var(--dt-t, #f2f3f5) 5%, transparent); --f-v2: color-mix(in srgb, var(--dt-t, #f2f3f5) 2.5%, transparent); --f-b: color-mix(in srgb, var(--dt-t, #f2f3f5) 11%, transparent); --f-a: #ff6fb0;
-  --ck: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 6 9 17l-5-5'/%3E%3C/svg%3E"); --cx: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M18 6 6 18M6 6l12 12'/%3E%3C/svg%3E"); }
+  --ck: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 6 9 17l-5-5'/%3E%3C/svg%3E"); --cx: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M18 6 6 18M6 6l12 12'/%3E%3C/svg%3E"); --cf: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12h14M13 6l6 6-6 6'/%3E%3C/svg%3E"); }
 html:not(.dark) #detalle .cgf { --f-a: #d23f86; }
 #detalle .cgf:before, #detalle .cgf:after { content: ""; position: absolute; z-index: -1; border-radius: 50%; pointer-events: none; }
 #detalle .cgf:before { width: 480px; height: 480px; left: 0; top: -140px; background: radial-gradient(circle, rgba(210, 63, 134, .26), transparent 65%); }
@@ -5811,11 +5822,12 @@ html:not(.dark) #detalle .cgf:after { opacity: .35; }
 #detalle .cgf-ch { display: flex; flex-wrap: wrap; gap: 8px; }
 #detalle .cgf-ch span { display: inline-flex; align-items: center; gap: 8px; padding: 8px 14px; border: 1px solid var(--f-b); border-radius: 999px; background: var(--f-v); font: 700 13px/1 "Manrope", Arial, sans-serif; color: var(--dt-t, #f2f3f5); }
 #detalle .cgf-ch span:before { content: ""; width: 16px; height: 16px; background: var(--f-a); -webkit-mask: var(--ic) center / contain no-repeat; mask: var(--ic) center / contain no-repeat; }
-#detalle .cgf-col { display: grid; grid-template-rows: auto 1fr; gap: 16px; min-width: 0; }
+#detalle .cgf-col { display: grid; gap: 16px; min-width: 0; }
 #detalle .cgf-l { display: grid; gap: 10px; margin: 0; padding: 0; list-style: none; }
 #detalle .cgf-l li { position: relative; margin: 0; padding-left: 28px; font-size: 14px; line-height: 1.5; color: var(--dt-t2, #d4d7dd); }
 #detalle .cgf-l li:before { content: ""; position: absolute; left: 0; top: 2px; width: 18px; height: 18px; background: #2fbf71; -webkit-mask: var(--ck) center / contain no-repeat; mask: var(--ck) center / contain no-repeat; }
 #detalle .cgf-l.no li:before { background: var(--dt-m, #9aa3af); -webkit-mask-image: var(--cx); mask-image: var(--cx); }
+#detalle .cgf-l.mas li:before { background: var(--f-a); -webkit-mask-image: var(--cf); mask-image: var(--cf); }
 #detalle .cgf-w .cgf-l { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px 24px; align-items: start; }
 #detalle .cgf-r { display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 11px 0; border-bottom: 1px solid var(--f-b); font-size: 13.5px; line-height: 1.4; }
 #detalle .cgf-r:last-child { border-bottom: 0; }
@@ -5831,7 +5843,14 @@ html:not(.dark) #detalle .cgf:after { opacity: .35; }
 html body #detalle #solapas .tab-pane:has(.cgf) { max-width: none; }
 #detalle .cgf-p { grid-column: 1 / -1; }
 #detalle .cgf-d { margin: 0; font-size: 14.5px; line-height: 1.7; color: var(--dt-t2, #d4d7dd); }
-#detalle .cgf:not(:has(.cgf-col)) .cgf-f { grid-column: 1 / -1; }
+#detalle .cgf:is(.cgf-an, :not(:has(.cgf-col))) .cgf-f { grid-column: 1 / -1; }
+@media (min-width: 900px) {
+  #detalle .cgf-an .cgf-col { grid-column: 1 / -1; grid-template-columns: repeat(auto-fit, minmax(min(100%, 360px), 1fr)); }
+  #detalle .cgf-an .cgf-col > .cgf-c:only-child .cgf-l { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px 24px; align-items: start; }
+  #detalle .cgf-an .cgf-f { display: block; column-count: 2; column-gap: 56px; }
+  #detalle .cgf-an .cgf-f .cgf-e { column-span: all; }
+  #detalle .cgf-an .cgf-r { break-inside: avoid; }
+}
 /* iconos de los chips (mascara: toman el color de la etiqueta) */
 #detalle .i-cpu { --ic: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect width='16' height='16' x='4' y='4' rx='2'/%3E%3Crect width='6' height='6' x='9' y='9' rx='1'/%3E%3Cpath d='M15 2v2M15 20v2M2 15h2M2 9h2M20 15h2M20 9h2M9 2v2M9 20v2'/%3E%3C/svg%3E"); }
 #detalle .i-mon { --ic: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect width='20' height='14' x='2' y='3' rx='2'/%3E%3Cpath d='M8 21h8M12 17v4'/%3E%3C/svg%3E"); }
