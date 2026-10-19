@@ -5,6 +5,7 @@
    Los estilos de esta prueba van acá solo mientras se prueba: si se aprueba, pasan a cg-diseno.
    v0.2: sin filtro de largo; "Solo con stock en el local" propio. v0.3: sin barras deslizantes.
    v0.6 (19 oct.): encabezado con miga, título de la categoría y cantidad (sin el hueco de arriba) y (las tarjetas NO se tocan).
+   v0.9.1 (19 oct.): el panel nuevo YA NO usa la clase filtros_left del listado viejo: el script del sitio (cg-repetidos-y-filtros) la busca para meter su caja "Solo con stock en el local" y, si corría después de dibujarse el panel, la dejaba duplicada a la izquierda
    v0.9 (19 oct.): la lista llega en UN pedido de hasta 150 productos (el listado ahora manda solo lo que se usa) y aprovecha el pedido adelantado del cargador (window.__cgfPre).
    v0.8 (19 oct.): más rápido y sin parpadeo: pide las páginas en olas (hoy de 1: el servidor atiende de a una, medido), recuerda la lista 1 minuto, y retira la clase cgf-pre (que el cargador pone en <html> para esconder el listado viejo desde el primer instante).
    v0.7 (19 oct.): filtros como en Maximus: secciones que se despliegan con lista de casillas (sin pastillas), orden como sección; con el estilo de vidrio.
@@ -309,7 +310,7 @@
 			(prop.length ? seccion(prop[0]) : '') + seccion(porId('marca')) + prop.slice(1).map(seccion).join('') + mas.map(seccion).join('') + seccionPrecio() +
 			'<div class="cgf-ft"><button data-cerrar="1">Ver ' + lista.length + ' productos</button></div>';
 		ROOT.innerHTML = '<div class="cgf-mv" data-movil="1">Filtros y orden' + (act.length ? ' (' + act.length + ')' : '') + '</div>' +
-			'<div class="cgf-wrap' + (MOVIL ? ' cgf-movil' : '') + '"><div class="filtros_left cgf-mio cgf-panel">' + panel + '</div>' +
+			'<div class="cgf-wrap' + (MOVIL ? ' cgf-movil' : '') + '"><div class="cgf-mio cgf-panel">' + panel + '</div>' +
 			'<div class="cgf-main"><div class="cgf-cab"><div class="cgf-mig"><a href="/">Productos</a><span>›</span><span>' + esc(TIT) + '</span></div><h1 class="cgf-tit">' + esc(TIT) + '<span><b>' + lista.length + '</b> de ' + ITEMS.length + ' productos</span></h1></div>' + (act.length ? '<div class="cgf-barra"><div class="cgf-act">' + act.join('') + '</div></div>' : '') +
 			'<div class="cgf-grid">' + (lista.length ? lista.map(tarjeta).join('') : '<p>No hay productos con esa combinación.</p>') + '</div></div></div>';
 		document.dispatchEvent(new CustomEvent('cg-listado-cargado'));
