@@ -4,6 +4,8 @@
    Regla de datos: la FICHA manda; el NOMBRE completa donde no hay ficha. Dibuja las tarjetas iguales a CAJA_PRODUCTO1 y esconde la columna de filtros, la lista y la paginación de GBP mientras la prueba está encendida.
    Los estilos de esta prueba van acá solo mientras se prueba: si se aprueba, pasan a cg-diseno.
    v0.2: sin filtro de largo; "Solo con stock en el local" propio. v0.3: sin barras deslizantes.
+   v0.6 (19 oct.): encabezado con miga, título de la categoría y cantidad (sin el hueco de arriba) y (las tarjetas NO se tocan).
+   v0.7 (19 oct.): filtros como en Maximus: secciones que se despliegan con lista de casillas (sin pastillas), orden como sección; con el estilo de vidrio.
    v0.5 (19 oct.): SIN ESTILOS (van en cg-diseno, sección 36, v86) y sin la franja de prueba; salir de la prueba: ?cgfiltros=0.
    v0.4 (19 oct.): DISEÑO NUEVO del panel (orden siempre a la vista: menor precio, mayor precio, descuento; secciones plegables; fichas con la cantidad; tramos de precio y mínimo/máximo; botón "Ver N productos" en el celular),
    y filtros de TODAS las categorías (procesadores, motherboards, placas de video, memorias, almacenamiento, monitores, notebooks, gabinetes, fuentes, periféricos, coolers, impresoras); las demás categorías muestran stock, marca y precio.
@@ -199,7 +201,7 @@
 	/* Los estilos de los filtros viven en cg-diseno (sección 36, v86): este archivo no lleva CSS. */
 
 	/* ---------- Datos ---------- */
-	var FILA = null, ITEMS = [], EST = {}, ORDEN = 1, ABIERTO = {}, VERMARCAS = false, MOVIL = false, REQ = 0, ROOT = null;
+	var TIT = '', FILA = null, ITEMS = [], EST = {}, ORDEN = 1, ABIERTO = {}, VERMARCAS = false, MOVIL = false, REQ = 0, ROOT = null;
 	function pedirPagina(desde) {
 		return new Promise(function (ok, mal) {
 			if (!window.PageMethods || !PageMethods.wsNRW_Script) { mal(new Error('sin PageMethods')); return; }
@@ -249,29 +251,33 @@
 	function nSel(id) { var s = EST[id], n = 0, k; if (!s) return 0; for (k in s) { if (s[k]) n++; } return n; }
 	function nombreOp(f, v) { return esc(f.fmt ? f.fmt(v) : v); }
 	function cabecera(id, titulo, n, ab) { return '<div class="cgf-sh" data-abrir="' + id + '"><span>' + esc(titulo) + (n ? '<em>' + n + '</em>' : '') + '</span><i class="cgf-chev"></i></div>'; }
+	function fila(attr, on, etiqueta, n, radio) {
+		return '<div class="cgf-r' + (on ? ' cgf-on' : '') + '" ' + attr + '><span class="cgf-k' + (radio ? ' cgf-rd' : '') + '">' + (on ? '✓' : '') + '</span><span class="cgf-lbl">' + etiqueta + '</span>' + (n != null ? '<span class="cgf-n">' + n + '</span>' : '') + '</div>';
+	}
 	function seccion(f) {
-		if (f.sinTitulo) { var on0 = EST[f.id] && EST[f.id]['1']; return '<div class="cgf-g" style="margin:0 0 14px"><div class="cgf-t' + (on0 ? ' cgf-on' : '') + '" data-tog="' + f.id + '">' + esc(f.fmt()) + '</div></div>'; }
+		if (f.sinTitulo) { var on0 = EST[f.id] && EST[f.id]['1']; return '<div class="cgf-tg" data-tog="' + f.id + '"><span>' + esc(f.fmt()) + '</span><span class="cgf-sw' + (on0 ? ' cgf-on' : '') + '"></span></div>'; }
 		var ops = opciones(ITEMS, DEF.filtros, EST, f); if (!ops.length) return '';
 		if (ops.length === 1 && !EST[f.id] && ops[0].n >= ITEMS.length) return '';
 		if (!EST[f.id] && f.id !== 'marca' && ITEMS.filter(function (it) { return f.get(it) != null; }).length < ITEMS.length * 0.08) return '';
 		var ab = abierto(f), body = '';
 		if (ab) {
-			if (f.tipo === 'chips') {
-				var largo = ops.some(function (o) { return String(f.fmt ? f.fmt(o.valor) : o.valor).length > 9; });
-				body = '<div class="cgf-g' + (largo ? ' cgf-g2' : '') + '">' + ops.map(function (o) { var on = EST[f.id] && EST[f.id][o.valor]; return '<div class="cgf-t' + (on ? ' cgf-on' : '') + (!on && !o.n ? ' cgf-cero' : '') + '" data-op="' + f.id + '" data-v="' + esc(o.valor) + '">' + nombreOp(f, o.valor) + '<small>' + o.n + '</small></div>'; }).join('') + '</div>';
-			} else {
-				var mostrar = ops, resto = 0;
-				if (f.tipo === 'marca' && !VERMARCAS && ops.length > 7) { mostrar = ops.filter(function (o, i) { return i < 6 || (EST[f.id] && EST[f.id][o.valor]); }); resto = ops.length - mostrar.length; }
-				body = '<div class="cgf-g">' + mostrar.map(function (o) { var on = EST[f.id] && EST[f.id][o.valor]; return '<div class="cgf-t' + (on ? ' cgf-on' : '') + (!on && !o.n ? ' cgf-cero' : '') + '" data-op="' + f.id + '" data-v="' + esc(o.valor) + '">' + nombreOp(f, o.valor) + '<small>' + o.n + '</small></div>'; }).join('') + '</div>' +
-					(resto ? '<a class="cgf-mas" data-vermas="1">Ver ' + resto + ' marcas más</a>' : ((f.tipo === 'marca' && VERMARCAS && ops.length > 7) ? '<a class="cgf-mas" data-vermas="1">Ver menos</a>' : ''));
-			}
+			var mostrar = ops, resto = 0;
+			if (f.tipo === 'marca' && !VERMARCAS && ops.length > 7) { mostrar = ops.filter(function (o, i) { return i < 6 || (EST[f.id] && EST[f.id][o.valor]); }); resto = ops.length - mostrar.length; }
+			body = mostrar.map(function (o) { var on = EST[f.id] && EST[f.id][o.valor]; return fila('data-op="' + f.id + '" data-v="' + esc(o.valor) + '"', on, nombreOp(f, o.valor), o.n); }).join('') +
+				(resto ? '<a class="cgf-mas" data-vermas="1">Ver ' + resto + ' marcas más</a>' : ((f.tipo === 'marca' && VERMARCAS && ops.length > 7) ? '<a class="cgf-mas" data-vermas="1">Ver menos</a>' : ''));
 		}
 		return '<div class="cgf-sec' + (ab ? ' cgf-abierto' : '') + '">' + cabecera(f.id, f.t, nSel(f.id)) + (ab ? '<div class="cgf-sb">' + body + '</div>' : '') + '</div>';
+	}
+	var ORD = [[1, 'Menor precio'], [2, 'Mayor precio'], [3, 'Mayor descuento'], [4, 'Nombre A-Z']];
+	function seccionOrden() {
+		var ab = abierto({ id: '__orden' }), cur = ORD.filter(function (o) { return o[0] === ORDEN; })[0][1];
+		return '<div class="cgf-sec' + (ab ? ' cgf-abierto' : '') + '"><div class="cgf-sh" data-abrir="__orden"><span>Ordenar</span><span class="cgf-cur">' + esc(cur) + '</span><i class="cgf-chev"></i></div>' +
+			(ab ? '<div class="cgf-sb">' + ORD.map(function (o) { return fila('data-orden="' + o[0] + '"', ORDEN === o[0], o[1], null, true); }).join('') + '</div>' : '') + '</div>';
 	}
 	function seccionPrecio() {
 		var ab = abierto({ id: '__precio' }), act = (EST.__min != null || EST.__max != null) ? 1 : 0, body = '';
 		if (ab) {
-			body = (TR.length ? '<div class="cgf-pb">' + TR.map(function (t, i) { var on = (EST.__min == null ? null : EST.__min) === t.min && (EST.__max == null ? null : EST.__max) === t.max; return '<div class="cgf-t' + (on ? ' cgf-on' : '') + '" data-tramo="' + i + '">' + esc(t.t) + '</div>'; }).join('') + '</div>' : '') +
+			body = TR.map(function (t, i) { var on = (EST.__min == null ? null : EST.__min) === t.min && (EST.__max == null ? null : EST.__max) === t.max; return fila('data-tramo="' + i + '"', on, esc(t.t), null, true); }).join('') +
 				'<div class="cgf-pi"><input type="number" min="0" placeholder="$ Mínimo" data-pmin value="' + (EST.__min != null ? EST.__min : '') + '"><input type="number" min="0" placeholder="$ Máximo" data-pmax value="' + (EST.__max != null ? EST.__max : '') + '"></div>';
 		}
 		return '<div class="cgf-sec' + (ab ? ' cgf-abierto' : '') + '">' + cabecera('__precio', 'Precio', act, ab) + (ab ? '<div class="cgf-sb">' + body + '</div>' : '') + '</div>';
@@ -288,13 +294,12 @@
 	function dibujar() {
 		var lista = ordenar(filtrar(ITEMS, DEF.filtros, EST)), act = activos();
 		var prop = DEF.filtros.filter(function (f) { return f.id !== 'local' && f.id !== 'marca' && !f.mas; }), mas = DEF.filtros.filter(function (f) { return f.mas; });
-		var panel = '<div class="cgf-ph"><b>Filtros' + (act.length ? '<span class="cgf-nc">' + act.length + '</span>' : '') + '</b>' + (act.length ? '<a class="cgf-lim" data-limpiar="1">Limpiar</a>' : '') + '</div>' + seccion(porId('local')) + '<div class="cgf-lb">Ordenar</div><div class="cgf-ord">' +
-			[[1, 'Menor precio'], [2, 'Mayor precio'], [3, 'Descuento'], [4, 'Nombre A-Z']].map(function (o) { return '<div class="cgf-o' + (ORDEN === o[0] ? ' cgf-on' : '') + '" data-orden="' + o[0] + '">' + o[1] + '</div>'; }).join('') + '</div>' +
+		var panel = '<div class="cgf-ph"><b>Filtros' + (act.length ? '<span class="cgf-nc">' + act.length + '</span>' : '') + '</b>' + (act.length ? '<a class="cgf-lim" data-limpiar="1">Limpiar</a>' : '') + '</div>' + seccion(porId('local')) + seccionOrden() +
 			(prop.length ? seccion(prop[0]) : '') + seccion(porId('marca')) + prop.slice(1).map(seccion).join('') + mas.map(seccion).join('') + seccionPrecio() +
 			'<div class="cgf-ft"><button data-cerrar="1">Ver ' + lista.length + ' productos</button></div>';
 		ROOT.innerHTML = '<div class="cgf-mv" data-movil="1">Filtros y orden' + (act.length ? ' (' + act.length + ')' : '') + '</div>' +
 			'<div class="cgf-wrap' + (MOVIL ? ' cgf-movil' : '') + '"><div class="filtros_left cgf-mio cgf-panel">' + panel + '</div>' +
-			'<div class="cgf-main"><div class="cgf-barra"><span><b>' + lista.length + '</b> de ' + ITEMS.length + ' productos</span>' + (act.length ? '<div class="cgf-act">' + act.join('') + '</div>' : '') + '</div>' +
+			'<div class="cgf-main"><div class="cgf-cab"><div class="cgf-mig"><a href="/">Productos</a><span>›</span><span>' + esc(TIT) + '</span></div><h1 class="cgf-tit">' + esc(TIT) + '<span><b>' + lista.length + '</b> de ' + ITEMS.length + ' productos</span></h1></div>' + (act.length ? '<div class="cgf-barra"><div class="cgf-act">' + act.join('') + '</div></div>' : '') +
 			'<div class="cgf-grid">' + (lista.length ? lista.map(tarjeta).join('') : '<p>No hay productos con esa combinación.</p>') + '</div></div></div>';
 		document.dispatchEvent(new CustomEvent('cg-listado-cargado'));
 	}
@@ -340,6 +345,7 @@
 		var ancla = document.querySelector('#articulos .filtros_left');
 		if (!ancla) { setTimeout(iniciar, 200); return; }
 		ROOT = document.createElement('div'); ROOT.id = 'cgf-root';
+		var tt = document.querySelector('#barrahormiga .catdeschormiga'); TIT = (tt && tt.textContent.replace(/\s+/g, ' ').trim()) || DEF.titulo || 'Productos';
 		var col = ancla.closest('.col-md-2'); FILA = col ? col.parentElement : ancla.parentNode;
 		FILA.parentNode.insertBefore(ROOT, FILA); FILA.classList.add('cgf-oculta');
 		document.body.classList.add('cgf-on');
