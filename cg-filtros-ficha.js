@@ -5,6 +5,7 @@
    Los estilos de esta prueba van acá solo mientras se prueba: si se aprueba, pasan a cg-diseno.
    v0.2: sin filtro de largo; "Solo con stock en el local" propio. v0.3: sin barras deslizantes.
    v0.6 (19 oct.): encabezado con miga, título de la categoría y cantidad (sin el hueco de arriba) y (las tarjetas NO se tocan).
+   v0.9 (19 oct.): la lista llega en UN pedido de hasta 150 productos (el listado ahora manda solo lo que se usa) y aprovecha el pedido adelantado del cargador (window.__cgfPre).
    v0.8 (19 oct.): más rápido y sin parpadeo: pide las páginas en olas (hoy de 1: el servidor atiende de a una, medido), recuerda la lista 1 minuto, y retira la clase cgf-pre (que el cargador pone en <html> para esconder el listado viejo desde el primer instante).
    v0.7 (19 oct.): filtros como en Maximus: secciones que se despliegan con lista de casillas (sin pastillas), orden como sección; con el estilo de vidrio.
    v0.5 (19 oct.): SIN ESTILOS (van en cg-diseno, sección 36, v86) y sin la franja de prueba; salir de la prueba: ?cgfiltros=0.
@@ -13,7 +14,7 @@
    Sin "Mostrar N por página" ni "Compatible con mi armado" (decisión del usuario). Agregar una categoría: sumar su entrada en CATS. */
 (function () {
 	'use strict';
-	var CFG = { script: window.CG_FILTROS_SCRIPT || 'web.CG.ListadoGetItems_v1.1.sql', maximo: 1500, pagina: 40, olas: 1 };
+	var CFG = { script: window.CG_FILTROS_SCRIPT || 'web.CG.ListadoGetItems_v1.1.sql', maximo: 1500, pagina: 150, olas: 1 };
 	function esc(s) { return String(s == null ? '' : s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
 	function num(v) { var n = parseFloat(v); return isFinite(n) ? n : null; }
 	function hid(id) { var e = document.getElementById(id); return e ? e.value : ''; }
@@ -225,7 +226,12 @@
 				return ola(desde + CFG.olas * CFG.pagina, juntos);
 			});
 		}
-		return ola(0, []).then(function (d) { try { sessionStorage.setItem(claveCache(), JSON.stringify({ t: Date.now(), d: d })); } catch (e) {} return d; });
+		/* Pedido adelantado: el cargador de la plantilla (ARTICULOS_HEAD) lo lanza antes de que este archivo llegue (window.__cgfPre). Si alcanzó, no se pide nada más. */
+		var pre = window.__cgfPre; window.__cgfPre = null;
+		return (pre ? pre.then(function (r) { return (r && r.data) ? r.data : null; }) : Promise.resolve(null)).then(function (d0) {
+			if (d0 && d0.length < CFG.pagina) return d0;
+			return ola(d0 ? d0.length : 0, d0 || []);
+		}).then(function (d) { try { sessionStorage.setItem(claveCache(), JSON.stringify({ t: Date.now(), d: d })); } catch (e) {} return d; });
 	}
 
 	/* ---------- Pantalla ---------- */
