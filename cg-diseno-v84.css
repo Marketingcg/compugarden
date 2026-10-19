@@ -445,7 +445,8 @@ span.cart_top a.ircarrito{
     text-decoration:none
 }
 .container.checkout,div#articulos.container,div#detalle.container,div.container.micuenta{
-    max-width:1215px
+    max-width:1400px;
+    width:calc(100% - 40px)
 }
 div#barrahormiga{
     margin-left:auto
@@ -5792,7 +5793,7 @@ html:root body.cg-store-enabled header.cg-site-header #content-mobile #abrirpane
    ESTRUCTURA (todas las clases empiezan con cgf-):
      section.cgf  = la ficha completa (siempre dentro de #detalle: nada de esto se aplica fuera)
        .cgf-c .cgf-h = tarjeta de encabezado: .cgf-e (etiqueta chica), .cgf-t (titulo; .cgf-g = parte con degrade), .cgf-ch (chips)
-       .cgf-col      = columna izquierda con 2 tarjetas .cgf-c ("Ideal para" y "Si necesitas mas"; en la segunda la lista lleva .mas, flecha rosa)
+       .cgf-col      = columna con la tarjeta .cgf-c de "Ideal para" (a todo el ancho en .cgf-an, con la lista en dos columnas). La tarjeta "Si necesitas mas" se saco de todas las fichas el 16 oct.
        .cgf-c .cgf-f = hoja de datos: filas .cgf-r con <span>etiqueta</span><b>valor</b>
        .cgf-c .cgf-w = "Compatibilidad del sistema": lista .cgf-l de 3 items (ocupa todo el ancho)
    CHIPS: cada <span> lleva una clase de icono: i-cpu, i-mon, i-dos, i-zap, i-gau, i-hdd, i-mem, i-fan, i-plg, i-rul, i-wif, i-shd, i-kbd, i-mou, i-hph, i-prn, i-ter, i-box.
@@ -5802,10 +5803,10 @@ html:root body.cg-store-enabled header.cg-site-header #content-mobile #abrirpane
      3) El ERP solo guarda bien caracteres de Windows-1252 (acentos, n con tilde, signos de apertura): cualquier otro simbolo va como entidad HTML (ej.: &#10003;).
      4) Todas las etiquetas bien cerradas: una etiqueta a medias se "traga" el resto de la pagina (paso con una carga por Excel que corto el texto a 255 caracteres).
      5) El footer de la web tambien usa la clase cgf (cgf__*), por eso todo esto va con el prefijo #detalle.
-   Se activa solo en la ficha; si una descripcion no tiene .cgf, el diseno anterior queda igual.  VISION GENERAL: .cgf-c .cgf-p (ancho completo; lleva <span class="cgf-e"> y <p class="cgf-d">), va justo despues de la cabecera. FORMATO 2.5 (v81): todas las fichas llevan Vision general, Ideal para, Si necesitas mas, Hoja de datos y Compatibilidad del sistema. Si la hoja de datos tiene mas de 8 filas la section lleva .cgf-an: en computadora (900 px o mas) las dos tarjetas de .cgf-col van lado a lado y la hoja de datos ocupa todo el ancho en dos columnas; con 8 filas o menos queda la distribucion de dos columnas. La clase .cgf-l.no (X) es de las fichas viejas de placas de video: se borra cuando se regeneren. */
+   Se activa solo en la ficha; si una descripcion no tiene .cgf, el diseno anterior queda igual.  VISION GENERAL: .cgf-c .cgf-p (ancho completo; lleva <span class="cgf-e"> y <p class="cgf-d">), va justo despues de la cabecera. FORMATO 2.5 (v83): las fichas llevan Vision general, Ideal para, Hoja de datos y Compatibilidad del sistema (sin Si necesitas mas). Si la hoja de datos tiene mas de 8 filas la section lleva .cgf-an: en computadora (900 px o mas) Ideal para ocupa todo el ancho con su lista en dos columnas y la hoja de datos tambien va en dos columnas; con 8 filas o menos queda la distribucion de dos columnas. La clase .cgf-l.no (X) es de las fichas viejas de placas de video: se borra cuando se regeneren. */
 #detalle .cgf { position: relative; isolation: isolate; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; margin: 6px 0 14px; font-family: "Manrope", Arial, sans-serif; color: var(--dt-t2, #d4d7dd);
   --f-v: color-mix(in srgb, var(--dt-t, #f2f3f5) 5%, transparent); --f-v2: color-mix(in srgb, var(--dt-t, #f2f3f5) 2.5%, transparent); --f-b: color-mix(in srgb, var(--dt-t, #f2f3f5) 11%, transparent); --f-a: #ff6fb0;
-  --ck: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 6 9 17l-5-5'/%3E%3C/svg%3E"); --cx: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M18 6 6 18M6 6l12 12'/%3E%3C/svg%3E"); --cf: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12h14M13 6l6 6-6 6'/%3E%3C/svg%3E"); }
+  --ck: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 6 9 17l-5-5'/%3E%3C/svg%3E"); --cx: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M18 6 6 18M6 6l12 12'/%3E%3C/svg%3E"); }
 html:not(.dark) #detalle .cgf { --f-a: #d23f86; }
 #detalle .cgf:before, #detalle .cgf:after { content: ""; position: absolute; z-index: -1; border-radius: 50%; pointer-events: none; }
 #detalle .cgf:before { width: 480px; height: 480px; left: 0; top: -140px; background: radial-gradient(circle, rgba(210, 63, 134, .26), transparent 65%); }
@@ -5822,12 +5823,11 @@ html:not(.dark) #detalle .cgf:after { opacity: .35; }
 #detalle .cgf-ch { display: flex; flex-wrap: wrap; gap: 8px; }
 #detalle .cgf-ch span { display: inline-flex; align-items: center; gap: 8px; padding: 8px 14px; border: 1px solid var(--f-b); border-radius: 999px; background: var(--f-v); font: 700 13px/1 "Manrope", Arial, sans-serif; color: var(--dt-t, #f2f3f5); }
 #detalle .cgf-ch span:before { content: ""; width: 16px; height: 16px; background: var(--f-a); -webkit-mask: var(--ic) center / contain no-repeat; mask: var(--ic) center / contain no-repeat; }
-#detalle .cgf-col { display: grid; grid-template-rows: auto 1fr; gap: 16px; min-width: 0; }
+#detalle .cgf-col { display: grid; gap: 16px; min-width: 0; }
 #detalle .cgf-l { display: grid; gap: 10px; margin: 0; padding: 0; list-style: none; }
 #detalle .cgf-l li { position: relative; margin: 0; padding-left: 28px; font-size: 14px; line-height: 1.5; color: var(--dt-t2, #d4d7dd); }
 #detalle .cgf-l li:before { content: ""; position: absolute; left: 0; top: 2px; width: 18px; height: 18px; background: #2fbf71; -webkit-mask: var(--ck) center / contain no-repeat; mask: var(--ck) center / contain no-repeat; }
 #detalle .cgf-l.no li:before { background: var(--dt-m, #9aa3af); -webkit-mask-image: var(--cx); mask-image: var(--cx); }
-#detalle .cgf-l.mas li:before { background: var(--f-a); -webkit-mask-image: var(--cf); mask-image: var(--cf); }
 #detalle .cgf-w .cgf-l { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px 24px; align-items: start; }
 #detalle .cgf-r { display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 11px 0; border-bottom: 1px solid var(--f-b); font-size: 13.5px; line-height: 1.4; }
 #detalle .cgf-r:last-child { border-bottom: 0; }
@@ -5845,7 +5845,8 @@ html body #detalle #solapas .tab-pane:has(.cgf) { max-width: none; }
 #detalle .cgf-d { margin: 0; font-size: 14.5px; line-height: 1.7; color: var(--dt-t2, #d4d7dd); }
 #detalle .cgf:is(.cgf-an, :not(:has(.cgf-col))) .cgf-f { grid-column: 1 / -1; }
 @media (min-width: 900px) {
-  #detalle .cgf-an .cgf-col { grid-column: 1 / -1; grid-template-columns: repeat(2, minmax(0, 1fr)); grid-template-rows: auto; }
+  #detalle .cgf-an .cgf-col { grid-column: 1 / -1; }
+  #detalle .cgf-an .cgf-col .cgf-l { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px 24px; align-items: start; }
   #detalle .cgf-an .cgf-f { display: block; column-count: 2; column-gap: 56px; }
   #detalle .cgf-an .cgf-f .cgf-e { column-span: all; }
   #detalle .cgf-an .cgf-r { break-inside: avoid; }
