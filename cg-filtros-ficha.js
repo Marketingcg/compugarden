@@ -4,6 +4,7 @@
    Regla de datos: la FICHA manda; el NOMBRE completa donde no hay ficha. Dibuja las tarjetas iguales a CAJA_PRODUCTO1 y esconde la columna de filtros, la lista y la paginación de GBP mientras la prueba está encendida.
    Los estilos de esta prueba van acá solo mientras se prueba: si se aprueba, pasan a cg-diseno.
    v0.2: sin filtro de largo; "Solo con stock en el local" propio. v0.3: sin barras deslizantes.
+   v0.5 (19 oct.): SIN ESTILOS (van en cg-diseno, sección 36, v86) y sin la franja de prueba; salir de la prueba: ?cgfiltros=0.
    v0.4 (19 oct.): DISEÑO NUEVO del panel (orden siempre a la vista: menor precio, mayor precio, descuento; secciones plegables; fichas con la cantidad; tramos de precio y mínimo/máximo; botón "Ver N productos" en el celular),
    y filtros de TODAS las categorías (procesadores, motherboards, placas de video, memorias, almacenamiento, monitores, notebooks, gabinetes, fuentes, periféricos, coolers, impresoras); las demás categorías muestran stock, marca y precio.
    Sin "Mostrar N por página" ni "Compatible con mi armado" (decisión del usuario). Agregar una categoría: sumar su entrada en CATS. */
@@ -195,56 +196,7 @@
 	var DEF0 = { titulo: (CATS[CAT] || {}).titulo || '', filtros: BASE.concat((CATS[CAT] || { filtros: [] }).filtros) };
 	var DEF = DEF0; (function () { var k = 0; DEF.filtros.forEach(function (f) { if (f.id !== 'local' && f.id !== 'marca' && !f.mas && k < 2) { f.abierto = true; k++; } }); })();
 
-	/* ---------- Estilos de la prueba (pasan a cg-diseno si se aprueba) ---------- */
-	function estilos() {
-		if (document.getElementById('cgf-css')) return;
-		var st = document.createElement('style'); st.id = 'cgf-css';
-		var A = 'var(--cg-accent, #d23f86)', T = 'var(--cgx-t, #1a1b20)';
-		st.textContent = [
-			'body.cgf-on #articulos .filtros_left:not(.cgf-mio), body.cgf-on #articulos .col-md-prod:not(.cgf-tarjeta), body.cgf-on #articulos .col_pager, body.cgf-on .cg-local, body.cgf-on .cg-activos, body.cgf-on #articulos .barraorden, body.cgf-on #articulos .ordenar { display: none !important; }',
-			'#articulos .cgf-oculta, html body.cgf-on #articulos #barrahormiga .barraformato { display: none !important; }',
-			'#cgf-root { --f: #111318; --m: #5f6671; --on: #a82b6a; --g1: color-mix(in srgb, ' + T + ' 5%, transparent); --g2: color-mix(in srgb, ' + T + ' 2.5%, transparent); --gb: color-mix(in srgb, ' + T + ' 13%, transparent); flex: 0 0 100%; width: 100%; max-width: 100%; color: var(--f); }',
-			'html.dark #cgf-root { --f: #f2f3f5; --m: #a9b0bb; --on: #ffd1e6; }',
-			'#cgf-root .cgf-aviso { display: flex; justify-content: space-between; gap: 12px; padding: 9px 14px; margin: 0 0 16px; border: 1px dashed var(--gb); border-radius: 12px; font-size: 12.5px; color: var(--m); }',
-			'#cgf-root .cgf-aviso a { color: ' + A + '; cursor: pointer; text-decoration: underline; }',
-			'#cgf-root .cgf-wrap { display: flex; gap: 26px; align-items: flex-start; }',
-			'#cgf-root .cgf-panel { display: block !important; flex: 0 0 282px; max-width: 282px; box-sizing: border-box; padding: 20px 18px 6px; border: 1px solid var(--gb); border-radius: 20px; background: linear-gradient(160deg, var(--g1), var(--g2)); -webkit-backdrop-filter: blur(16px) saturate(1.4); backdrop-filter: blur(16px) saturate(1.4); box-shadow: 0 20px 60px rgba(0,0,0,.16), inset 0 1px 0 rgba(255,255,255,.06); }',
-			'#cgf-root .cgf-ph { display: flex; justify-content: space-between; align-items: center; padding: 0 0 16px; }',
-			'#cgf-root .cgf-ph b { display: flex; align-items: center; gap: 9px; font-size: 12px; font-weight: 800; letter-spacing: .18em; text-transform: uppercase; color: ' + A + '; }',
-			'html.dark #cgf-root .cgf-ph b { color: #ff6fb0; }',
-			'#cgf-root .cgf-nc { min-width: 20px; height: 20px; padding: 0 6px; box-sizing: border-box; display: inline-flex; align-items: center; justify-content: center; border-radius: 999px; background: ' + A + '; color: #fff; font-size: 11px; font-weight: 700; letter-spacing: 0; }',
-			'#cgf-root .cgf-lim { font-size: 12.5px; font-weight: 600; color: var(--m); cursor: pointer; text-decoration: underline; text-underline-offset: 3px; transition: color .2s; } #cgf-root .cgf-lim:hover { color: var(--f); }',
-			'#cgf-root .cgf-lb { font-size: 12px; font-weight: 800; letter-spacing: .16em; text-transform: uppercase; color: var(--m); margin: 2px 0 10px; }',
-			'#cgf-root .cgf-ord { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 18px; }',
-			'#cgf-root .cgf-sec { border-top: 1px solid var(--gb); }',
-			'#cgf-root .cgf-sh { display: flex; justify-content: space-between; align-items: center; padding: 16px 0; cursor: pointer; user-select: none; }',
-			'#cgf-root .cgf-sh > span { display: flex; align-items: center; gap: 9px; font-size: 12px; font-weight: 800 !important; letter-spacing: .16em; text-transform: uppercase; }',
-			'#cgf-root .cgf-sh em { font-style: normal; min-width: 20px; height: 20px; padding: 0 6px; box-sizing: border-box; display: inline-flex; align-items: center; justify-content: center; border-radius: 999px; background: ' + A + '; color: #fff; font-size: 11px; font-weight: 700; letter-spacing: 0; }',
-			'#cgf-root .cgf-chev { width: 24px; height: 24px; border: 1px solid var(--gb); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--m); transition: all .2s; }',
-			'#cgf-root .cgf-chev::before { content: "+"; font-size: 17px; font-weight: 300; line-height: 1; margin-top: -1px; } #cgf-root .cgf-abierto .cgf-chev::before { content: "\\2212"; }',
-			'#cgf-root .cgf-sh:hover .cgf-chev, #cgf-root .cgf-abierto .cgf-chev { color: var(--on); border-color: rgba(255,111,176,.55); }',
-			'#cgf-root .cgf-sb { padding: 0 0 18px; }',
-			'#cgf-root .cgf-g { display: flex; flex-wrap: wrap; gap: 8px; }',
-			'#cgf-root .cgf-t, #cgf-root .cgf-o { display: inline-flex; align-items: center; height: 36px; padding: 0 14px; box-sizing: border-box; border: 1px solid var(--gb); border-radius: 999px; background: linear-gradient(160deg, var(--g1), var(--g2)); color: var(--f); font-size: 13px; font-weight: 600; line-height: 1; white-space: nowrap; cursor: pointer; user-select: none; transition: all .2s; }',
-			'#cgf-root .cgf-t:hover, #cgf-root .cgf-o:hover { border-color: var(--m); }',
-			'#cgf-root .cgf-t small { margin-left: 7px; font-size: 11.5px; font-weight: 500; color: var(--m); font-variant-numeric: tabular-nums; }',
-			'#cgf-root .cgf-t.cgf-on, #cgf-root .cgf-o.cgf-on { color: var(--on); background: linear-gradient(160deg, rgba(210,63,134,.34), rgba(210,63,134,.16)); border-color: rgba(255,111,176,.7); -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px); box-shadow: 0 0 0 3px rgba(210,63,134,.14), inset 0 1px 0 rgba(255,255,255,.12); }',
-			'#cgf-root .cgf-t.cgf-on small { color: var(--on); opacity: .8; }',
-			'#cgf-root .cgf-t.cgf-cero { opacity: .38; }',
-			'#cgf-root .cgf-mas { display: inline-block; margin-top: 10px; font-size: 12.5px; font-weight: 600; color: ' + A + '; cursor: pointer; text-decoration: underline; text-underline-offset: 3px; }',
-			'#cgf-root .cgf-pb { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 10px; }',
-			'#cgf-root .cgf-pi { display: flex; gap: 8px; } #cgf-root .cgf-pi input { width: 100%; height: 40px; box-sizing: border-box; padding: 0 14px; border-radius: 12px; border: 1px solid var(--gb); background: linear-gradient(160deg, var(--g1), var(--g2)); color: var(--f); font-size: 13px; font-weight: 600; transition: all .2s; } #cgf-root .cgf-pi input::placeholder { color: var(--m); font-weight: 500; } #cgf-root .cgf-pi input:focus { outline: none; border-color: rgba(255,111,176,.7); box-shadow: 0 0 0 3px rgba(210,63,134,.14); }',
-			'#cgf-root .cgf-ft { display: none; margin: 4px 0 16px; } #cgf-root .cgf-ft button { width: 100%; height: 46px; border-radius: 999px; background: var(--cgx-grad, linear-gradient(135deg, #ff5fa8, #d23f86)); border: 0; color: #fff; font-size: 14px; font-weight: 700; cursor: pointer; }',
-			'#cgf-root .cgf-mv { display: none; margin: 0 0 14px; height: 44px; line-height: 44px; border: 1px solid var(--gb); border-radius: 999px; background: linear-gradient(160deg, var(--g1), var(--g2)); cursor: pointer; font-weight: 700; text-align: center; }',
-			'#cgf-root .cgf-main { flex: 1 1 auto; min-width: 0; }',
-			'#cgf-root .cgf-barra { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; margin: 0 0 16px; font-size: 13.5px; color: var(--m); } #cgf-root .cgf-barra b { color: var(--f); }',
-			'#cgf-root .cgf-act { display: flex; flex-wrap: wrap; gap: 8px; }',
-			'#cgf-root .cgf-act span { display: inline-flex; align-items: center; height: 30px; padding: 0 12px; border-radius: 999px; border: 1px solid rgba(255,111,176,.7); background: linear-gradient(160deg, rgba(210,63,134,.34), rgba(210,63,134,.16)); color: var(--on); font-size: 12.5px; font-weight: 600; cursor: pointer; transition: all .2s; }',
-			'#cgf-root .cgf-grid { display: flex; flex-wrap: wrap; }',
-			'@media (max-width: 800px) { #cgf-root .cgf-wrap { flex-direction: column; } #cgf-root .cgf-panel { flex: 0 0 auto; max-width: 100%; width: 100%; display: none !important; } #cgf-root .cgf-movil .cgf-panel { display: block !important; } #cgf-root .cgf-mv, #cgf-root .cgf-movil .cgf-ft { display: block; } }'
-		].join('\n');
-		document.head.appendChild(st);
-	}
+	/* Los estilos de los filtros viven en cg-diseno (sección 36, v86): este archivo no lleva CSS. */
 
 	/* ---------- Datos ---------- */
 	var FILA = null, ITEMS = [], EST = {}, ORDEN = 1, ABIERTO = {}, VERMARCAS = false, MOVIL = false, REQ = 0, ROOT = null;
@@ -340,8 +292,7 @@
 			[[1, 'Menor precio'], [2, 'Mayor precio'], [3, 'Descuento'], [4, 'Nombre A-Z']].map(function (o) { return '<div class="cgf-o' + (ORDEN === o[0] ? ' cgf-on' : '') + '" data-orden="' + o[0] + '">' + o[1] + '</div>'; }).join('') + '</div>' +
 			(prop.length ? seccion(prop[0]) : '') + seccion(porId('marca')) + prop.slice(1).map(seccion).join('') + mas.map(seccion).join('') + seccionPrecio() +
 			'<div class="cgf-ft"><button data-cerrar="1">Ver ' + lista.length + ' productos</button></div>';
-		ROOT.innerHTML = '<div class="cgf-aviso"><span>Prueba de filtros nuevos (solo la ves tú)</span><a data-salir="1">Volver al listado normal</a></div>' +
-			'<div class="cgf-mv" data-movil="1">Filtros y orden' + (act.length ? ' (' + act.length + ')' : '') + '</div>' +
+		ROOT.innerHTML = '<div class="cgf-mv" data-movil="1">Filtros y orden' + (act.length ? ' (' + act.length + ')' : '') + '</div>' +
 			'<div class="cgf-wrap' + (MOVIL ? ' cgf-movil' : '') + '"><div class="filtros_left cgf-mio cgf-panel">' + panel + '</div>' +
 			'<div class="cgf-main"><div class="cgf-barra"><span><b>' + lista.length + '</b> de ' + ITEMS.length + ' productos</span>' + (act.length ? '<div class="cgf-act">' + act.join('') + '</div>' : '') + '</div>' +
 			'<div class="cgf-grid">' + (lista.length ? lista.map(tarjeta).join('') : '<p>No hay productos con esa combinación.</p>') + '</div></div></div>';
@@ -388,12 +339,11 @@
 	function iniciar() {
 		var ancla = document.querySelector('#articulos .filtros_left');
 		if (!ancla) { setTimeout(iniciar, 200); return; }
-		estilos();
 		ROOT = document.createElement('div'); ROOT.id = 'cgf-root';
 		var col = ancla.closest('.col-md-2'); FILA = col ? col.parentElement : ancla.parentNode;
 		FILA.parentNode.insertBefore(ROOT, FILA); FILA.classList.add('cgf-oculta');
 		document.body.classList.add('cgf-on');
-		ROOT.innerHTML = '<div class="cgf-aviso"><span>Cargando la prueba de filtros…</span></div>';
+		ROOT.innerHTML = '';
 		pedir().then(function (data) {
 			ITEMS = data.map(preparar); TR = tramos(ITEMS); eventos(); dibujar();
 		}).catch(function (e) {
