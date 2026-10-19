@@ -5,6 +5,7 @@
    Los estilos de esta prueba van acá solo mientras se prueba: si se aprueba, pasan a cg-diseno.
    v0.2: sin filtro de largo; "Solo con stock en el local" propio. v0.3: sin barras deslizantes.
    v0.6 (19 oct.): encabezado con miga, título de la categoría y cantidad (sin el hueco de arriba) y (las tarjetas NO se tocan).
+   v0.8 (19 oct.): más rápido y sin parpadeo: pide las páginas en olas (hoy de 1: el servidor atiende de a una, medido), recuerda la lista 1 minuto, y retira la clase cgf-pre (que el cargador pone en <html> para esconder el listado viejo desde el primer instante).
    v0.7 (19 oct.): filtros como en Maximus: secciones que se despliegan con lista de casillas (sin pastillas), orden como sección; con el estilo de vidrio.
    v0.5 (19 oct.): SIN ESTILOS (van en cg-diseno, sección 36, v86) y sin la franja de prueba; salir de la prueba: ?cgfiltros=0.
    v0.4 (19 oct.): DISEÑO NUEVO del panel (orden siempre a la vista: menor precio, mayor precio, descuento; secciones plegables; fichas con la cantidad; tramos de precio y mínimo/máximo; botón "Ver N productos" en el celular),
@@ -12,7 +13,7 @@
    Sin "Mostrar N por página" ni "Compatible con mi armado" (decisión del usuario). Agregar una categoría: sumar su entrada en CATS. */
 (function () {
 	'use strict';
-	var CFG = { script: window.CG_FILTROS_SCRIPT || 'web.CG.ListadoGetItems_v1.1.sql', maximo: 1500, pagina: 40 };
+	var CFG = { script: window.CG_FILTROS_SCRIPT || 'web.CG.ListadoGetItems_v1.1.sql', maximo: 1500, pagina: 40, olas: 1 };
 	function esc(s) { return String(s == null ? '' : s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
 	function num(v) { var n = parseFloat(v); return isFinite(n) ? n : null; }
 	function hid(id) { var e = document.getElementById(id); return e ? e.value : ''; }
@@ -211,16 +212,20 @@
 			}, function (e) { mal(e); });
 		});
 	}
-	/* La respuesta del servidor tiene un tope de tamaño: la lista se pide por páginas y se junta acá. */
+	/* La respuesta del servidor tiene un tope de tamaño: la lista se pide por páginas, varias a la vez (olas), y se junta acá.
+	   Se recuerda un minuto en sessionStorage para que volver atrás sea instantáneo. */
+	function claveCache() { return 'cgf-lista-' + CAT + '-' + SCAT; }
 	function pedir() {
-		function sigue(desde, juntos) {
-			return pedirPagina(desde).then(function (d) {
-				juntos = juntos.concat(d);
-				if (d.length < CFG.pagina || juntos.length >= CFG.maximo) return juntos;
-				return sigue(desde + CFG.pagina, juntos);
+		try { var c = JSON.parse(sessionStorage.getItem(claveCache())); if (c && Date.now() - c.t < 60000 && c.d && c.d.length) return Promise.resolve(c.d); } catch (e) {}
+		function ola(desde, juntos) {
+			var ps = []; for (var i = 0; i < CFG.olas; i++) ps.push(pedirPagina(desde + i * CFG.pagina));
+			return Promise.all(ps).then(function (rs) {
+				var fin = false; rs.forEach(function (d) { juntos = juntos.concat(d); if (d.length < CFG.pagina) fin = true; });
+				if (fin || juntos.length >= CFG.maximo) return juntos;
+				return ola(desde + CFG.olas * CFG.pagina, juntos);
 			});
 		}
-		return sigue(0, []);
+		return ola(0, []).then(function (d) { try { sessionStorage.setItem(claveCache(), JSON.stringify({ t: Date.now(), d: d })); } catch (e) {} return d; });
 	}
 
 	/* ---------- Pantalla ---------- */
@@ -351,9 +356,9 @@
 		document.body.classList.add('cgf-on');
 		ROOT.innerHTML = '';
 		pedir().then(function (data) {
-			ITEMS = data.map(preparar); TR = tramos(ITEMS); eventos(); dibujar();
+			ITEMS = data.map(preparar); TR = tramos(ITEMS); eventos(); dibujar(); document.documentElement.classList.remove('cgf-pre');
 		}).catch(function (e) {
-			document.body.classList.remove('cgf-on'); if (FILA) FILA.classList.remove('cgf-oculta'); ROOT.innerHTML = '';
+			document.body.classList.remove('cgf-on'); document.documentElement.classList.remove('cgf-pre'); if (FILA) FILA.classList.remove('cgf-oculta'); ROOT.innerHTML = '';
 			if (window.console) console.warn('[CG-FILTROS-FICHA] no se pudo traer la lista; se muestra el listado normal', e);
 		});
 	}
