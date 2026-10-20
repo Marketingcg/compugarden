@@ -6039,3 +6039,19 @@ html.dark #cgf-root .cgf-ph b { color: #ff6fb0; }
 /* Sin parpadeo: el cargador pone html.cgf-pre apenas entra a un listado con la prueba encendida; se esconde el listado viejo y queda un marco de vidrio hasta que llega el nuevo */
 html.cgf-pre #articulos .col-md-2, html.cgf-pre #articulos .col-md-10 { display: none !important; }
 html.cgf-pre #articulos::after { content: ""; display: block; min-height: 640px; margin-top: 10px; border: 1px solid var(--cgx-borde, rgba(128,128,128,.25)); border-radius: 20px; background: linear-gradient(160deg, var(--cgx-vidrio, rgba(128,128,128,.09)), var(--cgx-vidrio2, rgba(128,128,128,.04))); }
+
+/* 37. LISTADO ARMADO POR EL SERVIDOR (prueba PRUEBASRV, oct. 2026): las opciones del panel son enlaces y las secciones cerradas se esconden con CSS
+   (cuando el listado nuevo reemplace al de JS, se borran de arriba las reglas que ya no se usen) */
+#cgf-root a.cgf-r, #cgf-root a.cgf-tg, #cgf-root .cgf-act a { color: inherit; text-decoration: none; }
+#cgf-root .cgf-sec:not(.cgf-abierto) > .cgf-sb { display: none; }
+#cgf-root .cgf-r[hidden] { display: none; }
+#cgf-root.cgf-cargando .cgf-grid { opacity: .55; transition: opacity .15s; }
+#cgf-root.cgf-cargando .cgf-panel { cursor: progress; }
+/* 37b. Panel de filtros mientras llega (cajitas grises que parpadean suave; se reemplazan solas cuando llega el panel) */
+#cgf-root .cgf-sk { display: block; }
+#cgf-root .cgf-sk > i { display: block; height: 14px; margin: 0 0 14px; border-radius: 7px; background: var(--m); opacity: .16; animation: cgf-sk 1.4s ease-in-out infinite; }
+#cgf-root .cgf-sk > i.t { width: 38%; height: 12px; margin: 22px 0 18px; }
+#cgf-root .cgf-sk > i.l { width: 86%; }
+#cgf-root .cgf-sk > i.l:nth-of-type(even) { width: 62%; }
+@keyframes cgf-sk { 50% { opacity: .3; } }
+@media (prefers-reduced-motion: reduce) { #cgf-root .cgf-sk > i { animation: none; } }
