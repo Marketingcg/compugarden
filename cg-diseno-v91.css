@@ -5960,8 +5960,10 @@ html body #detalle #solapas:has(.cgf) .cgf { --f-v: color-mix(in srgb, var(--dt-
 html body #detalle #solapas:has(.cgf) .cgf-c { border-radius: 16px; -webkit-backdrop-filter: blur(10px) saturate(105%); backdrop-filter: blur(10px) saturate(105%); }
 
 
+
+
 /* ==========================================================================
-   36. FILTROS DEL LISTADO (v88, oct. 2026)
+   36. FILTROS DEL LISTADO (v89, oct. 2026)
    Panel de filtros de /ARTICULOS/ que dibuja cg-filtros-ficha.js dentro de #cgf-root.
    Mismo lenguaje del armador (vidrio, pastillas de 36 px, rosa seleccionado). El JS no lleva estilos.
    Colores: --f texto, --m apagado, --on texto seleccionado; vidrio con --cgx-t (claro y oscuro).
@@ -6033,3 +6035,15 @@ html.dark #cgf-root .cgf-ph b { color: #ff6fb0; }
 #cgf-root .cgf-r .cgf-n { margin-left: auto; font-size: 12.5px; font-weight: 500; color: var(--m); font-variant-numeric: tabular-nums; }
 #cgf-root .cgf-r.cgf-cero { opacity: .4; }
 #cgf-root .cgf-sh > span.cgf-cur { font-weight: 500 !important; letter-spacing: 0; text-transform: none; }
+
+/* Sin parpadeo: el cargador pone html.cgf-pre apenas entra a un listado con la prueba encendida; se esconde el listado viejo y queda un marco de vidrio hasta que llega el nuevo */
+html.cgf-pre #articulos .col-md-2, html.cgf-pre #articulos .col-md-10 { display: none !important; }
+html.cgf-pre #articulos::after { content: ""; display: block; min-height: 640px; margin-top: 10px; border: 1px solid var(--cgx-borde, rgba(128,128,128,.25)); border-radius: 20px; background: linear-gradient(160deg, var(--cgx-vidrio, rgba(128,128,128,.09)), var(--cgx-vidrio2, rgba(128,128,128,.04))); }
+
+/* 37. LISTADO ARMADO POR EL SERVIDOR (prueba PRUEBASRV, oct. 2026): las opciones del panel son enlaces y las secciones cerradas se esconden con CSS
+   (cuando el listado nuevo reemplace al de JS, se borran de arriba las reglas que ya no se usen) */
+#cgf-root a.cgf-r, #cgf-root a.cgf-tg, #cgf-root .cgf-act a { color: inherit; text-decoration: none; }
+#cgf-root .cgf-sec:not(.cgf-abierto) > .cgf-sb { display: none; }
+#cgf-root .cgf-r[hidden] { display: none; }
+#cgf-root.cgf-cargando .cgf-grid { opacity: .55; transition: opacity .15s; }
+#cgf-root.cgf-cargando .cgf-panel { cursor: progress; }
