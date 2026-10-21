@@ -699,16 +699,18 @@ section#novedades_home .col-md-prod,section#ofertas_home .col-md-prod{
         margin:5px 0
     }
 }
+/* Tarjetas por fila en los listados (una sola variable): 5 desde 1360 px, 4 hasta 1359, 3 con el panel al costado (992-1199), 4 con el panel arriba (768-991), 3 en teléfono horizontal (600-767) y 2 en teléfono */
+#articulos { --cg-col: 20%; }
+@media (max-width:1359px) { #articulos { --cg-col: 25%; } }
+@media (max-width:1199px) { #articulos { --cg-col: 33.3333%; } }
+@media (max-width:991px)  { #articulos { --cg-col: 25%; } }
+@media (max-width:767px)  { #articulos { --cg-col: 33.3333%; } }
+@media (max-width:599px)  { #articulos { --cg-col: 50%; } }
 #articulos .col-md-prod{
-    width:25%
-}
-@media (min-width:1360px){
-    #articulos .col-md-prod{
-        width:20%
-    }
+    width:var(--cg-col, 20%)
 }
 @media (max-width:768px){
-    #articulos .col-md-prod,.col-md-prod{
+    .col-md-prod{
         width:100%;
         padding-left:8px;
         padding-right:8px
@@ -1283,6 +1285,7 @@ div.tab-pane{
 
   --cg-ui-accent: var(--cg-accent);
   --cg-ui-accent-hover: var(--cg-accent-hover);
+  --cg-ui-accent-rgb: 210, 63, 134;   /* v97: los halos de LOGIN y Mi cuenta usaban un rosa viejo (230, 0, 126) porque esta variable no estaba definida */
   --cg-bg: #0a0a0a;
   --cg-surface-hover: #1c0613;
   --cg-surface-open: #2a081c;
@@ -1655,6 +1658,9 @@ html.dark #articulos {
 }
 #articulos .col_pager .button-pager img { display: none !important; }
 #articulos .col_pager .cg-flecha { font-size: 18px; line-height: 1; }
+/* v97: flechas apagadas en los extremos. Primera pagina: la pagina actual es el 3.er elemento (despues de « y ‹) -> se apagan « ‹. Ultima pagina: la actual es el 3.° desde el final (antes de › y ») -> se apagan › ». Solo CSS: sigue valiendo cuando el paginador se rearma sin recargar. */
+#articulos .col_pager div.button-pager:has(> li:nth-child(3).button-rpager) > li:nth-child(-n+2) > a,
+#articulos .col_pager div.button-pager:has(> li.button-rpager:nth-last-child(3)) > li:nth-last-child(-n+2) > a { opacity: .35 !important; pointer-events: none !important; cursor: default !important; }
 #articulos .col_pager > p { margin: 0 0 10px !important; color: var(--lst-m) !important; font: 500 12.5px "Manrope", Arial, sans-serif; }
 
 #articulos .leftcolumn h1.botonfiltrar { margin: 0 0 12px !important; padding: 0 !important; background: none !important; border: 0 !important; }
@@ -4660,7 +4666,7 @@ opacity: 50% !important;
 
   body.cg-store-enabled #articulos .col-md-10 > .row { margin-left: -5px !important; margin-right: -5px !important; }
   body.cg-store-enabled #articulos .col-md-prod {
-    width: 50% !important; max-width: 50% !important; flex: 0 0 50% !important;
+    width: var(--cg-col, 50%) !important; max-width: var(--cg-col, 50%) !important; flex: 0 0 var(--cg-col, 50%) !important;
     padding-left: 5px !important; padding-right: 5px !important; margin: 0 0 10px !important;
   }
 
@@ -6014,14 +6020,15 @@ html.dark #cgf-root .cgf-ph b { color: #ff6fb0; }
 #cgf-root .cgf-act { display: flex; flex-wrap: wrap; gap: 8px; }
 #cgf-root .cgf-act span { display: inline-flex; align-items: center; height: 30px; padding: 0 12px; border-radius: 999px; border: 1px solid rgba(255,111,176,.7); background: linear-gradient(160deg, rgba(210,63,134,.34), rgba(210,63,134,.16)); color: var(--on); font-size: 12.5px; font-weight: 600; cursor: pointer; transition: all .2s; }
 #cgf-root .cgf-grid { display: flex; flex-wrap: wrap; }
-@media (max-width: 800px) { #cgf-root .cgf-wrap { flex-direction: column; }
+@media (max-width: 991px) { #cgf-root .cgf-wrap { flex-direction: column; }
 #cgf-root .cgf-panel { flex: 0 0 auto; max-width: 100%; width: 100%; display: none !important; }
 #cgf-root .cgf-movil .cgf-panel { display: block !important; }
 #cgf-root .cgf-mv, #cgf-root .cgf-movil .cgf-ft { display: block; }
 #cgf-root .cgf-movil .cgf-x { display: inline-flex; }
 #cgf-root .cgf-movil .cgf-ft { position: sticky; bottom: calc(12px + env(safe-area-inset-bottom, 0px)); z-index: 5; }
 #cgf-root .cgf-movil .cgf-r { min-height: 44px; }
-#cgf-root .cgf-movil .cgf-sh { min-height: 44px; } }
+#cgf-root .cgf-movil .cgf-sh { min-height: 44px; }
+body:has(.cgf-movil) #cg-whatsapp-float { display: none !important; } }   /* con el panel abierto, el botón de WhatsApp no tapa «Ver N productos» */
 
 /* Encabezado del listado: miga, título de la categoría con barra de marca y cantidad */
 #cgf-root .cgf-cab { margin: 0 0 20px; }
@@ -6074,3 +6081,19 @@ html.cgf-pre #articulos::after { content: ""; display: block; min-height: 640px;
 #cgf-root .cgf-sk > i.l:nth-of-type(even) { width: 62%; }
 @keyframes cgf-sk { 50% { opacity: .3; } }
 @media (prefers-reduced-motion: reduce) { #cgf-root .cgf-sk > i { animation: none; } }
+
+/* v98: carga inicial liviana de los listados. La página llega sin tarjetas (solo esqueleto) y el navegador las pide al script del ERP.
+   .cgf-esq = tarjeta esqueleto con el mismo alto que la real (353 px; 306 px en teléfono) para que no salte nada.
+   .cgf-seo = lista de productos escrita en el HTML para buscadores e IA que no ejecutan JavaScript: está oculta para la vista y se muestra si el script falla. */
+#cgf-root .cgf-grid .product.cgf-esq { min-height: 353px; overflow: hidden; pointer-events: none; }
+#cgf-root .cgf-esq > i { display: block; border-radius: 8px; background: var(--m); opacity: .16; animation: cgf-sk 1.4s ease-in-out infinite; }
+#cgf-root .cgf-esq > i.im { width: 145px; max-width: 80%; aspect-ratio: 1; margin: 14px auto 18px; }
+#cgf-root .cgf-esq > i.l { height: 12px; margin: 0 14px 10px; width: calc(100% - 28px); }
+#cgf-root .cgf-esq > i.l.c { width: 62%; }
+#cgf-root .cgf-esq > i.p { height: 22px; width: 52%; margin: 22px auto 16px; }
+#cgf-root .cgf-esq > i.b { height: 38px; margin: 0 14px; width: calc(100% - 28px); border-radius: 10px; }
+@media (max-width: 600px) { #cgf-root .cgf-grid .product.cgf-esq { min-height: 306px; } #cgf-root .cgf-esq > i.im { width: 130px; } }
+@media (prefers-reduced-motion: reduce) { #cgf-root .cgf-esq > i { animation: none; } }
+#articulos ul.cgf-seo { position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden; clip: rect(0 0 0 0); clip-path: inset(50%); white-space: nowrap; list-style: none; }
+#articulos .cgf-fallo ~ ul.cgf-seo, #articulos .cgf-fallo + ul.cgf-seo { position: static; width: auto; height: auto; margin: 16px 0; overflow: visible; clip: auto; clip-path: none; white-space: normal; }
+#articulos .cgf-fallo .cgf-grid .cgf-esq { display: none; }
