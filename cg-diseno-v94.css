@@ -5979,6 +5979,10 @@ html.dark #cgf-root .cgf-ph b { color: #ff6fb0; }
 #cgf-root .cgf-nc { min-width: 20px; height: 20px; padding: 0 6px; box-sizing: border-box; display: inline-flex; align-items: center; justify-content: center; border-radius: 999px; background: var(--cg-accent, #d23f86); color: #fff; font-size: 11px; font-weight: 700; letter-spacing: 0; }
 #cgf-root .cgf-lim { font-size: 12.5px; font-weight: 600; color: var(--m); cursor: pointer; text-decoration: underline; text-underline-offset: 3px; transition: color .2s; }
 #cgf-root .cgf-lim:hover { color: var(--f); }
+#cgf-root .cgf-lim { margin-left: auto; }
+#cgf-root .cgf-x { display: none; flex: 0 0 auto; align-items: center; justify-content: center; width: 34px; height: 34px; margin: 0 0 0 auto; padding: 0; border: 1px solid var(--gb); border-radius: 50%; background: transparent; color: var(--f); cursor: pointer; }
+#cgf-root .cgf-lim + .cgf-x { margin-left: 12px; }
+#cgf-root .cgf-x::before { content: ""; width: 14px; height: 14px; background: currentColor; -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M5 5l14 14M19 5L5 19' stroke='black' stroke-width='2.6' stroke-linecap='round'/%3E%3C/svg%3E") center / contain no-repeat; mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M5 5l14 14M19 5L5 19' stroke='black' stroke-width='2.6' stroke-linecap='round'/%3E%3C/svg%3E") center / contain no-repeat; }
 #cgf-root .cgf-sec { border-top: 1px solid var(--gb); }
 #cgf-root .cgf-sh { display: flex; justify-content: space-between; align-items: center; padding: 16px 0; cursor: pointer; user-select: none; }
 #cgf-root .cgf-sh > span { display: flex; align-items: center; gap: 9px; font-size: 12px; font-weight: 800 !important; letter-spacing: .16em; text-transform: uppercase; }
@@ -6002,7 +6006,11 @@ html.dark #cgf-root .cgf-ph b { color: #ff6fb0; }
 @media (max-width: 800px) { #cgf-root .cgf-wrap { flex-direction: column; }
 #cgf-root .cgf-panel { flex: 0 0 auto; max-width: 100%; width: 100%; display: none !important; }
 #cgf-root .cgf-movil .cgf-panel { display: block !important; }
-#cgf-root .cgf-mv, #cgf-root .cgf-movil .cgf-ft { display: block; } }
+#cgf-root .cgf-mv, #cgf-root .cgf-movil .cgf-ft { display: block; }
+#cgf-root .cgf-movil .cgf-x { display: inline-flex; }
+#cgf-root .cgf-movil .cgf-ft { position: sticky; bottom: calc(12px + env(safe-area-inset-bottom, 0px)); z-index: 5; }
+#cgf-root .cgf-movil .cgf-r { min-height: 44px; }
+#cgf-root .cgf-movil .cgf-sh { min-height: 44px; } }
 
 /* Encabezado del listado: miga, título de la categoría con barra de marca y cantidad */
 #cgf-root .cgf-cab { margin: 0 0 20px; }
@@ -6047,3 +6055,11 @@ html.cgf-pre #articulos::after { content: ""; display: block; min-height: 640px;
 #cgf-root .cgf-r[hidden] { display: none; }
 #cgf-root.cgf-cargando .cgf-grid { opacity: .55; transition: opacity .15s; }
 #cgf-root.cgf-cargando .cgf-panel { cursor: progress; }
+/* 37b. Panel de filtros mientras llega (cajitas grises que parpadean suave; se reemplazan solas cuando llega el panel) */
+#cgf-root .cgf-sk { display: block; }
+#cgf-root .cgf-sk > i { display: block; height: 14px; margin: 0 0 14px; border-radius: 7px; background: var(--m); opacity: .16; animation: cgf-sk 1.4s ease-in-out infinite; }
+#cgf-root .cgf-sk > i.t { width: 38%; height: 12px; margin: 22px 0 18px; }
+#cgf-root .cgf-sk > i.l { width: 86%; }
+#cgf-root .cgf-sk > i.l:nth-of-type(even) { width: 62%; }
+@keyframes cgf-sk { 50% { opacity: .3; } }
+@media (prefers-reduced-motion: reduce) { #cgf-root .cgf-sk > i { animation: none; } }
