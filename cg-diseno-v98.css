@@ -6095,5 +6095,5 @@ html.cgf-pre #articulos::after { content: ""; display: block; min-height: 640px;
 @media (max-width: 600px) { #cgf-root .cgf-grid .product.cgf-esq { min-height: 306px; } #cgf-root .cgf-esq > i.im { width: 130px; } }
 @media (prefers-reduced-motion: reduce) { #cgf-root .cgf-esq > i { animation: none; } }
 #articulos ul.cgf-seo { position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden; clip: rect(0 0 0 0); clip-path: inset(50%); white-space: nowrap; list-style: none; }
-#articulos .cgf-fallo ~ ul.cgf-seo, #articulos .cgf-fallo + ul.cgf-seo { position: static; width: auto; height: auto; margin: 16px 0; overflow: visible; clip: auto; clip-path: none; white-space: normal; }
-#articulos .cgf-fallo .cgf-grid .cgf-esq { display: none; }
+section#articulos:has(#cgf-root.cgf-fallo) ul.cgf-seo { position: static; width: auto; height: auto; margin: 16px 0; overflow: visible; clip: auto; clip-path: none; white-space: normal; }
+#cgf-root.cgf-fallo .cgf-grid .cgf-esq { display: none; }
