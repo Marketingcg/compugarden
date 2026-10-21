@@ -444,9 +444,20 @@ span.cart_top a.ircarrito{
     color:#fff;
     text-decoration:none
 }
-.container.checkout,div#articulos.container,div#detalle.container,div.container.micuenta{
+.container.checkout,div#detalle.container,div.container.micuenta{
     max-width:1400px;
     width:calc(100% - 40px)
+}
+div#articulos.container{
+    max-width:1400px;
+    width:calc(100% - 40px)
+}
+@media (max-width:768px){
+    div#articulos.container{
+        width:100%;
+        padding-left:12px;
+        padding-right:12px
+    }
 }
 div#barrahormiga{
     margin-left:auto
@@ -688,16 +699,18 @@ section#novedades_home .col-md-prod,section#ofertas_home .col-md-prod{
         margin:5px 0
     }
 }
+/* Tarjetas por fila en los listados (una sola variable): 5 desde 1360 px, 4 hasta 1359, 3 con el panel al costado (992-1199), 4 con el panel arriba (768-991), 3 en teléfono horizontal (600-767) y 2 en teléfono */
+#articulos { --cg-col: 20%; }
+@media (max-width:1359px) { #articulos { --cg-col: 25%; } }
+@media (max-width:1199px) { #articulos { --cg-col: 33.3333%; } }
+@media (max-width:991px)  { #articulos { --cg-col: 25%; } }
+@media (max-width:767px)  { #articulos { --cg-col: 33.3333%; } }
+@media (max-width:599px)  { #articulos { --cg-col: 50%; } }
 #articulos .col-md-prod{
-    width:25%
-}
-@media (min-width:1360px){
-    #articulos .col-md-prod{
-        width:20%
-    }
+    width:var(--cg-col, 20%)
 }
 @media (max-width:768px){
-    #articulos .col-md-prod,.col-md-prod{
+    .col-md-prod{
         width:100%;
         padding-left:8px;
         padding-right:8px
@@ -1272,6 +1285,7 @@ div.tab-pane{
 
   --cg-ui-accent: var(--cg-accent);
   --cg-ui-accent-hover: var(--cg-accent-hover);
+  --cg-ui-accent-rgb: 210, 63, 134;   /* v97: los halos de LOGIN y Mi cuenta usaban un rosa viejo (230, 0, 126) porque esta variable no estaba definida */
   --cg-bg: #0a0a0a;
   --cg-surface-hover: #1c0613;
   --cg-surface-open: #2a081c;
@@ -1644,6 +1658,9 @@ html.dark #articulos {
 }
 #articulos .col_pager .button-pager img { display: none !important; }
 #articulos .col_pager .cg-flecha { font-size: 18px; line-height: 1; }
+/* v97: flechas apagadas en los extremos. Primera pagina: la pagina actual es el 3.er elemento (despues de « y ‹) -> se apagan « ‹. Ultima pagina: la actual es el 3.° desde el final (antes de › y ») -> se apagan › ». Solo CSS: sigue valiendo cuando el paginador se rearma sin recargar. */
+#articulos .col_pager div.button-pager:has(> li:nth-child(3).button-rpager) > li:nth-child(-n+2) > a,
+#articulos .col_pager div.button-pager:has(> li.button-rpager:nth-last-child(3)) > li:nth-last-child(-n+2) > a { opacity: .35 !important; pointer-events: none !important; cursor: default !important; }
 #articulos .col_pager > p { margin: 0 0 10px !important; color: var(--lst-m) !important; font: 500 12.5px "Manrope", Arial, sans-serif; }
 
 #articulos .leftcolumn h1.botonfiltrar { margin: 0 0 12px !important; padding: 0 !important; background: none !important; border: 0 !important; }
@@ -4649,7 +4666,7 @@ opacity: 50% !important;
 
   body.cg-store-enabled #articulos .col-md-10 > .row { margin-left: -5px !important; margin-right: -5px !important; }
   body.cg-store-enabled #articulos .col-md-prod {
-    width: 50% !important; max-width: 50% !important; flex: 0 0 50% !important;
+    width: var(--cg-col, 50%) !important; max-width: var(--cg-col, 50%) !important; flex: 0 0 var(--cg-col, 50%) !important;
     padding-left: 5px !important; padding-right: 5px !important; margin: 0 0 10px !important;
   }
 
@@ -6003,14 +6020,15 @@ html.dark #cgf-root .cgf-ph b { color: #ff6fb0; }
 #cgf-root .cgf-act { display: flex; flex-wrap: wrap; gap: 8px; }
 #cgf-root .cgf-act span { display: inline-flex; align-items: center; height: 30px; padding: 0 12px; border-radius: 999px; border: 1px solid rgba(255,111,176,.7); background: linear-gradient(160deg, rgba(210,63,134,.34), rgba(210,63,134,.16)); color: var(--on); font-size: 12.5px; font-weight: 600; cursor: pointer; transition: all .2s; }
 #cgf-root .cgf-grid { display: flex; flex-wrap: wrap; }
-@media (max-width: 800px) { #cgf-root .cgf-wrap { flex-direction: column; }
+@media (max-width: 991px) { #cgf-root .cgf-wrap { flex-direction: column; }
 #cgf-root .cgf-panel { flex: 0 0 auto; max-width: 100%; width: 100%; display: none !important; }
 #cgf-root .cgf-movil .cgf-panel { display: block !important; }
 #cgf-root .cgf-mv, #cgf-root .cgf-movil .cgf-ft { display: block; }
 #cgf-root .cgf-movil .cgf-x { display: inline-flex; }
 #cgf-root .cgf-movil .cgf-ft { position: sticky; bottom: calc(12px + env(safe-area-inset-bottom, 0px)); z-index: 5; }
 #cgf-root .cgf-movil .cgf-r { min-height: 44px; }
-#cgf-root .cgf-movil .cgf-sh { min-height: 44px; } }
+#cgf-root .cgf-movil .cgf-sh { min-height: 44px; }
+body:has(.cgf-movil) #cg-whatsapp-float { display: none !important; } }   /* con el panel abierto, el botón de WhatsApp no tapa «Ver N productos» */
 
 /* Encabezado del listado: miga, título de la categoría con barra de marca y cantidad */
 #cgf-root .cgf-cab { margin: 0 0 20px; }
@@ -6018,7 +6036,7 @@ html.dark #cgf-root .cgf-ph b { color: #ff6fb0; }
 #cgf-root .cgf-mig { display: flex; align-items: center; gap: 8px; margin: 0 0 10px; font-size: 12.5px; color: var(--m); }
 #cgf-root .cgf-mig a { color: var(--m); text-decoration: none; transition: color .2s; }
 #cgf-root .cgf-mig a:hover { color: var(--f); }
-#cgf-root .cgf-tit { display: flex; align-items: baseline; flex-wrap: wrap; gap: 6px 16px; margin: 0; font-size: 32px; font-weight: 800; letter-spacing: -.02em; line-height: 1.1; color: var(--f); }
+#cgf-root .cgf-tit { display: flex; align-items: baseline; flex-wrap: wrap; gap: 6px 16px; margin: 0; font-size: clamp(24px, 7vw, 32px); font-weight: 800; letter-spacing: -.02em; line-height: 1.1; color: var(--f); }
 #cgf-root .cgf-tit span { font-size: 13.5px; font-weight: 500; letter-spacing: 0; color: var(--m); }
 #cgf-root .cgf-tit span b { color: var(--f); font-weight: 700; }
 /* Tarjetas de producto del listado: vidrio, imagen clara, precio destacado y botón de pastilla */
