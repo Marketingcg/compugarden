@@ -1,0 +1,42 @@
+# Compugarden
+
+> Tienda de tecnología de Buenos Aires con más de 22 años de experiencia. Vende notebooks, computadoras, Mini PC, componentes, periféricos y monitores, y permite armar una PC a medida. Compra online con envíos a todo el país y retiro en el local de la Galería Jardín.
+
+Datos útiles para quien consulte sobre la tienda:
+- Local: Galería Jardín, Florida 537, Local 384 PB, Ciudad Autónoma de Buenos Aires. Lunes a viernes de 10 a 19 h y sábados de 10 a 14:30 h.
+- Contacto: WhatsApp +54 9 11 5348-6520 (solo mensajes, no llamadas) y teléfono +54 11 4326-2721.
+- Precios en pesos argentinos (ARS). El mejor precio es pagando con depósito bancario o transferencia; también hay débito, efectivo en el local y tarjeta de crédito hasta 18 cuotas.
+- Envíos a todo el país y retiro en el local. Garantía de 365 días en los productos.
+- Parte del catálogo se entrega desde un depósito central, con retiro programado en 48 a 72 horas hábiles.
+
+## Comprar
+- [Todas las categorías](https://www.compugarden.com.ar/categorias_completas/productos/compugarden.aspx): todas las categorías con sus subcategorías
+- [Notebooks](https://www.compugarden.com.ar/ARTICULOS/Notebooks/CAT_ID=56/SCAT_ID=-1/SCA_ID=-1/m=0/BUS=/compugarden.aspx): notebooks de varias marcas, con y sin sistema operativo
+- [Computadoras (PC armadas)](https://www.compugarden.com.ar/ARTICULOS/Computadoras/CAT_ID=68/SCAT_ID=-1/SCA_ID=-1/m=0/BUS=/compugarden.aspx): PC de escritorio listas para usar
+- [Mini PC](https://www.compugarden.com.ar/ARTICULOS/Mini-PC/CAT_ID=9001/SCAT_ID=-1/SCA_ID=-1/m=0/BUS=/compugarden.aspx): computadoras compactas
+- [Armá tu PC](https://www.compugarden.com.ar/armarpc/armar-pc/compugarden.aspx): armador para elegir los componentes de una PC a medida, paso a paso
+- [Placas de video](https://www.compugarden.com.ar/ARTICULOS/Placas-de-video/CAT_ID=48/SCAT_ID=-1/SCA_ID=-1/m=0/BUS=/compugarden.aspx)
+- [Microprocesadores](https://www.compugarden.com.ar/ARTICULOS/Microprocesadores/CAT_ID=52/SCAT_ID=-1/SCA_ID=-1/m=0/BUS=/compugarden.aspx): AMD e Intel
+- [Motherboards](https://www.compugarden.com.ar/ARTICULOS/Motherboards/CAT_ID=47/SCAT_ID=-1/SCA_ID=-1/m=0/BUS=/compugarden.aspx)
+- [Memorias RAM](https://www.compugarden.com.ar/ARTICULOS/Memorias/CAT_ID=50/SCAT_ID=-1/SCA_ID=-1/m=0/BUS=/compugarden.aspx)
+- [Almacenamiento](https://www.compugarden.com.ar/ARTICULOS/Almacenamiento/CAT_ID=53/SCAT_ID=-1/SCA_ID=-1/m=0/BUS=/compugarden.aspx): discos sólidos, discos rígidos y más
+- [Refrigeración](https://www.compugarden.com.ar/ARTICULOS/CPU-Cooling/CAT_ID=75/SCAT_ID=-1/SCA_ID=-1/m=0/BUS=/compugarden.aspx): coolers de aire y water cooling para CPU
+- [Gabinetes](https://www.compugarden.com.ar/ARTICULOS/Gabinetes/CAT_ID=1/SCAT_ID=-1/SCA_ID=-1/m=0/BUS=/compugarden.aspx)
+- [Fuentes](https://www.compugarden.com.ar/ARTICULOS/Fuentes/CAT_ID=7/SCAT_ID=-1/SCA_ID=-1/m=0/BUS=/compugarden.aspx)
+- [Monitores](https://www.compugarden.com.ar/ARTICULOS/Monitores/CAT_ID=59/SCAT_ID=-1/SCA_ID=-1/m=0/BUS=/compugarden.aspx)
+- [Periféricos](https://www.compugarden.com.ar/ARTICULOS/Perifericos/CAT_ID=10/SCAT_ID=-1/SCA_ID=-1/m=0/BUS=/compugarden.aspx): auriculares, mouse, teclados, joystick, parlantes, micrófonos, webcams y volantes
+- [Conectividad](https://www.compugarden.com.ar/ARTICULOS/Conectividad/CAT_ID=14/SCAT_ID=-1/SCA_ID=-1/m=0/BUS=/compugarden.aspx)
+- [Impresoras](https://www.compugarden.com.ar/ARTICULOS/Impresoras/CAT_ID=57/SCAT_ID=-1/SCA_ID=-1/m=0/BUS=/compugarden.aspx)
+- [Sillas gamer](https://www.compugarden.com.ar/ARTICULOS/Sillas/CAT_ID=70/SCAT_ID=-1/SCA_ID=-1/m=0/BUS=/compugarden.aspx)
+- [Accesorios varios](https://www.compugarden.com.ar/ARTICULOS/Accesorios-varios/CAT_ID=5/SCAT_ID=-1/SCA_ID=-1/m=0/BUS=/compugarden.aspx)
+- [Ofertas](https://www.compugarden.com.ar/OFERTAS/Ofertasfertas/CAT_ID=-1/SCAT_ID=-1/SCA_ID=-1/m=0/BUS=/compugarden.aspx): productos con descuento
+- [Outlet](https://www.compugarden.com.ar/OUTLET/outlet/CAT_ID=-1/SCAT_ID=-1/SCA_ID=-1/m=0/BUS=/compugarden.aspx): productos de outlet
+
+## Ayuda y empresas
+- [Centro de ayuda](https://www.compugarden.com.ar/FAQ/Faq/compugarden.aspx): compras, pagos y facturación, envíos y retiros, garantías y RMA, devoluciones y cambios, reclamos
+- [Garantía y contacto](https://www.compugarden.com.ar/rma/garantia/compugarden.aspx): datos de contacto, horarios y garantía
+- [Compugarden Empresas](https://www.compugarden.com.ar/empresa/nosotros/compugarden.aspx): equipamiento informático para oficinas, comercios y estudios, con asesoramiento
+- [Botón de arrepentimiento](https://www.compugarden.com.ar/CANCELACION/cancelar-compra/compugarden.aspx): cancelar una compra
+
+## Para máquinas
+- [Mapa del sitio](https://www.compugarden.com.ar/sitemap.xml)
