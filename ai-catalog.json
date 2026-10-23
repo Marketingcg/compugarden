@@ -1,0 +1,25 @@
+{
+  "specVersion": "1.0",
+  "host": {
+    "displayName": "Compugarden",
+    "identifier": "compugarden.com.ar",
+    "documentationUrl": "https://www.compugarden.com.ar/llms.txt"
+  },
+  "entries": [
+    {
+      "identifier": "urn:air:compugarden.com.ar:knowledge:llms-txt",
+      "displayName": "Compugarden: resumen de la tienda para IA",
+      "type": "text/markdown",
+      "url": "https://www.compugarden.com.ar/llms.txt",
+      "description": "Qué es Compugarden, dónde está el local, horarios, contacto, medios de pago y envíos, y los enlaces a las categorías y a la ayuda de la tienda.",
+      "tags": [
+        "tienda",
+        "tecnología",
+        "notebooks",
+        "componentes",
+        "armado de PC",
+        "Argentina"
+      ]
+    }
+  ]
+}
