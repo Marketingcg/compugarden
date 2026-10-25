@@ -1578,30 +1578,6 @@ html.dark #articulos {
 #articulos .filtros_left li.term-item input[type="checkbox"]:focus-visible { outline: 2px solid var(--cg-accent, #d03882); outline-offset: 2px; }
 #articulos .filtros_left li.term-item label > span { margin-left: -4px; color: var(--lst-m) !important; font-weight: 500; }
 
-#articulos .filtros_left .cg-acc-head { cursor: pointer; user-select: none; }
-#articulos .filtros_left .cg-acc-head::after {
-  content: ""; flex: 0 0 8px; width: 8px; height: 8px; margin: 0 4px 3px 10px;
-  border-right: 2px solid var(--lst-m); border-bottom: 2px solid var(--lst-m);
-  transform: rotate(45deg); transition: transform .18s ease;
-}
-#articulos .filtros_left .cg-acc-head.cg-cerrado::after { transform: rotate(-45deg); margin-bottom: 0; }
-#articulos .filtros_left .cg-acc-head:hover { color: var(--cg-accent, #d03882) !important; }
-#articulos .filtros_left .cg-acc-head > i.fa-caret-down { display: none !important; }
-#articulos .filtros_left .cg-acc-body.cg-cerrado { display: none !important; }
-
-#articulos .cg-activos-head {
-  display: flex; align-items: center; justify-content: space-between; gap: 8px; margin: 0 0 8px;
-  color: var(--lst-t); font: 800 12px/1.2 "Manrope", Arial, sans-serif; letter-spacing: .08em; text-transform: uppercase;
-}
-#articulos .cg-activos[hidden] { display: none; }
-#articulos .cg-activo {
-  display: inline-flex; align-items: center; gap: 6px; height: 30px; padding: 0 10px;
-  border: 1px solid rgba(210,63,134,.45); border-radius: 8px; background: rgba(210,63,134,.08);
-  color: var(--cg-accent, #d03882) !important; font: 600 12.5px "Manrope", Arial, sans-serif;
-  text-decoration: none !important; cursor: pointer;
-}
-#articulos .cg-activo::after { content: "×"; font-size: 16px; line-height: 1; }
-#articulos .cg-activo:hover { background: rgba(210,63,134,.16); }
 #articulos .cg-limpiar {
   flex: 0 0 auto; color: var(--cg-accent, #d03882) !important; font: 700 12px "Manrope", Arial, sans-serif;
   letter-spacing: 0; text-transform: none; text-decoration: none !important;
@@ -1615,26 +1591,7 @@ html.dark #articulos {
 #articulos .filtros_left .borrarsubcate,
 #articulos .filtros_left .borrarmarca { display: none !important; }
 
-#articulos .cg-local {
-  display: flex; align-items: center; justify-content: space-between; gap: 10px;
-  margin: 0 0 14px; padding: 11px 12px; border: 1px solid var(--lst-line); border-radius: 10px;
-  background: var(--lst-bg); color: var(--lst-t); font: 600 13.5px "Manrope", Arial, sans-serif; cursor: pointer;
-}
-#articulos .cg-local input { position: absolute; opacity: 0; pointer-events: none; }
-#articulos .cg-local-sw {
-  position: relative; flex: 0 0 38px; width: 38px; height: 22px; border-radius: 999px;
-  background: var(--lst-line); transition: background .18s ease;
-}
-#articulos .cg-local-sw::after {
-  content: ""; position: absolute; top: 3px; left: 3px; width: 16px; height: 16px; border-radius: 50%;
-  background: #fff; box-shadow: 0 1px 3px rgba(0,0,0,.25); transition: transform .18s ease;
-}
-#articulos .cg-local input:checked + .cg-local-sw { background: var(--cg-accent, #d03882); }
-#articulos .cg-local input:checked + .cg-local-sw::after { transform: translateX(16px); }
-#articulos .cg-local input:focus-visible + .cg-local-sw { outline: 2px solid var(--cg-accent, #d03882); outline-offset: 2px; }
 #articulos .col-md-prod.cg-no-local { display: none !important; }
-#articulos .cg-local-aviso { margin: -6px 0 14px; color: var(--lst-m); font: 500 12px/1.4 "Manrope", Arial, sans-serif; }
-#articulos .cg-local-aviso[hidden] { display: none; }
 
 #articulos .col_pager { text-align: center; padding-top: 10px; }
 #articulos .col_pager .button-pager {
@@ -2362,7 +2319,6 @@ html .gb-button.primary:hover { background-color: var(--cg-accent-hover); }
     footer.cgf li > a, footer.cgf li.cgf__suave, footer.cgf .cgf__banco > summary { padding: 8px 0; }
   }
   @media (prefers-reduced-motion: reduce) { footer.cgf * { transition: none !important; } }
-
 
 /* 6. VENTANAS */
 
@@ -6024,9 +5980,6 @@ html body #detalle #solapas:has(.cgf) .cgf::before, html body #detalle #solapas:
 html body #detalle #solapas:has(.cgf) .cgf { --f-v: color-mix(in srgb, var(--dt-t, #f2f3f5) 3.5%, transparent); --f-v2: color-mix(in srgb, var(--dt-t, #f2f3f5) 1.5%, transparent); --f-b: color-mix(in srgb, var(--dt-t, #f2f3f5) 10%, transparent); }
 html body #detalle #solapas:has(.cgf) .cgf-c { border-radius: 16px; -webkit-backdrop-filter: blur(10px) saturate(105%); backdrop-filter: blur(10px) saturate(105%); }
 
-
-
-
 /* ==========================================================================
    36. FILTROS DEL LISTADO (v89, oct. 2026)
    Panel de filtros de /ARTICULOS/ que dibuja cg-filtros-ficha.js dentro de #cgf-root.
@@ -6081,7 +6034,7 @@ body:has(.cgf-movil) #cg-whatsapp-float { display: none !important; } }   /* con
 /* Encabezado del listado: miga, título de la categoría con barra de marca y cantidad */
 #cgf-root .cgf-cab { margin: 0 0 20px; }
 #cgf-root .cgf-cab::after { content: ""; display: block; width: 46px; height: 3px; margin-top: 14px; border-radius: 3px; background: var(--cgx-grad, linear-gradient(135deg, #ff5fa8, #d03882)); }
-#cgf-root .cgf-mig a { color: var(--m); text-decoration: none; transition: color .2s; }
+
 #cgf-root .cgf-tit { display: flex; align-items: baseline; flex-wrap: wrap; gap: 6px 16px; margin: 0; font-size: clamp(24px, 7vw, 32px); font-weight: 800; letter-spacing: -.02em; line-height: 1.1; color: var(--f); }
 #cgf-root .cgf-tit span { font-size: 13.5px; font-weight: 500; letter-spacing: 0; color: var(--m); }
 #cgf-root .cgf-tit span b { color: var(--f); font-weight: 700; }
