@@ -1546,7 +1546,6 @@ html.dark #articulos {
 }
 #articulos .filtros_left ul.cates a:hover::before,
 #articulos .filtros_left ul.subcates a:hover::before { border-color: var(--cg-accent, #d03882); }
-#articulos .filtros_left .cg-count { color: var(--lst-m); font-weight: 500; }
 
 #articulos .filtros_left span.cateactual,
 #articulos .filtros_left span.subcateactual,
@@ -1590,12 +1589,10 @@ html.dark #articulos {
 #articulos .filtros_left .cg-acc-head > i.fa-caret-down { display: none !important; }
 #articulos .filtros_left .cg-acc-body.cg-cerrado { display: none !important; }
 
-#articulos .cg-activos { margin: 0 0 16px; }
 #articulos .cg-activos-head {
   display: flex; align-items: center; justify-content: space-between; gap: 8px; margin: 0 0 8px;
   color: var(--lst-t); font: 800 12px/1.2 "Manrope", Arial, sans-serif; letter-spacing: .08em; text-transform: uppercase;
 }
-#articulos .cg-activos-chips { display: flex; flex-wrap: wrap; gap: 6px; }
 #articulos .cg-activos[hidden] { display: none; }
 #articulos .cg-activo {
   display: inline-flex; align-items: center; gap: 6px; height: 30px; padding: 0 10px;
@@ -6084,9 +6081,7 @@ body:has(.cgf-movil) #cg-whatsapp-float { display: none !important; } }   /* con
 /* Encabezado del listado: miga, título de la categoría con barra de marca y cantidad */
 #cgf-root .cgf-cab { margin: 0 0 20px; }
 #cgf-root .cgf-cab::after { content: ""; display: block; width: 46px; height: 3px; margin-top: 14px; border-radius: 3px; background: var(--cgx-grad, linear-gradient(135deg, #ff5fa8, #d03882)); }
-#cgf-root .cgf-mig { display: flex; align-items: center; gap: 8px; margin: 0 0 10px; font-size: 12.5px; color: var(--m); }
 #cgf-root .cgf-mig a { color: var(--m); text-decoration: none; transition: color .2s; }
-#cgf-root .cgf-mig a:hover { color: var(--f); }
 #cgf-root .cgf-tit { display: flex; align-items: baseline; flex-wrap: wrap; gap: 6px 16px; margin: 0; font-size: clamp(24px, 7vw, 32px); font-weight: 800; letter-spacing: -.02em; line-height: 1.1; color: var(--f); }
 #cgf-root .cgf-tit span { font-size: 13.5px; font-weight: 500; letter-spacing: 0; color: var(--m); }
 #cgf-root .cgf-tit span b { color: var(--f); font-weight: 700; }
@@ -6116,6 +6111,9 @@ body:has(.cgf-movil) #cg-whatsapp-float { display: none !important; } }   /* con
 /* Sin parpadeo: el cargador pone html.cgf-pre apenas entra a un listado con la prueba encendida; se esconde el listado viejo y queda un marco de vidrio hasta que llega el nuevo */
 html.cgf-pre #articulos .col-md-2, html.cgf-pre #articulos .col-md-10 { display: none !important; }
 html.cgf-pre #articulos::after { content: ""; display: block; min-height: 640px; margin-top: 10px; border: 1px solid var(--cgx-borde, rgba(128,128,128,.25)); border-radius: 20px; background: linear-gradient(160deg, var(--cgx-vidrio, rgba(128,128,128,.09)), var(--cgx-vidrio2, rgba(128,128,128,.04))); }
+
+/* Sin salto de diseño (CLS): mientras el listado se rearma el pie queda escondido pero conserva su lugar; así no «sube» de golpe en las páginas cortas (Outlet, búsqueda sin resultados). */
+html.cgf-pre .cg-foot { visibility: hidden; }
 
 /* 37. LISTADO ARMADO POR EL SERVIDOR (prueba PRUEBASRV, oct. 2026): las opciones del panel son enlaces y las secciones cerradas se esconden con CSS
    (cuando el listado nuevo reemplace al de JS, se borran de arriba las reglas que ya no se usen) */
@@ -6177,6 +6175,9 @@ html:has(#cgh-root.cgh-fallo) ul.cgh-seo { position: static; width: auto; height
 html body #detalle .mejorprecio:has(.precio-tachado:not(.d-hidden)) > .cg-of-fila[hidden],
 html body #detalle .mejorprecio[data-oferta="True" i] > .cg-of-fila[hidden] { display: flex !important; visibility: hidden; min-height: 20px; }
 html body #detalle .mejorprecio:has(.precio-tachado:not(.d-hidden)) > .cg-ahorro { min-height: 18.2px; }
+
+/* HOME: título principal (h1) para buscadores y lectores de pantalla; no cambia lo que se ve */
+.cg-h1-home{position:absolute!important;width:1px!important;height:1px!important;margin:-1px!important;padding:0!important;overflow:hidden!important;clip:rect(0,0,0,0)!important;clip-path:inset(50%)!important;white-space:nowrap!important;border:0!important}
 
 /* ENCABEZADO 2 (escondido: todo va detrás de html.cg-hdr2; sin esa clase no cambia nada). Computadora desde 900 px, celular hasta 899 px. */
 header.cg-site-header .cg-ic,header.cg-site-header .cg-mega,header.cg-site-header .cg-side-cuenta,header.cg-site-header .cg-brand-img{display:none}
@@ -6385,7 +6386,7 @@ html.cg-hdr2.cg-hdr2.cg-hdr2.cg-hdr2 body.cg-store-enabled header.cg-site-header
 html.cg-hdr2.cg-hdr2.cg-hdr2.cg-hdr2 body.cg-store-enabled header.cg-site-header #sidebar .cg-sidebar-foot::before{content:"Ayuda"!important;grid-column:1/-1!important;display:block!important;font-size:11px!important;font-weight:700!important;letter-spacing:.16em!important;text-transform:uppercase!important;color:#d03882!important;margin:0 0 2px!important}
 html.cg-hdr2.cg-hdr2.cg-hdr2.cg-hdr2 body.cg-store-enabled header.cg-site-header #sidebar .cg-sidebar-foot>:not(a){display:none!important}
 html.cg-hdr2.cg-hdr2.cg-hdr2.cg-hdr2 body.cg-store-enabled header.cg-site-header #sidebar .cg-sidebar-foot a{display:flex!important;flex-direction:column!important;align-items:center!important;justify-content:flex-start!important;gap:10px!important;height:auto!important;min-height:104px!important;padding:16px 6px 12px!important;background:linear-gradient(180deg,rgba(255,255,255,.08),rgba(255,255,255,.03))!important;border:1px solid rgba(255,255,255,.13)!important;border-radius:16px!important;text-align:center!important;font-size:12px!important;font-weight:600!important;line-height:1.25!important;letter-spacing:0!important;text-transform:none!important;color:#f1f1f5!important;-webkit-text-fill-color:#f1f1f5!important;transition:transform .2s ease,border-color .2s ease,background .2s ease!important}
-html.cg-hdr2.cg-hdr2.cg-hdr2.cg-hdr2 body.cg-store-enabled header.cg-site-header #sidebar .cg-sidebar-foot a i{display:flex!important;align-items:center!important;justify-content:center!important;width:40px!important;height:40px!important;border-radius:50%!important;background:rgba(208,56,130,.18)!important;color:#ff5aa8!important;font-size:16px!important}
+html.cg-hdr2.cg-hdr2.cg-hdr2.cg-hdr2 body.cg-store-enabled header.cg-site-header #sidebar .cg-sidebar-foot a i{display:flex!important;align-items:center!important;justify-content:center!important;width:40px!important;height:40px!important;border-radius:50%!important;background:rgba(208,56,130,.18)!important;color:#d03882!important;font-size:16px!important}
 html.cg-hdr2.cg-hdr2.cg-hdr2.cg-hdr2 body.cg-store-enabled header.cg-site-header #sidebar .cg-sidebar-foot a:active{transform:scale(.97)!important;border-color:rgba(208,56,130,.6)!important}
 html.cg-hdr2.cg-hdr2.cg-hdr2.cg-hdr2 body.cg-store-enabled header.cg-site-header #sidebar.active .menu-item{animation:cgMenuIn .35s ease both!important;animation-delay:calc(.04s * var(--index,0))!important}
 }
