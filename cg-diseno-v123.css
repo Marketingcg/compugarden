@@ -2216,17 +2216,22 @@ html .gb-button.primary:hover { background-color: var(--cg-accent-hover); }
 
 /* 5. FOOTER (CG-FOOTER v2.6, 28 oct. 2026)
    Opción B aprobada: banda superior con el logo claro a la izquierda y las 6 redes a la derecha (íconos de línea 1.8, sin relleno),
-   cuatro columnas debajo (Contacto, Visitanos, Ayuda, Legal) y el pie legal. Siempre oscuro, mismo grafito que la barra (var(--cg-hdr)).
+   cuatro columnas debajo (Contacto, Visitanos, Ayuda, Legal) y el pie legal. Siempre oscuro: grafito casi negro con brillo magenta suave y línea fina de marca arriba (v121, 28 oct.).
    Sin cajas ni fichas: solo líneas finas. El magenta (--cg-accent) aparece solo al pasar el mouse o con el foco.
-   En celular: todo apilado, redes de 44 px y enlaces altos para tocar fácil. */
+   En celular: dos columnas para ocupar la mitad de alto, enlaces de 36 px. */
 
   html body footer.cg-foot.cgf {
-    --cgf-fondo: var(--cg-hdr, #1c1f25); --cgf-texto: #d9dce2; --cgf-suave: #8f949e; --cgf-linea: rgba(255,255,255,.08);
+    --cgf-fondo: #0b0b0f; --cgf-texto: #d9dce2; --cgf-suave: #8b909a; --cgf-linea: rgba(255,255,255,.07);
+    position: relative; overflow: hidden;
     display: block !important; width: 100% !important; margin: 48px 0 0 !important; padding: 0 !important;
-    background: var(--cgf-fondo) !important; color: var(--cgf-texto) !important; border: 0 !important;
-    border-top: 1px solid var(--cgf-linea) !important; box-shadow: none !important; background-image: none !important;
+    background: radial-gradient(600px 260px at 8% 0%, rgba(210,63,134,.10), transparent 70%),
+                radial-gradient(520px 240px at 96% 100%, rgba(130,80,230,.07), transparent 70%),
+                linear-gradient(180deg, rgba(255,255,255,.035), rgba(255,255,255,0) 60%), var(--cgf-fondo) !important;
+    color: var(--cgf-texto) !important; border: 0 !important; box-shadow: none !important;
     text-align: left !important; font: 400 13.5px/1.5 "Manrope", system-ui, sans-serif !important;
   }
+  /* línea fina de marca arriba, como la del encabezado */
+  html body footer.cg-foot.cgf::before { content: ""; position: absolute; left: 0; right: 0; top: 0; height: 1px; background: linear-gradient(90deg, transparent, rgba(210,63,134,.55) 30%, rgba(130,80,230,.35) 70%, transparent); }
   footer.cgf *, footer.cgf *::before, footer.cgf *::after { box-sizing: border-box; }
   footer.cgf .cgf__wrap { width: 100%; max-width: var(--cg-ancho, 1440px); margin: 0 auto; padding: 40px var(--cg-margen, 20px) 22px; }
 
@@ -2266,17 +2271,20 @@ html .gb-button.primary:hover { background-color: var(--cg-accent-hover); }
   }
   @media (max-width: 700px) {
     html body footer.cg-foot.cgf { margin-top: 32px !important; }
-    footer.cgf .cgf__wrap { padding: 28px 16px 18px; }
-    footer.cgf .cgf__top { flex-direction: column; align-items: flex-start; gap: 16px; padding-bottom: 18px; }
+    footer.cgf .cgf__wrap { padding: 22px 16px 14px; }
+    footer.cgf .cgf__top { flex-direction: column; align-items: flex-start; gap: 12px; padding-bottom: 12px; }
+    footer.cgf .cgf__logo img { width: 150px; }
     footer.cgf .cgf__redes { justify-content: space-between; gap: 0; width: calc(100% + 10px); margin: 0 -5px; }
-    html body footer.cgf .cgf__redes a { width: 44px; height: 44px; }
-    footer.cgf .cgf__cols { grid-template-columns: minmax(0, 1fr); gap: 0; padding: 0 0 8px; }
-    footer.cgf .cgf__col { padding: 20px 0 12px; }
-    footer.cgf .cgf__col + .cgf__col { border-top: 1px solid var(--cgf-linea); }
-    footer.cgf .cgf__tit { margin-bottom: 6px; }
+    html body footer.cgf .cgf__redes a { width: 40px; height: 40px; }
+    footer.cgf .cgf__cols { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 18px; padding: 4px 0 6px; }
+    footer.cgf .cgf__col { padding: 14px 0 6px; }
+    footer.cgf .cgf__col:nth-child(n+3) { border-top: 1px solid var(--cgf-linea); }
+    footer.cgf .cgf__tit { margin-bottom: 4px; font-size: 10.5px; }
     footer.cgf li { padding: 0; }
-    html body footer.cgf li a, footer.cgf li.cgf__suave, footer.cgf .cgf__banco > summary { display: flex; align-items: center; min-height: 44px; padding: 8px 0; }
+    html body footer.cgf li a, footer.cgf li.cgf__suave, footer.cgf .cgf__banco > summary { display: flex; align-items: center; min-height: 36px; padding: 6px 0; font-size: 13px; line-height: 1.35; }
     footer.cgf li.cgf__suave { min-height: 0; }
+    footer.cgf .cgf__pie { padding-top: 12px; }
+    footer.cgf .cgf__pie .cgf__legal { font-size: 10.5px; line-height: 1.5; }
   }
   @media (prefers-reduced-motion: reduce) { footer.cgf * { transition: none !important; } }
 
@@ -6320,3 +6328,14 @@ html.cg-hdr2.cg-hdr2.cg-hdr2.cg-hdr2 header.cg-site-header *,html.cg-hdr2.cg-hdr
 .cg-nd-bt a { display: inline-flex; align-items: center; justify-content: center; min-height: 44px; padding: 0 20px; border: 1px solid var(--cgx-borde, rgba(128,128,128,.35)); border-radius: 10px; color: inherit; font: 700 13px/1 "Manrope", Arial, sans-serif; letter-spacing: .02em; text-decoration: none; }
 .cg-nd-bt a.cg-nd-b1 { border-color: rgba(208, 56, 130, .75); color: #d03882; }
 @media (max-width: 600px) { .cg-nd { padding: 22px 20px; } .cg-nd-t { font-size: 24px; } .cg-nd-bt a { flex: 1 1 100%; } }
+
+/* ===== v123 (29 oct. 2026): PANEL DE DATOS sobre la foto de las PC armadas (opción C aprobada por el usuario: el estilo de las fotos viejas, en claro).
+   Reemplaza la columna de v122 (aquellas reglas se quitaron). Lo dibuja cg-fotos v1.2 con el nombre de la PC: procesador, disco, memoria y gráficos.
+   Escala solo con el tamaño de la foto (--cgu = 1% del ancho de la foto, lo pone cg-fotos), en la tarjeta del listado y en la página del producto. ===== */
+.cg-pcd-box{position:relative;--cgu:2.5px}
+.cg-pcd{position:absolute;left:4%;top:8%;bottom:8%;width:30%;z-index:2;pointer-events:none;display:flex;flex-direction:column;justify-content:space-evenly;align-items:center;text-align:center;background:linear-gradient(180deg,#f7f8fa,#eceff3);border-radius:clamp(6px,calc(var(--cgu) * 2.4),14px);box-shadow:0 4px 14px rgba(30,40,60,.10);color:#1f2433;font-family:"Manrope",system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;text-transform:none;letter-spacing:0;padding:2% 0}
+.cg-pcd:after{content:"";position:absolute;right:-1px;top:7%;bottom:7%;width:clamp(2px,calc(var(--cgu) * .7),4px);border-radius:4px;background:linear-gradient(180deg,#e0619e,#8b5cf6,#38bdf8)}
+.cg-pcd-i{display:flex;flex-direction:column;align-items:center;max-width:94%}
+.cg-pcd svg{width:clamp(12px,calc(var(--cgu) * 6.2),36px);height:clamp(12px,calc(var(--cgu) * 6.2),36px);fill:none;stroke:#1f2433;stroke-width:1.4;stroke-linecap:round;stroke-linejoin:round;margin-bottom:.15em}
+.cg-pcd small{display:block;font-size:clamp(6px,calc(var(--cgu) * 2.3),13px);font-weight:600;letter-spacing:.06em;color:#6b7286;line-height:1.15}
+.cg-pcd b{display:block;font-size:clamp(7px,calc(var(--cgu) * 3),17px);font-weight:800;line-height:1.15;color:#1f2433;overflow-wrap:anywhere}
