@@ -5428,7 +5428,8 @@ html body #detalle .sp-wrap:has(.sp-large) { display: flex !important; flex-dire
 }
 html body #detalle .sp-wrap .sp-large { flex: 1 1 0; min-height: 0; display: flex; align-items: center; justify-content: center; background: #fff; }
 html body #detalle .sp-wrap .sp-large a { display: flex; align-items: center; justify-content: center; width: 100%; height: 100%; }
-html body #detalle .sp-wrap .sp-large img { display: block; width: auto; height: auto; max-width: 100%; max-height: 100%; object-fit: contain; }
+html body #detalle /* v124: también las fotos de la galería antes de que se arme (cg-fotos las cambia por las de GitHub, de 1600 px: sin esto se veían gigantes un instante) */
+.sp-wrap .sp-large img, .sp-wrap > a > img { display: block; width: auto; height: auto; max-width: 100%; max-height: 100%; object-fit: contain; }
 html body #detalle .sp-thumbs {
   display: flex !important; flex: 0 0 74px; flex-wrap: nowrap; justify-content: flex-start; gap: 8px; overflow-x: auto; overflow-y: hidden; scrollbar-width: none; scroll-snap-type: x proximity;
   box-sizing: border-box; width: 100% !important; height: 74px; margin: 0 !important; padding: 10px 0 0 !important; background: transparent !important;
@@ -6329,14 +6330,15 @@ html.cg-hdr2.cg-hdr2.cg-hdr2.cg-hdr2 header.cg-site-header *,html.cg-hdr2.cg-hdr
 .cg-nd-bt a.cg-nd-b1 { border-color: rgba(208, 56, 130, .75); color: #d03882; }
 @media (max-width: 600px) { .cg-nd { padding: 22px 20px; } .cg-nd-t { font-size: 24px; } .cg-nd-bt a { flex: 1 1 100%; } }
 
-/* ===== v122 (29 oct. 2026): ETIQUETA DE DATOS sobre la foto de las PC armadas (diseño aprobado por el usuario, opción B).
-   La dibuja cg-fotos con el nombre de la PC (procesador, memoria, disco y gráficos): no está dentro de la foto, así que cambia sola cuando cambia una pieza.
-   Clases nuevas, no tocan reglas existentes: .cg-pcd-box (la caja de la foto pasa a ser la referencia) y .cg-pcd (la columna). ===== */
-.cg-pcd-box{position:relative}
-.cg-pcd{position:absolute;left:8px;top:10px;z-index:2;display:flex;flex-direction:column;align-items:flex-start;gap:5px;pointer-events:none}
-.cg-pcd span{display:flex;align-items:center;gap:6px;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font:700 11px/1.25 "Manrope",system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;color:#1f2433;background:rgba(255,255,255,.92);border-left:2px solid #a92f6c;padding:4px 8px;border-radius:0 7px 7px 0;box-shadow:0 2px 8px rgba(30,40,60,.08);text-transform:none;letter-spacing:0}
-.cg-pcd svg{width:13px;height:13px;flex:none;fill:none;stroke:#a92f6c;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
-.cg-pcd-g{left:16px;top:16px;gap:8px}
-.cg-pcd-g span{font-size:13px;padding:6px 11px}
-.cg-pcd-g svg{width:16px;height:16px}
-@media (max-width:767px){.cg-pcd{left:4px;top:6px;gap:3px}.cg-pcd span{font-size:9.5px;padding:3px 6px;gap:4px}.cg-pcd svg{width:11px;height:11px}.cg-pcd-g span{font-size:11.5px;padding:5px 9px}}
+/* v125: el panel toma la posición y el tamaño de la FOTO (--cgx/--cgy/--cgw/--cgh, los pone cg-fotos v1.5) y se oculta sobre la imagen «en preparación» (.cg-pcd-off) */
+.cg-pcd-box.cg-pcd-off .cg-pcd{display:none}
+/* ===== v123 (29 oct. 2026): PANEL DE DATOS sobre la foto de las PC armadas (opción C aprobada por el usuario: el estilo de las fotos viejas, en claro).
+   Reemplaza la columna de v122 (aquellas reglas se quitaron). Lo dibuja cg-fotos v1.2 con el nombre de la PC: procesador, disco, memoria y gráficos.
+   Escala solo con el tamaño de la foto (--cgu = 1% del ancho de la foto, lo pone cg-fotos), en la tarjeta del listado y en la página del producto. ===== */
+.cg-pcd-box{position:relative;--cgu:2.5px}
+.cg-pcd{position:absolute;left:var(--cgx,4%);top:var(--cgy,8%);height:var(--cgh,84%);width:var(--cgw,30%);overflow:hidden;z-index:2;pointer-events:none;display:flex;flex-direction:column;justify-content:space-evenly;align-items:center;text-align:center;background:linear-gradient(180deg,#f7f8fa,#eceff3);border-radius:clamp(6px,calc(var(--cgu) * 2.4),14px);box-shadow:0 4px 14px rgba(30,40,60,.10);color:#1f2433;font-family:"Manrope",system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;text-transform:none;letter-spacing:0;padding:2% 0}
+.cg-pcd:after{content:"";position:absolute;right:-1px;top:7%;bottom:7%;width:clamp(2px,calc(var(--cgu) * .7),4px);border-radius:4px;background:linear-gradient(180deg,#e0619e,#8b5cf6,#38bdf8)}
+.cg-pcd-i{display:flex;flex-direction:column;align-items:center;max-width:94%}
+.cg-pcd svg{width:clamp(9px,calc(var(--cgu) * 6.2),36px);height:clamp(9px,calc(var(--cgu) * 6.2),36px);fill:none;stroke:#1f2433;stroke-width:1.4;stroke-linecap:round;stroke-linejoin:round;margin-bottom:.15em}
+.cg-pcd small{display:block;font-size:clamp(5px,calc(var(--cgu) * 2.3),13px);font-weight:600;letter-spacing:.06em;color:#6b7286;line-height:1.15}
+.cg-pcd b{display:block;font-size:clamp(6px,calc(var(--cgu) * 3),17px);font-weight:800;line-height:1.15;color:#1f2433;overflow-wrap:anywhere}
