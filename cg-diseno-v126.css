@@ -1,3 +1,4 @@
+/* v126 (30 oct. 2026): pestañas de tipo de PC (.cgf-tabs) y .cgf-cab en columna para que queden debajo de la línea del título. */
 /* v103: la fuente Manrope sale del propio repositorio (antes de Google Fonts: dos conexiones externas y un CSS que bloqueaba el renderizado). Es una fuente variable: un solo archivo cubre los pesos 200 a 800. Solo se cargan el latino y el latino extendido (lo que usa el español). */
 @font-face { font-family: "Manrope"; font-style: normal; font-weight: 200 800; font-display: swap; src: url("https://cdn.jsdelivr.net/gh/Marketingcg/compugarden@1a76d823b892bb090c1213165725b7c49fd6b132/fuentes/manrope-latin-ext.woff2") format("woff2"); unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF; }
 @font-face { font-family: "Manrope"; font-style: normal; font-weight: 200 800; font-display: swap; src: url("https://cdn.jsdelivr.net/gh/Marketingcg/compugarden@1a76d823b892bb090c1213165725b7c49fd6b132/fuentes/manrope-latin.woff2") format("woff2"); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
@@ -5428,7 +5429,8 @@ html body #detalle .sp-wrap:has(.sp-large) { display: flex !important; flex-dire
 }
 html body #detalle .sp-wrap .sp-large { flex: 1 1 0; min-height: 0; display: flex; align-items: center; justify-content: center; background: #fff; }
 html body #detalle .sp-wrap .sp-large a { display: flex; align-items: center; justify-content: center; width: 100%; height: 100%; }
-html body #detalle .sp-wrap .sp-large img { display: block; width: auto; height: auto; max-width: 100%; max-height: 100%; object-fit: contain; }
+html body #detalle /* v124: también las fotos de la galería antes de que se arme (cg-fotos las cambia por las de GitHub, de 1600 px: sin esto se veían gigantes un instante) */
+.sp-wrap .sp-large img, .sp-wrap > a > img { display: block; width: auto; height: auto; max-width: 100%; max-height: 100%; object-fit: contain; }
 html body #detalle .sp-thumbs {
   display: flex !important; flex: 0 0 74px; flex-wrap: nowrap; justify-content: flex-start; gap: 8px; overflow-x: auto; overflow-y: hidden; scrollbar-width: none; scroll-snap-type: x proximity;
   box-sizing: border-box; width: 100% !important; height: 74px; margin: 0 !important; padding: 10px 0 0 !important; background: transparent !important;
@@ -6000,12 +6002,19 @@ html.dark #cgf-root .cgf-ph b { color: #ff6fb0; }
 body:has(.cgf-movil) #cg-whatsapp-float { display: none !important; } }   /* con el panel abierto, el botón de WhatsApp no tapa «Ver N productos» */
 
 /* Encabezado del listado: miga, título de la categoría con barra de marca y cantidad */
-#cgf-root .cgf-cab { margin: 0 0 20px; }
+#cgf-root .cgf-cab { display: flex; flex-direction: column; margin: 0 0 20px; }
 #cgf-root .cgf-cab::after { content: ""; display: block; width: 46px; height: 3px; margin-top: 14px; border-radius: 3px; background: var(--cgx-grad, linear-gradient(135deg, #ff5fa8, #d03882)); }
 
 #cgf-root .cgf-tit { display: flex; align-items: baseline; flex-wrap: wrap; gap: 6px 16px; margin: 0; font-size: clamp(24px, 7vw, 32px); font-weight: 800; letter-spacing: -.02em; line-height: 1.1; color: var(--f); }
 #cgf-root .cgf-tit span { font-size: 13.5px; font-weight: 500; letter-spacing: 0; color: var(--m); }
 #cgf-root .cgf-tit span b { color: var(--f); font-weight: 700; }
+/* v126: pestañas de tipo de PC en Computadoras (.cgf-tabs, dentro de .cgf-cab, después de la línea rosa del título). Finas, sin cajas; en celular se deslizan de costado (width 0 + min-width 100 %: no ensanchan la columna del listado). */
+#cgf-root .cgf-tabs { order: 1; display: flex; gap: 26px; width: 0; min-width: 100%; box-sizing: border-box; margin: 18px 0 0; border-bottom: 1px solid var(--gb); overflow-x: auto; scrollbar-width: none; -webkit-overflow-scrolling: touch; }
+#cgf-root .cgf-tabs::-webkit-scrollbar { display: none; }
+#cgf-root .cgf-tabs a { flex: 0 0 auto; display: inline-flex; align-items: baseline; gap: 6px; padding: 0 0 12px; margin-bottom: -1px; border-bottom: 1.5px solid transparent; font-size: 12.5px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--m); text-decoration: none; transition: color .15s, border-color .15s; }
+#cgf-root .cgf-tabs a span { font-size: 11px; font-weight: 500; letter-spacing: 0; opacity: .65; }
+#cgf-root .cgf-tabs a:hover, #cgf-root .cgf-tabs a:focus-visible { color: var(--f); outline: none; }
+#cgf-root .cgf-tabs a.cgf-on { color: var(--on); border-bottom-color: var(--on); }
 /* Tarjetas de producto del listado: vidrio, imagen clara, precio destacado y botón de pastilla */
 
 /* Secciones que se despliegan con lista de casillas (como Maximus, con el vidrio y el rosa del sitio) */
@@ -6329,13 +6338,15 @@ html.cg-hdr2.cg-hdr2.cg-hdr2.cg-hdr2 header.cg-site-header *,html.cg-hdr2.cg-hdr
 .cg-nd-bt a.cg-nd-b1 { border-color: rgba(208, 56, 130, .75); color: #d03882; }
 @media (max-width: 600px) { .cg-nd { padding: 22px 20px; } .cg-nd-t { font-size: 24px; } .cg-nd-bt a { flex: 1 1 100%; } }
 
+/* v125: el panel toma la posición y el tamaño de la FOTO (--cgx/--cgy/--cgw/--cgh, los pone cg-fotos v1.5) y se oculta sobre la imagen «en preparación» (.cg-pcd-off) */
+.cg-pcd-box.cg-pcd-off .cg-pcd{display:none}
 /* ===== v123 (29 oct. 2026): PANEL DE DATOS sobre la foto de las PC armadas (opción C aprobada por el usuario: el estilo de las fotos viejas, en claro).
    Reemplaza la columna de v122 (aquellas reglas se quitaron). Lo dibuja cg-fotos v1.2 con el nombre de la PC: procesador, disco, memoria y gráficos.
    Escala solo con el tamaño de la foto (--cgu = 1% del ancho de la foto, lo pone cg-fotos), en la tarjeta del listado y en la página del producto. ===== */
 .cg-pcd-box{position:relative;--cgu:2.5px}
-.cg-pcd{position:absolute;left:4%;top:8%;bottom:8%;width:30%;z-index:2;pointer-events:none;display:flex;flex-direction:column;justify-content:space-evenly;align-items:center;text-align:center;background:linear-gradient(180deg,#f7f8fa,#eceff3);border-radius:clamp(6px,calc(var(--cgu) * 2.4),14px);box-shadow:0 4px 14px rgba(30,40,60,.10);color:#1f2433;font-family:"Manrope",system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;text-transform:none;letter-spacing:0;padding:2% 0}
+.cg-pcd{position:absolute;left:var(--cgx,4%);top:var(--cgy,8%);height:var(--cgh,84%);width:var(--cgw,30%);overflow:hidden;z-index:2;pointer-events:none;display:flex;flex-direction:column;justify-content:space-evenly;align-items:center;text-align:center;background:linear-gradient(180deg,#f7f8fa,#eceff3);border-radius:clamp(6px,calc(var(--cgu) * 2.4),14px);box-shadow:0 4px 14px rgba(30,40,60,.10);color:#1f2433;font-family:"Manrope",system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;text-transform:none;letter-spacing:0;padding:2% 0}
 .cg-pcd:after{content:"";position:absolute;right:-1px;top:7%;bottom:7%;width:clamp(2px,calc(var(--cgu) * .7),4px);border-radius:4px;background:linear-gradient(180deg,#e0619e,#8b5cf6,#38bdf8)}
 .cg-pcd-i{display:flex;flex-direction:column;align-items:center;max-width:94%}
-.cg-pcd svg{width:clamp(12px,calc(var(--cgu) * 6.2),36px);height:clamp(12px,calc(var(--cgu) * 6.2),36px);fill:none;stroke:#1f2433;stroke-width:1.4;stroke-linecap:round;stroke-linejoin:round;margin-bottom:.15em}
-.cg-pcd small{display:block;font-size:clamp(6px,calc(var(--cgu) * 2.3),13px);font-weight:600;letter-spacing:.06em;color:#6b7286;line-height:1.15}
-.cg-pcd b{display:block;font-size:clamp(7px,calc(var(--cgu) * 3),17px);font-weight:800;line-height:1.15;color:#1f2433;overflow-wrap:anywhere}
+.cg-pcd svg{width:clamp(9px,calc(var(--cgu) * 6.2),36px);height:clamp(9px,calc(var(--cgu) * 6.2),36px);fill:none;stroke:#1f2433;stroke-width:1.4;stroke-linecap:round;stroke-linejoin:round;margin-bottom:.15em}
+.cg-pcd small{display:block;font-size:clamp(5px,calc(var(--cgu) * 2.3),13px);font-weight:600;letter-spacing:.06em;color:#6b7286;line-height:1.15}
+.cg-pcd b{display:block;font-size:clamp(6px,calc(var(--cgu) * 3),17px);font-weight:800;line-height:1.15;color:#1f2433;overflow-wrap:anywhere}
