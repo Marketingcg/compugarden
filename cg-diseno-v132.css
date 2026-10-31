@@ -9213,23 +9213,6 @@ html.dark #cg-comprar {
   }
 
 }
-/* --- COMPROBANTES (bloque 0) --- */
-" +
-                "body{font-family:Arial,sans-serif;background:#f7f8fb;color:#222;padding:24px;margin:0}" +
-                ".correctSave{max-width:580px;width:100%;margin:0 auto;background:#fff;border:1px solid #ddd;border-radius:12px;padding:25px;box-sizing:border-box}" +
-                ".contenedor-svg-maximus{text-align:center}" +
-                ".svg-maximus{background:#191919;border-radius:5px;padding:15px;text-align:center}" +
-                ".svg-maximus-verde{max-width:100%;width:300px}" +
-                ".orden-generada{text-align:center;font-size:22px;font-weight:bold}" +
-                ".pedido-monto{text-align:center}" +
-                ".detalle-compra-realizada{margin-top:24px}" +
-                ".detalle-compra-titulo{display:block;font-size:20px;border-bottom:1px solid #ddd;padding-bottom:12px;margin-bottom:15px}" +
-                ".detalle-compra-subtitulo{display:block;color:#666;margin-top:14px;font-size:13px}" +
-                ".detalle-compra-informacion{display:block;margin:5px 0;font-size:15px;word-break:break-word}" +
-                ".resumpen-pedido{display:none}" +
-                "#comprar,#prepararse{display:none}" +
-                "a{color:#e6007e}" +
-                "
 /* --- COMPROBANTES (bloque 1) --- */
 /* CONTENEDOR GENERAL */
 
