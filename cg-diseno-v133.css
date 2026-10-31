@@ -6274,3 +6274,48 @@ html.cg-hdr2.cg-hdr2.cg-hdr2.cg-hdr2 header.cg-site-header *,html.cg-hdr2.cg-hdr
 /* Corazón de las tarjetas: área de toque de 44 px sin agrandar el ícono (v130) */
 .product i#favoritos { position: relative; }
 .product i#favoritos::after { content: ""; position: absolute; inset: -16px; }
+
+/* ===== v133: estilos globales que vivían en las plantillas HEADER y HEADER_CSS_JS (carrito del encabezado y pantalla de carga) ===== */
+/* --- HEADER (bloque 0) --- */
+header.cg-site-header .cg-cart-oculto {
+    position: absolute !important; width: 1px !important; height: 1px !important; margin: -1px !important;
+    overflow: hidden !important; clip: rect(0 0 0 0) !important; white-space: nowrap !important;
+  }
+  header.cg-site-header .cg-cart-ico { position: relative !important; display: inline-block !important; line-height: 1 !important; }
+  header.cg-site-header .cg-cart-ico i { margin: 0 !important; display: block !important; }
+  html body header.cg-site-header #content-desktop .cg-carrito .cg-cart-ico { display: block !important; width: max-content !important; margin: 0 auto 4px !important; }
+  html body header.cg-site-header #content-desktop .cg-carrito .cg-cart-label { display: block !important; text-align: center; }
+  html body header.cg-site-header .cg-cart-badge,
+  html body header.cg-site-header #contador.cg-cart-badge {
+    display: inline-block !important; position: absolute !important; top: -7px !important; right: -10px !important;
+    min-width: 18px; height: 18px; padding: 0 5px; border-radius: 999px; transform: none !important;
+    background: var(--cg-accent, #d03882) !important; color: #fff !important;
+    font: 700 11px/18px Manrope, Arial, sans-serif !important; text-align: center; box-sizing: border-box;
+    box-shadow: 0 0 0 2px #16171c; pointer-events: none;
+  }
+  html body header.cg-site-header .cg-cart-badge[data-cero] { display: none !important; }
+  header.cg-site-header .cg-cart-label { font-size: 11px; font-weight: 700; line-height: 1.2; white-space: nowrap; }
+/* --- HEADER_CSS_JS (bloque 0) --- */
+#loader { display: none !important; }
+  #cg-carga {
+    position: fixed; inset: 0; z-index: 2147483000;
+    display: flex; align-items: center; justify-content: center;
+    background: #f5f5f7; transition: opacity .2s ease, visibility .2s ease;
+  }
+  html.dark #cg-carga { background: #121317; }
+  #cg-carga.cg-fuera { opacity: 0; visibility: hidden; pointer-events: none; }
+  #cg-carga.cg-fuera .cg-c-af, #cg-carga.cg-fuera .cg-c-ad { animation-play-state: paused; }
+  #cg-carga .cg-c-ld { position: relative; width: 96px; height: 96px; opacity: 0; animation: cg-c-entra .15s ease .15s forwards; }
+  #cg-carga .cg-c-ld svg { position: absolute; inset: 0; width: 100%; height: 100%; will-change: transform; }
+  #cg-carga .cg-c-af { animation: cg-c-gira .75s linear infinite; }
+  #cg-carga .cg-c-ad { animation: cg-c-giral .6s linear infinite; }
+  @keyframes cg-c-gira { to { transform: rotate(360deg); } }
+  @keyframes cg-c-giral { to { transform: rotate(-360deg); } }
+  @keyframes cg-c-entra { to { opacity: 1; } }
+  @media (max-width: 480px) { #cg-carga .cg-c-ld { width: 84px; height: 84px; } }
+  @media (prefers-reduced-motion: reduce) { #cg-carga .cg-c-af { animation-duration: 2.6s; } #cg-carga .cg-c-ad { animation-duration: 2.2s; } }
+  #cg-barra { position: fixed; top: 0; left: 0; right: 0; height: 3px; z-index: 2147483001; pointer-events: none; opacity: 0;
+    background: linear-gradient(90deg, var(--cg-accent, #d03882), #1e90ff, var(--cg-accent, #d03882)); background-size: 200% 100%; transition: opacity .2s ease; }
+  #cg-barra.cg-activa { opacity: 1; animation: cg-barra 1s linear infinite; }
+  @keyframes cg-barra { to { background-position: -200% 0; } }
+
