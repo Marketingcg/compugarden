@@ -7488,7 +7488,7 @@ html.dark #cg-cancelacion {
     color: var(--ck-text);
     font-family: inherit;
   }
-  body:has(#checkoutPage) html.dark #checkoutPage {
+  html.dark #checkoutPage  {
     /* Vidrio esmerilado: mismas proporciones que el armador */
     --ck-card: color-mix(in srgb, #f3f4f6 5%, transparent);
     --ck-card2: color-mix(in srgb, #f3f4f6 2.5%, transparent);
@@ -8040,14 +8040,19 @@ body:has(#checkoutPage) { overflow-x: hidden; }
   #checkoutPage .resumen-producto-box  { border-radius: 18px 18px 0 0 !important; }
   #checkoutPage .cart-actions  { border-radius: 0 0 18px 18px !important; }
   #checkoutPage #step-resume-data #total > div > div > span  { font-size: 24px; font-weight: 800; white-space: nowrap; color: var(--ck-text); }
-  body:has(#checkoutPage) html.dark #checkoutPage #wizard-content .modal-content,
-body:has(#checkoutPage) html.dark #checkoutPage .resume-cart-details,
-body:has(#checkoutPage) html.dark #checkoutPage #step-shipping-data,
-body:has(#checkoutPage) html.dark #checkoutPage #step-payment-data { box-shadow: inset 0 1px 0 rgba(255,255,255,.05) !important; }
-  body:has(#checkoutPage) html.dark #checkoutPage .checkout-box-item,
-body:has(#checkoutPage) html.dark #checkoutPage .form-control,
-body:has(#checkoutPage) html.dark #checkoutPage .form-select { background-color: var(--ck-soft) !important; }
-  body:has(#checkoutPage) html.dark #checkoutPage .form-select option { background: #1f2126; color: #f3f4f6; }
+  html.dark #checkoutPage #wizard-content .modal-content,
+
+  html.dark #checkoutPage .resume-cart-details,
+
+  html.dark #checkoutPage #step-shipping-data,
+
+  html.dark #checkoutPage #step-payment-data  { box-shadow: inset 0 1px 0 rgba(255,255,255,.05) !important; }
+  html.dark #checkoutPage .checkout-box-item,
+
+  html.dark #checkoutPage .form-control,
+
+  html.dark #checkoutPage .form-select  { background-color: var(--ck-soft) !important; }
+  html.dark #checkoutPage .form-select option  { background: #1f2126; color: #f3f4f6; }
 
   /* Letra: menos negrita, con jerarquía (lo que más pesa es el total) */
   #checkoutPage .cg-ck-head h1  { font-size: 19px !important; font-weight: 700 !important; }
@@ -8169,7 +8174,7 @@ body:has(#checkoutPage) html.dark #checkoutPage .form-select { background-color:
       backdrop-filter: blur(18px) saturate(140%);
       border-top: 1px solid var(--ck-line);
     }
-    body:has(#checkoutPage) html.dark #checkoutPage .cg-ck-barra { background: color-mix(in srgb, #141519 80%, transparent); }
+    html.dark #checkoutPage .cg-ck-barra  { background: color-mix(in srgb, #141519 80%, transparent); }
     #checkoutPage .cg-ck-barra-t  { flex: 1; min-width: 0; display: flex; flex-direction: column; }
     #checkoutPage .cg-ck-barra-t strong,
  #checkoutPage .cg-ck-barra-t strong span  { font-size: 19px !important; font-weight: 800 !important; font-style: normal !important; line-height: 1.2; color: var(--ck-text) !important; white-space: nowrap; }
@@ -8235,7 +8240,7 @@ body:has(#checkoutPage) html.dark #checkoutPage .form-select { background-color:
     #checkoutPage #step-resume-data .filacarrito .cantidadCarrito  { color: var(--ck-muted); font-size: 12.5px; }
     #checkoutPage #step-resume-data .filacarrito .cantidadCarrito::before  { content: "Cant. "; }
     #checkoutPage #step-resume-data .preciosubtotalitemcarrito  { margin: 0 !important; text-align: right; font-size: 14px !important; }
-    body:has(#checkoutPage) html:has(#checkoutPage .cg-ck-barra) body #cg-whatsapp-float { bottom: calc(84px + env(safe-area-inset-bottom, 0px)) !important; }
+    html:has(#checkoutPage .cg-ck-barra) body #cg-whatsapp-float  { bottom: calc(84px + env(safe-area-inset-bottom, 0px)) !important; }
   }
   @media (prefers-reduced-motion: reduce) {
     #checkoutPage .checkout-box-item  { transition: none; }
