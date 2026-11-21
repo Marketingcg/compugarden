@@ -5236,21 +5236,20 @@ html body #detalle .cg-lista[hidden] { display: none; }
 html body #detalle .cg-precio-tarjeta b { color: var(--dt-t); font: 700 17px/1.2 "Manrope", Arial, sans-serif; white-space: nowrap; }
 html body #detalle .otrasopciones {
   display: flex; justify-content: space-between; align-items: center; gap: 12px;
-  padding: 12px 20px !important; background: color-mix(in srgb, var(--cg-accent, #d03882) 12%, transparent) !important; color: var(--dt-t2) !important;
+  padding: 12px 20px !important; background: #f4f5f7 !important; color: #111318 !important;
 }
-html body #detalle .cg-cuotas { margin: 0 !important; color: var(--dt-t2) !important; font: 500 14.5px/1.3 "Manrope", Arial, sans-serif !important; }
-html body #detalle .cg-cuotas b { color: var(--cg-accent, #d03882); font-weight: 800; text-transform: uppercase; letter-spacing: .02em; }
-html body #detalle .cg-cuotas strong { color: var(--dt-t) !important; font-weight: 800; white-space: nowrap; }
+html body #detalle .cg-cuotas { margin: 0 !important; color: #111318 !important; font: 600 15.5px/1.3 "Manrope", Arial, sans-serif !important; }
+html body #detalle .cg-cuotas b { color: #111318; font-weight: 800; text-transform: uppercase; letter-spacing: .02em; }
+html body #detalle .cg-cuotas strong { color: #111318 !important; font-size: 18px; font-weight: 800; white-space: nowrap; }
 html body #detalle .opcionesPago .otrasopciones a.cg-ver-cuotas {
   display: inline-flex !important; align-items: center; gap: 6px; height: 34px; padding: 0 14px !important;
-  border: 1px solid var(--cg-accent, #d03882) !important; border-radius: 10px !important; background: transparent !important;
-  color: var(--cg-accent, #d03882) !important; -webkit-text-fill-color: currentColor; opacity: 1 !important;
+  border: 1px solid var(--cg-accent, #d03882) !important; border-radius: 10px !important; background: var(--cg-accent, #d03882) !important;
+  color: #fff !important; -webkit-text-fill-color: currentColor; opacity: 1 !important;
   font: 700 13px "Manrope", Arial, sans-serif !important; text-decoration: none !important; white-space: nowrap;
   cursor: pointer; transition: background .15s ease;
 }
-html.dark body #detalle .opcionesPago .otrasopciones a.cg-ver-cuotas { color: #f6a3cb !important; }
 html body #detalle .opcionesPago .otrasopciones a.cg-ver-cuotas::after { content: "›"; font-size: 17px; line-height: 1; }
-html body #detalle .opcionesPago .otrasopciones a.cg-ver-cuotas:hover { background: color-mix(in srgb, var(--cg-accent, #d03882) 12%, transparent) !important; }
+html body #detalle .opcionesPago .otrasopciones a.cg-ver-cuotas:hover { filter: brightness(1.08); }
 
 html body #detalle #extrasDetalle { --fila-icono: 22px; display: contents; margin: 0 !important; padding: 0 !important; list-style: none; }
 /* stock, envio y garantia: una sola lista de renglones dentro de .cg-info (v135; antes tarjetitas grises). El stock va primero. Los avisos de stock los muestra u oculta
@@ -7914,6 +7913,13 @@ html.dark #cg-cancelacion {
  #checkoutPage .checkout-box-item h6  { margin: 0 0 4px !important; color: var(--ck-text) !important; font-size: 14px !important; font-weight: 800 !important; }
   #checkoutPage .checkout-box-item p  { margin: 0 !important; color: var(--ck-muted) !important; font-size: 13px !important; }
   #checkoutPage .checkout-box-item .costo-envio  { color: var(--ck-text) !important; font-size: 15px !important; font-weight: 800 !important; }
+  #checkoutPage #metodosEnvio .checkout-box-item { display: grid !important; grid-template-columns: 22px 1fr auto; gap: 4px 14px; align-items: start; min-height: 0 !important; padding: 16px 18px !important; }
+  #checkoutPage #metodosEnvio .checkout-box-item .cg-rd { width: 20px; height: 20px; margin-top: 2px; border: 2px solid var(--ck-muted); border-radius: 50%; }
+  #checkoutPage #metodosEnvio .checkout-box-item.active .cg-rd { border: 6px solid var(--ck-acc); background: #fff; }
+  #checkoutPage #metodosEnvio .checkout-box-item .note { margin: 0 !important; color: var(--ck-text) !important; font-size: 16px !important; font-weight: 800 !important; text-transform: none !important; }
+  #checkoutPage #metodosEnvio .checkout-box-item .shipping-detail, #checkoutPage #metodosEnvio .checkout-box-item .shipping-detail p { margin: 2px 0 0 !important; color: var(--ck-text) !important; opacity: .82; font-size: 14px !important; }
+  #checkoutPage #metodosEnvio .checkout-box-item .costo-envio { align-self: start; margin: 0 !important; font-size: 18px !important; white-space: nowrap; }
+  #checkoutPage #metodosEnvio .checkout-box-item .costo-envio span { font-weight: 800; }
   #checkoutPage #metodosPago .vr,
  #checkoutPage #metodosPago .hr-line  { display: none !important; }
 
@@ -7966,8 +7972,6 @@ html.dark #cg-cancelacion {
   #checkoutPage .m-p::before,
  #checkoutPage .m-p::after  { display: none !important; }
   /* Opciones: mismo alto y aire parejo */
-  #checkoutPage #metodosEnvio .checkout-box-item,
-
   #checkoutPage #metodosPago .checkout-box-item  {
     display: flex !important;
     flex-direction: column;
@@ -15169,6 +15173,6 @@ html.dark .cg-registro {
 p.modo-oscuro-mob { color: #fff; }
 
 /* v140 (21 nov. 2026): tarjetas como las de Maximus: bajo el precio «Efectivo / Transferencia» y, antes del boton, la barra de 3 cuotas sin interes. */
-html body .product:not(.modofila) .price::after { content: "Efectivo / Transferencia"; display: block; margin-top: 2px; color: #8a8f98; font: 500 11px/1.2 "Manrope", Arial, sans-serif; }
-html body .product:not(.modofila) .contentDescription::after { content: "3 cuotas sin interés"; order: 1; margin: 6px 0 8px; padding: 7px 8px; border-radius: 8px; background: color-mix(in srgb, var(--cg-accent, #d03882) 12%, transparent); color: var(--cg-accent, #d03882); font: 800 12px/1.1 "Manrope", Arial, sans-serif; text-align: center; text-transform: uppercase; letter-spacing: .02em; }
+html body .product:not(.modofila) .price::after { content: "Depósito / Transferencia"; display: block; margin-top: 2px; color: #8a8f98; font: 500 11px/1.2 "Manrope", Arial, sans-serif; }
+html body .product:not(.modofila) .contentDescription::after { content: "3 cuotas sin interés"; order: 1; margin: 6px 0 8px; padding: 8px 6px; border: 1px solid #d9dce1; border-radius: 8px; background: #f4f5f7; color: #111318; font: 800 12px/1.1 "Manrope", Arial, sans-serif; text-align: center; text-transform: uppercase; white-space: nowrap; }
 html body .product:not(.modofila) .contentDescription > .compracantidad { order: 2; }
