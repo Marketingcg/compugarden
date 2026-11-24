@@ -4068,6 +4068,7 @@ body.cg-store-enabled header.cg-site-header .cg-nav-products::before,
 body.cg-store-enabled header.cg-site-header .cg-nav-products::after {content:none !important; display:none !important;}
 body.cg-store-enabled header.cg-site-header .cg-nav-products:hover {background:transparent !important; border-color:transparent !important;}
 body.cg-store-enabled header.cg-site-header .cg-nav-products:focus-visible {outline:2px solid var(--cg-accent,#d03882) !important; outline-offset:-3px !important;}
+body.cg-store-enabled header.cg-site-header :is(a,button):focus:not(:focus-visible) {outline:none !important;}
 
 body.cg-store-enabled header.cg-site-header .cg-nav-products i {display:block !important; position:static !important; transform:none !important; margin:0 !important; padding:0 !important; line-height:1 !important; font-size:21px !important; color:#f5f5f5; transition:color .15s;}
 body.cg-store-enabled header.cg-site-header .cg-nav-products:hover i,
@@ -7913,6 +7914,13 @@ html.dark #cg-cancelacion {
  #checkoutPage .checkout-box-item h6  { margin: 0 0 4px !important; color: var(--ck-text) !important; font-size: 14px !important; font-weight: 800 !important; }
   #checkoutPage .checkout-box-item p  { margin: 0 !important; color: var(--ck-muted) !important; font-size: 13px !important; }
   #checkoutPage .checkout-box-item .costo-envio  { color: var(--ck-text) !important; font-size: 15px !important; font-weight: 800 !important; }
+  #checkoutPage #metodosEnvio .checkout-box-item { display: grid !important; grid-template-columns: 22px 1fr auto; gap: 4px 14px; align-items: start; min-height: 0 !important; padding: 16px 18px !important; }
+  #checkoutPage #metodosEnvio .checkout-box-item .cg-rd { width: 20px; height: 20px; margin-top: 2px; border: 2px solid var(--ck-muted); border-radius: 50%; }
+  #checkoutPage #metodosEnvio .checkout-box-item.active .cg-rd { border: 6px solid var(--ck-acc); background: #fff; }
+  #checkoutPage #metodosEnvio .checkout-box-item .note { margin: 0 !important; color: var(--ck-text) !important; font-size: 16px !important; font-weight: 800 !important; text-transform: none !important; }
+  #checkoutPage #metodosEnvio .checkout-box-item .shipping-detail, #checkoutPage #metodosEnvio .checkout-box-item .shipping-detail p { margin: 2px 0 0 !important; color: var(--ck-text) !important; opacity: .82; font-size: 14px !important; }
+  #checkoutPage #metodosEnvio .checkout-box-item .costo-envio { align-self: start; margin: 0 !important; font-size: 18px !important; white-space: nowrap; }
+  #checkoutPage #metodosEnvio .checkout-box-item .costo-envio span { font-weight: 800; }
   #checkoutPage #metodosPago .vr,
  #checkoutPage #metodosPago .hr-line  { display: none !important; }
 
@@ -7965,8 +7973,6 @@ html.dark #cg-cancelacion {
   #checkoutPage .m-p::before,
  #checkoutPage .m-p::after  { display: none !important; }
   /* Opciones: mismo alto y aire parejo */
-  #checkoutPage #metodosEnvio .checkout-box-item,
-
   #checkoutPage #metodosPago .checkout-box-item  {
     display: flex !important;
     flex-direction: column;
@@ -15168,6 +15174,6 @@ html.dark .cg-registro {
 p.modo-oscuro-mob { color: #fff; }
 
 /* v140 (21 nov. 2026): tarjetas como las de Maximus: bajo el precio «Efectivo / Transferencia» y, antes del boton, la barra de 3 cuotas sin interes. */
-html body .product:not(.modofila) .price::after { content: "Efectivo / Transferencia"; display: block; margin-top: 2px; color: #8a8f98; font: 500 11px/1.2 "Manrope", Arial, sans-serif; }
+html body .product:not(.modofila) .price::after { content: "Depósito / Transferencia"; display: block; margin-top: 2px; color: #8a8f98; font: 500 11px/1.2 "Manrope", Arial, sans-serif; }
 html body .product:not(.modofila) .contentDescription::after { content: "3 cuotas sin interés"; order: 1; margin: 6px 0 8px; padding: 8px 6px; border: 1px solid #d9dce1; border-radius: 8px; background: #f4f5f7; color: #111318; font: 800 12px/1.1 "Manrope", Arial, sans-serif; text-align: center; text-transform: uppercase; white-space: nowrap; }
 html body .product:not(.modofila) .contentDescription > .compracantidad { order: 2; }
