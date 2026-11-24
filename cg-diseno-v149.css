@@ -6120,6 +6120,8 @@ html.cg-hdr2.cg-hdr2.cg-hdr2.cg-hdr2 body.cg-store-enabled header.cg-site-header
 html.cg-hdr2.cg-hdr2.cg-hdr2.cg-hdr2 body.cg-store-enabled header.cg-site-header .cg-mega a.cg-mega-todo::after{content:" →"!important}
 html.cg-hdr2.cg-hdr2.cg-hdr2.cg-hdr2 body.cg-store-enabled header.cg-site-header .cg-mt-arma{--img:url(https://cdn.jsdelivr.net/gh/Marketingcg/compugarden@main/bottom-boxes/arma-v3.webp)}
 html.cg-hdr2.cg-hdr2.cg-hdr2.cg-hdr2 body.cg-store-enabled header.cg-site-header .cg-mt-peri{--img:url(https://cdn.jsdelivr.net/gh/Marketingcg/compugarden@main/bottom-boxes/peri-v3.webp)}
+html.cg-hdr2.cg-hdr2.cg-hdr2.cg-hdr2 body.cg-store-enabled header.cg-site-header .cg-mt-moni{--img:url(https://cdn.jsdelivr.net/gh/Marketingcg/compugarden@main/bottom-boxes/moni-v3.webp)}
+html.cg-hdr2.cg-hdr2.cg-hdr2.cg-hdr2 body.cg-store-enabled header.cg-site-header .cg-mt-pc{--img:url(https://cdn.jsdelivr.net/gh/Marketingcg/compugarden@main/bottom-boxes/pc-v3.webp)}
 html.cg-hdr2.cg-hdr2.cg-hdr2.cg-hdr2 body.cg-store-enabled header.cg-site-header .cg-mega-p.is-on[data-mega="componentes"],html.cg-hdr2.cg-hdr2.cg-hdr2.cg-hdr2 body.cg-store-enabled header.cg-site-header .cg-mega-p.is-on[data-mega="perifericos"]{align-items:stretch!important;gap:28px!important}
 html.cg-hdr2.cg-hdr2.cg-hdr2.cg-hdr2 body.cg-store-enabled header.cg-site-header .cg-mega-grid{flex:1 1 auto!important;min-width:0!important;display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;grid-auto-rows:58px!important;gap:12px!important;align-content:center!important}
 html.cg-hdr2.cg-hdr2.cg-hdr2.cg-hdr2 body.cg-store-enabled header.cg-site-header .cg-mega a.cg-mega-i{position:relative!important;display:flex!important;align-items:center!important;gap:14px!important;padding:0 16px 0 9px!important;border-radius:14px!important;background:linear-gradient(180deg,rgba(255,255,255,.075),rgba(255,255,255,.025))!important;border:1px solid rgba(255,255,255,.1)!important;color:#f3f3f8!important;-webkit-text-fill-color:#f3f3f8!important;font-size:14px!important;font-weight:600!important;letter-spacing:0!important;transform:none!important;transition:border-color .22s ease,background .22s ease,transform .22s ease,box-shadow .22s ease!important}
@@ -7880,9 +7882,12 @@ html.dark #cg-cancelacion {
   /* ---------- Opciones de entrega y de pago ---------- */
   #checkoutPage .m-entrega-s,
  #checkoutPage .m-p  {
-    margin: 6px 0 10px !important;
-    color: var(--ck-muted) !important;
-    font-size: 11.5px !important;
+    margin: 0 0 10px !important;
+    height: auto !important;
+    min-height: 0 !important;
+    line-height: 1.3 !important;
+    color: color-mix(in srgb, var(--ck-text) 78%, transparent) !important;
+    font-size: 12px !important;
     font-weight: 800 !important;
     letter-spacing: .07em;
     text-transform: uppercase;
@@ -7913,12 +7918,12 @@ html.dark #cg-cancelacion {
  #checkoutPage .checkout-box-item h6  { margin: 0 0 4px !important; color: var(--ck-text) !important; font-size: 14px !important; font-weight: 800 !important; }
   #checkoutPage .checkout-box-item p  { margin: 0 !important; color: var(--ck-muted) !important; font-size: 13px !important; }
   #checkoutPage .checkout-box-item .costo-envio  { color: var(--ck-text) !important; font-size: 15px !important; font-weight: 800 !important; }
-  #checkoutPage #metodosEnvio .checkout-box-item { display: grid !important; grid-template-columns: 22px 1fr auto; gap: 4px 14px; align-items: start; min-height: 0 !important; padding: 16px 18px !important; }
-  #checkoutPage #metodosEnvio .checkout-box-item .cg-rd { width: 20px; height: 20px; margin-top: 2px; border: 2px solid var(--ck-muted); border-radius: 50%; }
-  #checkoutPage #metodosEnvio .checkout-box-item.active .cg-rd { border: 6px solid var(--ck-acc); background: #fff; }
-  #checkoutPage #metodosEnvio .checkout-box-item .note { margin: 0 !important; color: var(--ck-text) !important; font-size: 16px !important; font-weight: 800 !important; text-transform: none !important; }
-  #checkoutPage #metodosEnvio .checkout-box-item .shipping-detail, #checkoutPage #metodosEnvio .checkout-box-item .shipping-detail p { margin: 2px 0 0 !important; color: var(--ck-text) !important; opacity: .82; font-size: 14px !important; }
-  #checkoutPage #metodosEnvio .checkout-box-item .costo-envio { align-self: start; margin: 0 !important; font-size: 18px !important; white-space: nowrap; }
+  #checkoutPage #metodosEnvio .checkout-box-item { display: grid !important; grid-template-columns: 20px 1fr auto; gap: 1px 12px; align-items: start; min-height: 0 !important; padding: 11px 16px !important; }
+  #checkoutPage #metodosEnvio .checkout-box-item .cg-rd { width: 18px; height: 18px; margin-top: 1px; border: 2px solid var(--ck-muted); border-radius: 50%; }
+  #checkoutPage #metodosEnvio .checkout-box-item.active .cg-rd { border: 5px solid var(--ck-acc); background: #fff; }
+  #checkoutPage #metodosEnvio .checkout-box-item .note { margin: 0 !important; color: var(--ck-text) !important; font-size: 14.5px !important; font-weight: 700 !important; line-height: 1.35 !important; text-transform: none !important; }
+  #checkoutPage #metodosEnvio .checkout-box-item .shipping-detail, #checkoutPage #metodosEnvio .checkout-box-item .shipping-detail p { margin: 2px 0 0 !important; color: var(--ck-text) !important; opacity: .82; font-size: 13px !important; line-height: 1.4 !important; }
+  #checkoutPage #metodosEnvio .checkout-box-item .costo-envio { align-self: start; margin: 0 !important; font-size: 15px !important; white-space: nowrap; }
   #checkoutPage #metodosEnvio .checkout-box-item .costo-envio span { font-weight: 800; }
   #checkoutPage #metodosPago .vr,
  #checkoutPage #metodosPago .hr-line  { display: none !important; }
@@ -7994,11 +7999,14 @@ html.dark #cg-cancelacion {
   #checkoutPage #metodosEnvio .text-small,
 
   #checkoutPage #metodosPago .text-small  {
-    margin: -2px 2px 14px !important;
-    color: var(--ck-muted) !important;
-    font-size: 12px !important;
+    margin: -2px 2px 4px !important;
+    color: color-mix(in srgb, var(--ck-text) 72%, transparent) !important;
+    font-size: 13px !important;
     line-height: 1.5 !important;
   }
+  #checkoutPage #metodosEnvio .text-small:empty,
+ #checkoutPage #metodosPago .text-small:empty  { display: none !important; }
+  #checkoutPage #metodosEnvio > .row > .my-2  { margin-top: 14px !important; margin-bottom: 0 !important; }
   /* Total de arriba: borde fino */
   #checkoutPage #total-display  { border-color: var(--ck-line) !important; }
   #checkoutPage #total-display p  { font-size: 13px; }
