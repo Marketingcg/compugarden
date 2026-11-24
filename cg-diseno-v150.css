@@ -7863,8 +7863,7 @@ html.dark #cg-cancelacion {
   #checkoutPage .text-small  { color: var(--ck-muted); font-size: 12.5px; }
 
   /* ---------- Opciones de entrega y de pago ---------- */
-  #checkoutPage .m-entrega-s,
- #checkoutPage .m-p  {
+  #checkoutPage .m-entrega-s  {
     margin: 0 0 10px !important;
     height: auto !important;
     min-height: 0 !important;
@@ -7908,9 +7907,6 @@ html.dark #cg-cancelacion {
   #checkoutPage #metodosEnvio .checkout-box-item .shipping-detail, #checkoutPage #metodosEnvio .checkout-box-item .shipping-detail p { margin: 2px 0 0 !important; color: var(--ck-text) !important; opacity: .82; font-size: 13px !important; line-height: 1.4 !important; }
   #checkoutPage #metodosEnvio .checkout-box-item .costo-envio { align-self: start; margin: 0 !important; font-size: 15px !important; white-space: nowrap; }
   #checkoutPage #metodosEnvio .checkout-box-item .costo-envio span { font-weight: 800; }
-  #checkoutPage #metodosPago .checkout-box-item::before  { content: ""; position: absolute; left: 18px; top: 17px; width: 18px; height: 18px; border: 2px solid var(--ck-muted); border-radius: 50%; }
-  #checkoutPage #metodosPago .vr,
- #checkoutPage #metodosPago .hr-line  { display: none !important; }
 
   /* ---------- Entrega y Pago: todo dentro de una tarjeta ---------- */
   #checkoutPage #step-shipping-data,
@@ -7948,37 +7944,19 @@ html.dark #cg-cancelacion {
   #checkoutPage #step-shipping-data #formDatosDireccion .form-select  { background-color: var(--ck-card) !important; }
   #checkoutPage #formDatosDireccion .button--primary  { width: 100%; }
   /* Títulos de grupo: línea fina en lugar de la raya magenta de la plataforma */
-  #checkoutPage .m-entrega-s,
- #checkoutPage .m-p  {
+  #checkoutPage .m-entrega-s  {
     padding: 0 0 8px !important;
     border: 0 !important;
     border-bottom: 1px solid var(--ck-line) !important;
     background: none !important;
   }
   #checkoutPage .m-entrega-s::before,
- #checkoutPage .m-entrega-s::after,
-
-  #checkoutPage .m-p::before,
- #checkoutPage .m-p::after  { display: none !important; }
-  /* Opciones: mismo alto y aire parejo */
-  #checkoutPage #metodosPago .checkout-box-item  {
-    position: relative;
-    display: flex !important;
-    flex-direction: column;
-    justify-content: flex-start;
-    padding-left: 52px !important;
-    min-height: 0 !important;
-  }
-  #checkoutPage #metodosEnvio .row,
- #checkoutPage #metodosPago .row  { row-gap: 4px; }
-  #checkoutPage #metodosPago img  { max-height: 26px; width: auto; }
+ #checkoutPage .m-entrega-s::after  { display: none !important; }
+  #checkoutPage #metodosEnvio .row  { row-gap: 4px; }
   /* Notas debajo de cada opción: texto chico y gris, sin cursiva */
   #checkoutPage #metodosEnvio .text-small,
-
   #checkoutPage #metodosPago .text-small,
-
   #checkoutPage #metodosEnvio .text-small *,
-
   #checkoutPage #metodosPago .text-small *  {
     font-style: normal !important;
   }
@@ -8072,6 +8050,24 @@ html.dark #cg-cancelacion {
   #checkoutPage #metodosEnvio.cg-ck-hast .m-entrega-s  { display: none !important; }
   #checkoutPage #metodosEnvio.cg-ck-hast > .row > .my-2  { margin-top: 0 !important; }
 
+  /* Formas de pago: filas que se abren al elegirlas */
+  #checkoutPage .cg-pay  { margin: 0 0 12px; background: var(--ck-card2); border: 1.5px solid var(--ck-line); border-radius: 12px; transition: border-color .15s ease, background-color .15s ease; }
+  #checkoutPage .cg-pay:hover  { border-color: var(--ck-acc); }
+  #checkoutPage .cg-pay.on  { border-color: var(--ck-acc); background: var(--ck-acc-soft); }
+  #checkoutPage .cg-pay-h  { display: grid; grid-template-columns: 20px 1fr; gap: 12px; align-items: start; padding: 16px 18px; cursor: pointer; }
+  #checkoutPage .cg-pay .cg-rd  { width: 18px; height: 18px; margin-top: 2px; border: 2px solid var(--ck-muted); border-radius: 50%; }
+  #checkoutPage .cg-pay.on .cg-rd  { border: 5px solid var(--ck-acc); background: #fff; }
+  #checkoutPage .cg-pay-t h6  { margin: 0 !important; color: var(--ck-text) !important; font-size: 15.5px !important; font-weight: 700 !important; text-transform: none !important; }
+  #checkoutPage .cg-pay-t p  { margin: 4px 0 0 !important; color: var(--ck-muted) !important; font-size: 13.5px !important; line-height: 1.45; }
+  #checkoutPage .cg-pay-t img  { max-height: 24px; width: auto; vertical-align: middle; }
+  #checkoutPage .cg-pay-b  { padding: 0 18px 18px 50px; }
+  #checkoutPage .cg-pay-b .text-small  { margin: 0 0 12px !important; }
+  #checkoutPage .cg-pay-b .top-msj  { margin: 12px 0 0; padding: 10px 12px; border: 1px solid #d9a441; border-radius: 10px; background: rgba(217, 164, 65, .10); color: var(--ck-text); font-size: 13px; font-weight: 600; line-height: 1.45; }
+  #checkoutPage .cg-pay-save  { padding: 10px 14px; border: 1px solid #34c77b; border-radius: 10px; background: rgba(52, 199, 123, .10); color: #34c77b; font-size: 14px; }
+  #checkoutPage .cg-pay-save b  { font-weight: 800; }
+  #checkoutPage .cg-ck-acts  { display: flex; justify-content: flex-end; margin: 4px 0 6px; }
+  #checkoutPage .cg-ck-acts .button--primary  { min-width: 170px; }
+  #checkoutPage .cg-ck-acts .button--primary:disabled  { opacity: .45; cursor: not-allowed; }
   /* Tarjeta y cuotas en botones: la grilla se acomoda sola si cambian los planes */
   #checkoutPage .cg-ck-lbl  { margin: 4px 0 8px; color: var(--ck-text); font-size: 13px; font-weight: 800; letter-spacing: .04em; text-transform: uppercase; }
   #checkoutPage .cg-ck-chips  { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 14px; }
