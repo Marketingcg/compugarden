@@ -8081,6 +8081,8 @@ html.dark #cg-cancelacion {
   #checkoutPage .cg-ck-cuota b  { font-size: 13.5px; font-weight: 800; }
   #checkoutPage .cg-ck-cuota span  { font-size: 15px; font-weight: 700; }
   #checkoutPage .cg-ck-cuota small  { color: var(--ck-muted); font-size: 12px; font-style: normal; }
+  #checkoutPage .cg-ck-cuota em  { color: #34c77b; font-size: 12px; font-style: normal; font-weight: 700; }
+  #checkoutPage .cg-ck-badge  { display: inline-block; margin-left: 8px; padding: 2px 9px; border: 1px solid #34c77b; border-radius: 999px; color: #34c77b; font-size: 12px; font-weight: 700; letter-spacing: 0; text-transform: none; vertical-align: middle; }
   #checkoutPage .cg-ck-chip:hover,
   #checkoutPage .cg-ck-cuota:hover  { border-color: var(--ck-acc); }
   #checkoutPage .cg-ck-chip.on,
